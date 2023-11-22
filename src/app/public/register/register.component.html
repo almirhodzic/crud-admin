@@ -1,0 +1,36 @@
+<main class="form-signin w-100 m-auto">
+    <form (submit)="submit()">
+      <img class="mb-4" src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+      <h1 class="h3 mb-3 fw-normal">Please register</h1>
+  
+      <div class="form-floating">
+        <input [(ngModel)]="first_name" name="first_name" type="text" class="form-control first" id="firstName" placeholder="First name">
+        <label for="firstName">First name</label>
+      </div>
+
+      <div class="form-floating">
+        <input [(ngModel)]="last_name" name="last_name" type="text" class="form-control middle" id="lastName" placeholder="Last name">
+        <label for="lastName">Last name</label>
+      </div>
+
+      <div class="form-floating">
+        <input [(ngModel)]="email" name="email" type="email" class="form-control middle" id="email" placeholder="name@example.com">
+        <label for="email">Email address</label>
+      </div>
+
+      <div class="form-floating">
+        <input [(ngModel)]="password" name="password" type="password" class="form-control middle" id="password" placeholder="Password">
+        <label for="password">Password</label>
+      </div>
+
+      <div class="form-floating">
+        <input [(ngModel)]="password_confirm" name="password_confirm" type="password" class="form-control last" id="password_confirm" placeholder="Password confirm">
+        <label for="password_confirm">Password confirm</label>
+      </div>
+  
+      <div class="form-check text-start my-1"> </div>
+
+      <button class="btn btn-primary w-100 py-2" type="submit">Register</button>
+      <p class="mt-5 mb-3 text-body-secondary">&copy; Angular 2023</p>
+    </form>
+  </main>
