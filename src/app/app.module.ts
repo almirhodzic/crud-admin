@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SecureModule } from './secure/secure.module';
 import { PublicModule } from './public/public.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
+import { CredentialInterceptor } from './interceptors/credential.interceptor';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,14 @@ import { AuthService } from './services/auth.service';
     PublicModule,
     HttpClientModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    { 
+      provide: HTTP_INTERCEPTORS,
+      useClass: CredentialInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
