@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/app/environments/environment.dev';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -12,13 +12,13 @@ export class RegisterComponent implements OnInit {
 
   first_name?: '';
   last_name?: '';
-  email?: 'a@a.com';
+  email?: '';
   password?: '';
   password_confirm?: '';
 
   constructor(
-    private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
   }
 
   submit(): void {
-    this.http.post(`${environment.api}/register`, {
+    this.authService.register({
       first_name: this.first_name,
       last_name: this.last_name,
       email: this.email,

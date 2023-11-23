@@ -4,6 +4,7 @@ import { MenuComponent } from './menu/menu.component';
 import { TogglerComponent } from '../toggler/toggler.component';
 import { NavComponent } from './nav/nav.component';
 import { SecureComponent } from './secure.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { SecureComponent } from './secure.component';
     SecureComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
 })
 export class SecureModule { }
