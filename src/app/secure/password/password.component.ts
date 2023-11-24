@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
+import { AuthService } from './../../services/auth.service';
 
 @Component({
   selector: 'app-password',
@@ -13,6 +14,7 @@ export class PasswordComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -23,7 +25,8 @@ export class PasswordComponent implements OnInit {
   }
 
   passwordSubmit(): void {
-    console.log(this.passwordForm.getRawValue());
+    this.authService.updatePassword(this.passwordForm.getRawValue())
+    .subscribe(res => console.log('Password updated successfully'));
   }
 
 }

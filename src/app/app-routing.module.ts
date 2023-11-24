@@ -7,6 +7,7 @@ import { PublicComponent } from './public/public.component';
 import { ProfileComponent } from './secure/profile/profile.component';
 import { DashboardComponent } from './secure/dashboard/dashboard.component';
 import { PasswordComponent } from './secure/password/password.component';
+import { UsersComponent } from './secure/users/users.component';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent },
       { path: 'password', component: PasswordComponent },
       { path: '', component: DashboardComponent },
-      { path: 'dashboard', component: DashboardComponent }
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'users', component: UsersComponent }
     ]
   },
   {

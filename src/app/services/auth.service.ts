@@ -26,4 +26,12 @@ export class AuthService {
   logout(): Observable<void> {
     return this.http.post<void>(`${environment.api}/logout`, {});
   }
+
+  updateProfile(data:any): Observable<User> {
+    return this.http.put<User>(`${environment.api}/users/info`, data);
+  }
+
+  updatePassword(data:any): Observable<User> {
+    return this.http.put<User>(`${environment.api}/users/password`, data);
+  }
 }

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
+import { AuthService } from './../../services/auth.service';
+import { Auth } from './../../classes/auth';
+import { Observable } from 'rxjs';
+import { User } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-profile',
@@ -13,18 +17,26 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private authService: AuthService
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.profileForm = this.formBuilder.group({
-      first_name: [''],
-      last_name: [''],
-      email: ['']
-    });    
+      first_name: '',
+      last_name: '',
+      email: ''
+    });
+
+    Auth.userEmitter.subscribe(
+      user => {
+        this.profileForm.patchValue(user);
+      }
+    );
   }
 
   profileSubmit(): void {
-    console.log(this.profileForm.getRawValue());
+    this.authService.updateProfile(this.profileForm.getRawValue())
+    .subscribe(user => Auth.userEmitter.emit(user));
   }
 
 }

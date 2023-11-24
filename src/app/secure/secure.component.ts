@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-import { catchError } from 'rxjs/operators'; 
-import { of } from 'rxjs';
 import { User } from '../interfaces/user';
+import { Auth } from '../classes/auth';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-secure',
@@ -12,8 +12,6 @@ import { User } from '../interfaces/user';
 })
 export class SecureComponent implements OnInit {
 
-  user! : User;
-
   constructor(
     private authService: AuthService,
     private router: Router
@@ -21,12 +19,10 @@ export class SecureComponent implements OnInit {
 
   ngOnInit() :void {
       this.authService.user()
-      .subscribe(
-        {
-          next: user => this.user = user,
-          error: () => this.router.navigate(['/login']),
-          complete: () => console.log('Logged in as ' + this.user.first_name)
-        }
-      );
-    }
-}
+      .pipe(
+        catchError(err => {
+          this.router.navigate(['/login']);
+          return of(err);
+        })
+      ).subscribe(user => Auth.userEmitter.emit(user));
+}}

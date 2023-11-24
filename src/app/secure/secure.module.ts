@@ -9,6 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PasswordComponent } from './password/password.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SecureComponent,
     ProfileComponent,
     DashboardComponent,
-    PasswordComponent
+    PasswordComponent,
+    UsersComponent
   ],
   imports: [
     CommonModule,
