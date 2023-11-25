@@ -10,6 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PasswordComponent } from './password/password.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersComponent } from './users/users.component';
+import { UserCreateComponent } from './users/user-create/user-create.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UsersComponent } from './users/users.component';
     ProfileComponent,
     DashboardComponent,
     PasswordComponent,
-    UsersComponent
+    UsersComponent,
+    UserCreateComponent
   ],
   imports: [
     CommonModule,

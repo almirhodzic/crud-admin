@@ -13,9 +13,9 @@ const routes: Routes = [
   {
     path: '', component: SecureComponent,
     children: [
+      { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       { path: 'profile', component: ProfileComponent },
       { path: 'password', component: PasswordComponent },
-      { path: '', component: DashboardComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'users', component: UsersComponent }
     ]

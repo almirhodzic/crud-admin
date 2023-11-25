@@ -11,14 +11,14 @@
 
 <ul class="nav flex-column mb-4">
   <li class="nav-item"><a class="nav-link">Settings</a></li>
-  <li class="nav-item"><a routerLink="/users" class="nav-link d-flex align-items-center gap-2">Users</a></li>
-  <li class="nav-item"><a routerLink="/profile" class="nav-link d-flex align-items-center gap-2">Profile</a></li>
-  <li class="nav-item"><a routerLink="/password" class="nav-link d-flex align-items-center gap-2">Password</a></li>
+  <li class="nav-item"><a routerLink="/users" routerLinkActive="active" class="nav-link d-flex align-items-center gap-2">Users</a></li>
+  <li class="nav-item"><a routerLink="/profile" routerLinkActive="active" class="nav-link d-flex align-items-center gap-2">Profile</a></li>
+  <li class="nav-item"><a routerLink="/password" routerLinkActive="active" class="nav-link d-flex align-items-center gap-2">Password</a></li>
 </ul>
 
 <hr class="my-3">
 
 <ul class="nav flex-column mb-4">
-  <li class="nav-item nav-link d-flex align-items-center gap-2">{{user?.first_name}} {{user?.last_name}}</li>
-  <li class="nav-item"><a routerLink="/login" class="nav-link d-flex align-items-center gap-2" (click)="logout()">Logout</a></li>
+  <li routerLinkActive="active" class="nav-item nav-link d-flex align-items-center gap-2">{{user?.first_name}} {{user?.last_name}}</li>
+  <li routerLinkActive="active" class="nav-item"><a routerLink="/login" class="nav-link d-flex align-items-center gap-2" (click)="logout()">Logout</a></li>
 </ul>
