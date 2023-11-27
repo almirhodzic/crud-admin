@@ -11,6 +11,7 @@ import { PasswordComponent } from './password/password.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersComponent } from './users/users.component';
 import { UserCreateComponent } from './users/user-create/user-create.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UserCreateComponent } from './users/user-create/user-create.component';
     DashboardComponent,
     PasswordComponent,
     UsersComponent,
-    UserCreateComponent
+    UserCreateComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
