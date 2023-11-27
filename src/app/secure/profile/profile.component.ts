@@ -5,6 +5,7 @@ import { AuthService } from './../../services/auth.service';
 import { Auth } from './../../classes/auth';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/interfaces/user';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -17,7 +18,7 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
   ) { }
 
   ngOnInit(): void {

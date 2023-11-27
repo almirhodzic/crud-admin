@@ -1,32 +1,35 @@
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Profile</h1>
-  </div>
-
-  <div class="">
-    <div class="form-signin p-0">
-        <form [formGroup]="profileForm" (submit)="profileSubmit()">
-            <h2 class="h4 mb-3 fw-normal">Userdata</h2>
-        
-            <div class="form-floating">
-              <input formControlName="first_name" name="first_name" type="text" class="form-control first" id="firstName" placeholder="First name">
-              <label for="firstName">First name</label>
-            </div>
-      
-            <div class="form-floating">
-              <input formControlName="last_name" name="last_name" type="text" class="form-control middle" id="lastName" placeholder="Last name">
-              <label for="lastName">Last name</label>
-            </div>
-      
-            <div class="form-floating">
-              <input formControlName="email" name="email" type="email" class="form-control last" id="email" placeholder="name@example.com">
-              <label for="email">Email address</label>
-            </div>
-
-            <div class="form-check text-start my-1"> </div>
-      
-            <button class="btn btn-primary w-100 py-2" type="submit">Update</button>
-
-          </form>
+<div class="pagetitle">
+  <h1>Benutzerprofil</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item" routerLink="/dashboard"><a href="/">Benutzerdaten</a></li>
+    </ol>
+  </nav>
+</div>
+<section class="section">
+  <div class="row">
+    <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Daten ändern</h5>
+      <form class="row g-3" [formGroup]="profileForm" (submit)="profileSubmit()">
+        <div class="col-12">
+          <label for="first_name" class="form-label">Vorname</label>
+          <input formControlName="first_name" type="text" class="form-control" id="first_name">
+        </div>
+        <div class="col-12">
+          <label for="last_name" class="form-label">Nachname</label>
+          <input formControlName="last_name" type="text" class="form-control" id="last_name">
+        </div>
+        <div class="col-12 mb-3">
+          <label for="email" class="form-label">E-Mail Adresse</label>
+          <input formControlName="email" type="email" class="form-control" id="email">
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary">Speichern</button>
+        </div>
+      </form>
     </div>
+    </div>
+</div>
+</section>
 
-  </div>

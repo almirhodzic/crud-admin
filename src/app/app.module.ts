@@ -9,10 +9,12 @@ import { PublicModule } from './public/public.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import { CredentialInterceptor } from './interceptors/credential.interceptor';
+import { LogoComponent } from './share/logo/logo.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LogoComponent
   ],
   imports: [
     BrowserModule,
