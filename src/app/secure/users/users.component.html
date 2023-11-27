@@ -1,39 +1,39 @@
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Users</h1>
-    <div class="btn-toolbar mb-2 mb-md-0">
-      <div class="d-flex justify-content-between btn-group me-2">
-          <button type="button" class="btn btn-sm btn-outline-primary">New User</button>
-          <button type="button" class="btn btn-sm btn-outline-secondary">Export CSV</button>
+<div class="pagetitle">
+  <h1>Alle Benutzer</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item" routerLink="/dashboard"><a href="/">Benutzeriste</a></li>
+    </ol>
+  </nav>
+</div>
+<section class="section">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+      <table class="table small">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Role</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <th scope="row">{{user.id}}</th>
+            <td>{{user.first_name}} {{user.last_name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.role.name}}</td>
+            <td><a href="javascript:void(0)" (click)="deleteUser(user.id)"><i class="bi-x-circle"></i></a></td>
+          </tr>
+        </tbody>
+      </table>
         </div>
       </div>
-    </div>
-  
-
-  <div class="table-responsive">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">Email</th>
-          <th scope="col">Role</th>
-          <th scope="col">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let user of users">
-          <td>{{user.id}}</td>
-          <td>{{user.first_name}} {{user.last_name}}</td>
-          <td>{{user.email}}</td>
-          <td>{{user.role.name}}</td>
-          <td>
-              <a href="javascript:void(0)" (click)="deleteUser(user.id)"><i class="bi-x-circle"></i></a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
   </div>
-
   <nav>
     <ul class="pagination">
       <li class="page-item">
@@ -44,3 +44,9 @@
       </li>
     </ul>
   </nav>
+</div>
+</section>
+
+  
+
+  
