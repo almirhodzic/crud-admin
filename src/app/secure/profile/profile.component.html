@@ -1,5 +1,5 @@
 <div class="pagetitle">
-  <h1>Benutzerprofil</h1>
+  <h1>Administrator</h1>
   <nav>
     <ol class="breadcrumb">
       <li class="breadcrumb-item" routerLink="/dashboard"><a href="/">Benutzerdaten</a></li>
@@ -11,21 +11,45 @@
     <div class="col-lg-12">
     <div class="card">
     <div class="card-body">
-      <h5 class="card-title">Daten ändern</h5>
+      <h5 class="card-title">Benutzerdaten</h5>
       <form class="row g-3" [formGroup]="profileForm" (submit)="profileSubmit()">
-        <div class="col-12">
+        <div class="col-12 col-sm-6">
           <label for="first_name" class="form-label">Vorname</label>
           <input formControlName="first_name" type="text" class="form-control" id="first_name">
         </div>
-        <div class="col-12">
+        <div class="col-12 col-sm-6">
           <label for="last_name" class="form-label">Nachname</label>
           <input formControlName="last_name" type="text" class="form-control" id="last_name">
         </div>
-        <div class="col-12 mb-3">
+        <div class="col-12 col-sm-6">
+          <label for="birthday" class="form-label">Geburtstag</label>
+          <input formControlName="birthday" type="date" class="form-control" id="birthday">
+        </div>
+        <div class="col-12 col-sm-6">
           <label for="email" class="form-label">E-Mail Adresse</label>
           <input formControlName="email" type="email" class="form-control" id="email">
         </div>
-        <div>
+        <div class="col-12">
+          <label for="phone" class="form-label">Phone</label>
+          <input formControlName="phone" type="text" class="form-control" id="phone">
+        </div>
+        <div class="col-12">
+          <label for="address" class="form-label">Adresse</label>
+          <input formControlName="address" type="text" class="form-control" id="address">
+        </div>
+        <div class="col-12 col-sm-3">
+          <label for="country" class="form-label">Land</label>
+          <input formControlName="country" type="text" class="form-control" id="country">
+        </div>
+        <div class="col-12 col-sm-3">
+          <label for="zipcode" class="form-label">PLZ</label>
+          <input formControlName="zipcode" type="text" class="form-control" id="zipcode">
+        </div>
+        <div class="col-12 col-sm-6">
+          <label for="city" class="form-label">Ort</label>
+          <input formControlName="city" type="text" class="form-control" id="city">
+        </div>
+        <div class="mt-4">
           <button type="submit" class="btn btn-primary">Speichern</button>
         </div>
       </form>

@@ -1,8 +1,8 @@
 <div class="pagetitle">
-    <h1>Neuer Benutzer</h1>
+    <h1>Benutzer bearbeiten</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item" ><a href="/">Alle Benutzer</a></li>
+        <li class="breadcrumb-item" ><a routerLink="/users">Alle Benutzer</a></li>
       </ol>
     </nav>
   </div>
@@ -12,26 +12,26 @@
       <div class="card">
       <div class="card-body">
         <h5 class="card-title">Benutzerdaten</h5>
-        <form class="row g-3" [formGroup]="form" (submit)="submitNewUser()">
+        <form class="row g-3">
           <div class="col-12 col-sm-6">
             <label for="first_name" class="form-label">Vorname</label>
-            <input formControlName="first_name" type="text" class="form-control" id="first_name">
+            <input type="text" class="form-control" id="first_name">
           </div>
           <div class="col-12 col-sm-6">
             <label for="last_name" class="form-label">Nachname</label>
-            <input formControlName="last_name" type="text" class="form-control" id="last_name">
+            <input type="text" class="form-control" id="last_name">
           </div>
           <div class="col-12 col-sm-6">
             <label for="birthday" class="form-label">Geburtstag</label>
-            <input formControlName="birthday" type="date" class="form-control" id="birthday">
+            <input type="date" class="form-control" id="birthday">
           </div>
           <div class="col-12 col-sm-6">
             <label for="email" class="form-label">E-Mail Adresse</label>
-            <input formControlName="email" type="email" class="form-control" id="email">
+            <input type="email" class="form-control" id="email">
           </div>
           <div class="col-12">
             <label for="phone" class="form-label">Phone</label>
-            <input formControlName="phone" type="text" class="form-control" id="phone">
+            <input type="text" class="form-control" id="phone">
           </div>
           <div class="col-12">
             <label for="address" class="form-label">Adresse</label>
@@ -39,20 +39,20 @@
           </div>
           <div class="col-12 col-sm-3">
             <label for="country" class="form-label">Land</label>
-            <input formControlName="country" type="text" class="form-control" id="country">
+            <input type="text" class="form-control" id="country">
           </div>
           <div class="col-12 col-sm-3">
             <label for="zipcode" class="form-label">PLZ</label>
-            <input formControlName="zipcode" type="text" class="form-control" id="zipcode">
+            <input type="text" class="form-control" id="zipcode">
           </div>
           <div class="col-12 col-sm-6">
             <label for="city" class="form-label">Ort</label>
-            <input formControlName="city" type="text" class="form-control" id="city">
+            <input type="text" class="form-control" id="city">
           </div>
           <div class="col-12">
             <label for="city" class="form-label">Rolle</label>
-            <select name="role_id" formControlName="role_id" id="role_id" class="form-control" >
-                <option *ngFor="let role of roles" [ngValue]="role.id">{{ role.name }}</option>
+            <select name="role_id" id="role_id" class="form-control" >
+                <option >role</option>
             </select>
           </div>
           <div class="mt-4">

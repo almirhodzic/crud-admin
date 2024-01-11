@@ -1,7 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Injectable } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { User } from 'src/app/interfaces/user';
 import { Auth } from './../../classes/auth';
+
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'app-menu',
@@ -11,6 +15,12 @@ import { Auth } from './../../classes/auth';
 export class MenuComponent implements OnInit {
 
   user?: User;
+  status: boolean = false;
+
+  public visible() {
+   this.status = !this.status;
+    //return alert('alerto');
+  }
 
   constructor(
     private authService: AuthService,

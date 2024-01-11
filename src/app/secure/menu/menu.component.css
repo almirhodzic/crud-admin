@@ -1,3 +1,10 @@
 .active {
     text-decoration: underline;
 }
+
+.sidebar_show {
+    left: 0px !important;
+}
+.sidebar_hide {
+    left: -300 !important;
+}

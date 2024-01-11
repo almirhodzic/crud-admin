@@ -1,10 +1,16 @@
 <div class="pagetitle">
-  <h1>Alle Benutzer</h1>
-  <nav>
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item" routerLink="/dashboard"><a href="/">Benutzeriste</a></li>
-    </ol>
-  </nav>
+  <div class="d-flex justify-content-between">
+    <div>
+      <h1>Alle Benutzer</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item" routerLink="/dashboard"><a href="/">Benutzeriste</a></li>
+        </ol>
+      </nav>
+    </div>
+    <div><button routerLink="/user-create" class="btn btn-sm btn-outline-primary">+ Neuer Benutzer</button></div>
+  </div>
+  
 </div>
 <section class="section">
   <div class="row">
@@ -27,7 +33,10 @@
             <td>{{user.first_name}} {{user.last_name}}</td>
             <td>{{user.email}}</td>
             <td>{{user.role.name}}</td>
-            <td><a href="javascript:void(0)" (click)="deleteUser(user.id)"><i class="bi-trash"></i></a></td>
+            <td>
+              <a href="javascript:void(0)" [routerLink]="['/user', user.id, 'edit']"><i class="bi-pencil" style="margin-right:1rem; font-size: 1.25rem; color: cornflowerblue;"></i></a>
+              <a href="javascript:void(0)" (click)="deleteUser(user.id)"><i class="bi-trash" style="font-size: 1.25rem; color: cornflowerblue;"></i></a>
+            </td>
           </tr>
         </tbody>
       </table>

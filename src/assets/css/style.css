@@ -1,6 +1,3 @@
-/*--------------------------------------------------------------
-# General
---------------------------------------------------------------*/
 :root {
   scroll-behavior: smooth;
 }
@@ -610,6 +607,14 @@ h6 {
     left: -300px;
   }
 }
+
+.sidebar-toogle-0 {
+  left: 0px !important;
+}
+.sidebar-toogle-330 {
+  left: -300px !important;
+}
+
 
 .sidebar::-webkit-scrollbar {
   width: 5px;

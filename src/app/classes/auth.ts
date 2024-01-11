@@ -1,6 +1,6 @@
-import { EventEmitter } from '@angular/core';
 import { User } from '../interfaces/user';
+import { BehaviorSubject } from "rxjs";
 
 export class Auth {
-    static userEmitter = new EventEmitter<User>();
+    static userEmitter = new BehaviorSubject<User | undefined>(undefined);
 }

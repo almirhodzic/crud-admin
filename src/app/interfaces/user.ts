@@ -5,5 +5,11 @@ export interface User {
     first_name: string;
     last_name: string;
     email: string;
+    address: string;
+    city: string;
+    zipcode: string;
+    country: string;
+    phone: number;
+    birthday: number;
     role: Role;
 }

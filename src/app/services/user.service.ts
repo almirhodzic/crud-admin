@@ -15,12 +15,16 @@ export class UserService {
       private http: HttpClient
   ) {}
 
-  all(page: number): Observable<any> {
-    return this.http.get<any>(`${this.endpoint}?page=${page}`);
+  all(page: number): Observable<User> {
+    return this.http.get<User>(`${this.endpoint}?page=${page}`);
   }
 
-  delete(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.endpoint}/${id}`);
+  delete(id: number): Observable<User> {
+    return this.http.delete<User>(`${this.endpoint}/${id}`);
+  }
+
+  create(data: User): Observable<User> {
+    return this.http.post<User>(`${this.endpoint}`, data);
   }
     
 }

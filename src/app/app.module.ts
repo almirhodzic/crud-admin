@@ -14,7 +14,7 @@ import { LogoComponent } from './share/logo/logo.component';
 @NgModule({
   declarations: [
     AppComponent,
-    LogoComponent
+    LogoComponent,
   ],
   imports: [
     BrowserModule,

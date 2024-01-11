@@ -3,9 +3,6 @@ import { FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { AuthService } from './../../services/auth.service';
 import { Auth } from './../../classes/auth';
-import { Observable } from 'rxjs';
-import { User } from 'src/app/interfaces/user';
-import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -25,19 +22,26 @@ export class ProfileComponent implements OnInit {
     this.profileForm = this.formBuilder.group({
       first_name: '',
       last_name: '',
-      email: ''
+      birthday: '',
+      email: '',
+      phone: '',
+      address: '',
+      country: '',
+      zipcode: '',
+      city: '',
+      role: '',
     });
 
-    Auth.userEmitter.subscribe(
-      user => {
+    Auth.userEmitter.subscribe(user => {
+      if(user){
         this.profileForm.patchValue(user);
+        }
       }
     );
   }
 
   profileSubmit(): void {
     this.authService.updateProfile(this.profileForm.getRawValue())
-    .subscribe(user => Auth.userEmitter.emit(user));
+    .subscribe(user => Auth.userEmitter.next(user));
   }
-
 }

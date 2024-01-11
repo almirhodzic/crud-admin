@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersComponent } from './users/users.component';
 import { UserCreateComponent } from './users/user-create/user-create.component';
 import { FooterComponent } from './footer/footer.component';
+import { UserEditComponent } from './users/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FooterComponent } from './footer/footer.component';
     PasswordComponent,
     UsersComponent,
     UserCreateComponent,
-    FooterComponent
+    FooterComponent,
+    UserEditComponent,
   ],
   imports: [
     CommonModule,
