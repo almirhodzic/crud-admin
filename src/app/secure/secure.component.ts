@@ -18,11 +18,11 @@ export class SecureComponent implements OnInit {
   ) { }
 
   ngOnInit() :void {
-      this.authService.user()
-      .pipe(
-        catchError(err => {
-          this.router.navigate(['/login']);
-          return of(err);
-        })
-      ).subscribe(user => Auth.userEmitter.next(user));
+    this.authService.user()
+    .pipe(
+      catchError(err => {
+        this.router.navigate(['/login']);
+        return of(err);
+      })
+    ).subscribe(user => Auth.userEmitter.next(user));
 }}

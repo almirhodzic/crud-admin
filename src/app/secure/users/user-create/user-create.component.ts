@@ -4,11 +4,11 @@ import { RoleService } from 'src/app/services/role.service';
 import { Role } from '../../../interfaces/role';
 import { UserService } from '../../../services/user.service';
 import { Router } from '@angular/router';
-import { Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-user-create',
   templateUrl: './user-create.component.html',
-  styleUrls: ['./user-create.component.css']
+  styleUrls: ['./user-create.component.css', '../../secure.component.css']
 })
 export class UserCreateComponent implements OnInit {
 

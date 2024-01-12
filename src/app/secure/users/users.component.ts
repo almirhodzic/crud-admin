@@ -5,7 +5,7 @@ import { User } from '../../interfaces/user';
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  styleUrls: ['./users.component.css', '../secure.component.css']
 })
 export class UsersComponent implements OnInit {
 

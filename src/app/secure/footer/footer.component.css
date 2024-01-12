@@ -1,0 +1,18 @@
+.footer {
+    padding: 20px 0 20px 3cap;
+    font-size: 14px;
+    transition: all 0.3s;
+    border-top: 1px solid #cddfff;
+  }
+  
+  .footer .copyright {
+    text-align: left;
+    color: #012970;
+  }
+  
+  .footer .credits {
+    padding-top: 5px;
+    text-align: left;
+    font-size: 13px;
+    color: #012970;
+  }

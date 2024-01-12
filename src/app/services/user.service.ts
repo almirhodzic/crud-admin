@@ -19,8 +19,16 @@ export class UserService {
     return this.http.get<User>(`${this.endpoint}?page=${page}`);
   }
 
+  get(id: number): Observable<User> {
+    return this.http.get<User>(`${this.endpoint}/${id}`);
+  }
+
   delete(id: number): Observable<User> {
     return this.http.delete<User>(`${this.endpoint}/${id}`);
+  }
+
+  update(id: number, data: User): Observable<User> {
+    return this.http.put<User>(`${this.endpoint}/${id}`, data);
   }
 
   create(data: User): Observable<User> {
