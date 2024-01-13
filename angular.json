@@ -64,7 +64,7 @@
                   "with": "src/app/environments/environment.ts"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "none"
             },
             "development": {
               "buildOptimizer": true,
@@ -85,24 +85,18 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "admin:build"
+          },
           "configurations": {
             "production": {
-              "buildTarget": "admin:build:production"
+              "browserTarget": "admin:build:production"
             },
             "development": {
-              "buildTarget": "admin:build:development"
+              "browserTarget": "admin:build:development"
             }
           },
-          "defaultConfiguration": "development",
-          "options": {
-            "port": 4200
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "buildTarget": "admin:build"
-          }
+          "defaultConfiguration": "development"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",

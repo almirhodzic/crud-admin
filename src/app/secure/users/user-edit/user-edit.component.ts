@@ -60,4 +60,10 @@ export class UserEditComponent implements OnInit {
       })
     );
   }
+
+  submitEditUser(): void {
+    this.userService.update(this.id, this.form.getRawValue()).subscribe(
+      () => this.router.navigate(['/users']),
+    );
+  }
 }
