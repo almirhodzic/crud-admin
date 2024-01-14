@@ -8,9 +8,8 @@
           </ol>
         </nav>
       </div>
-      <div></div>
+      <div><button routerLink="/product-create" class="btn btn-sm btn-outline-primary">+ Neues Produkt</button></div>
     </div>
-    
   </div>
   <section class="section">
     <div class="row">
@@ -23,25 +22,36 @@
                   <th scope="col">#</th>
                   <th scope="col">Image</th>
                   <th scope="col">Title</th>
-                  <th scope="col">Product</th>
                   <th scope="col">Price</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let product of products">
-                  <td>{{ product.id }}</td>
-                  <td>{{ product.image }}</td>
-                  <td>{{ product.title }}</td>
-                  <td>{{ product.description }}</td>
-                  <td>{{ product.price }}</td>
-                  <td>Action</td>
+                  <td valign="middle">{{ product.id }}</td>
+                  <td><img [src]="product.image" height="50" /></td>
+                  <td valign="middle">{{ product.title }}</td>
+                  <td valign="middle">{{ product.price }}</td>
+                  <td valign="middle">
+                    <a href="javascript:void(0)" [routerLink]="['/product', product.id, 'edit']"><i class="bi-pencil" style="margin-right:1rem; font-size: 1.25rem; color: cornflowerblue;"></i></a>
+                    <a href="javascript:void(0)" (click)="delete(product.id)"><i class="bi-trash" style="font-size: 1.25rem; color: cornflowerblue;"></i></a>
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
     </div>
+    <nav>
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" href="javascript:void(0)" aria-label="Previous" (click)="previous()">Previous</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="javascript:void(0)" aria-label="Previous" (click)="next()">Next</a>
+        </li>
+      </ul>
+    </nav>
   </div>
   </section>
   

@@ -41,7 +41,7 @@ export class UserCreateComponent implements OnInit {
     );
   }
 
-  submitNewUser(): void {
+  submit(): void {
     this.userService.create(this.form.getRawValue()).subscribe(
       () => this.router.navigate(['/users']),
     );

@@ -1,0 +1,42 @@
+<div class="pagetitle">
+    <h1>Produkt bearbeiten</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item" ><a href="javascript:void(0)" routerLink="/products">Alle Produkte</a></li>
+      </ol>
+    </nav>
+  </div>
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+      <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Produktdaten</h5>
+        <form class="row g-3" [formGroup]="form" (submit)="submit()">
+          <div class="col-12">
+            <label for="title" class="form-label">Titel</label>
+            <input formControlName="title" type="text" class="form-control" id="title">
+          </div>
+          <div class="col-12">
+            <label for="description" class="form-label">Beschreibung</label>
+            <textarea formControlName="description" class="form-control" id="description" rows="4"></textarea>
+          </div>
+          <div class="col-12">
+            <label for="price" class="form-label">Preis</label>
+            <input formControlName="price" type="text" class="form-control" id="price">
+          </div>
+          <div class="col-12">
+            <label for="image" class="form-label">Produktfoto</label>
+            <input formControlName="image" type="text" class="form-control" id="image">
+          </div>
+          <div class="mt-4">
+            <button type="submit" class="btn btn-primary">Speichern</button>
+          </div>
+        </form>
+      </div>
+      </div>
+      </div>
+  </div>
+  </section>
+  
+  

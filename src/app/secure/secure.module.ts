@@ -16,6 +16,8 @@ import { ProductsComponent } from './products/products.component';
 import { RolesComponent } from './roles/roles.component';
 import { RoleCreateComponent } from './roles/role-create/role-create.component';
 import { RoleEditComponent } from './roles/role-edit/role-edit.component';
+import { ProductCreateComponent } from './products/product-create/product-create.component';
+import { ProductEditComponent } from './products/product-edit/product-edit.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { RoleEditComponent } from './roles/role-edit/role-edit.component';
     ProductsComponent,
     RolesComponent,
     RoleCreateComponent,
-    RoleEditComponent
+    RoleEditComponent,
+    ProductCreateComponent,
+    ProductEditComponent
   ],
   imports: [
     CommonModule,
