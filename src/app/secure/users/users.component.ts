@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { User } from '../../interfaces/user';
 
@@ -46,7 +46,7 @@ export class UsersComponent implements OnInit {
     this.load();
   }
 
-  deleteUser(id: number): void {
+  delete(id: number): void {
     if(confirm(`Are you sure you want to delete this (${id}) user ?`)) {
       this.userService.delete(id).subscribe(
         () => {

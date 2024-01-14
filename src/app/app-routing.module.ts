@@ -10,6 +10,8 @@ import { PasswordComponent } from './secure/password/password.component';
 import { UsersComponent } from './secure/users/users.component';
 import { UserCreateComponent } from './secure/users/user-create/user-create.component';
 import { UserEditComponent } from './secure/users/user-edit/user-edit.component';
+import { RolesComponent } from './secure/roles/roles.component';
+import { ProductsComponent } from './secure/products/products.component';
 
 const routes: Routes = [
   {
@@ -22,6 +24,8 @@ const routes: Routes = [
       { path: 'users', component: UsersComponent },
       { path: 'user-create', component: UserCreateComponent },
       { path: 'user/:id/edit', component: UserEditComponent },
+      { path: 'roles', component: RolesComponent },
+      { path: 'products', component: ProductsComponent },
     ]
   },
   {

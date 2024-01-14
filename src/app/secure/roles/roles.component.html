@@ -1,0 +1,44 @@
+<div class="pagetitle">
+  <div class="d-flex justify-content-between">
+    <div>
+      <h1>Roles</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/users">Alle Benutzer</a></li>
+        </ol>
+      </nav>
+    </div>
+    <div></div>
+  </div>
+  
+</div>
+<section class="section">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let role of roles">
+                <td scope="row">{{ role.id }}</td>
+                <td>{{ role.name }}</td>
+                <td>Action</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+</div>
+</section>
+
+  
+
+  
