@@ -12,6 +12,8 @@ import { UsersComponent } from './users/users.component';
 import { UserCreateComponent } from './users/user-create/user-create.component';
 import { FooterComponent } from './footer/footer.component';
 import { UserEditComponent } from './users/user-edit/user-edit.component';
+import { ProductsComponent } from './products/products.component';
+import { RolesComponent } from './roles/roles.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { UserEditComponent } from './users/user-edit/user-edit.component';
     UserCreateComponent,
     FooterComponent,
     UserEditComponent,
+    ProductsComponent,
+    RolesComponent
   ],
   imports: [
     CommonModule,

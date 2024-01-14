@@ -16,7 +16,7 @@ export abstract class RestService {
   all(page?: number): Observable<any> {
     let url = this.endpoint;
     if (page) { url += `?page=${page}`; }
-    return this.http.get<any>(url);
+    return this.http.get(url);
   }
 
   create(data: any): Observable<any> {
