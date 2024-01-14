@@ -1,0 +1,42 @@
+<div class="pagetitle">
+    <h1>Neue Rolle</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item" ><a href="javascript:void(0)" routerLink="/roles">Alle Rollen</a></li>
+      </ol>
+    </nav>
+  </div>
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+      <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Rolle</h5>
+        <form class="row g-3" [formGroup]="form" (submit)="submit()">
+
+          <div class="col-12">
+            <label for="first_name" class="form-label">Bezeichnung</label>
+            <input formControlName="name" type="text" class="form-control" id="name">
+          </div>
+
+          <div class="col-12" formArrayName="permissions">
+            <label for="city" class="form-label">Permissions</label>
+            <div class="list-group">
+                <label class="list-group-item d-flex gap-2" *ngFor="let permission of permissions; let i = index" [formGroupName]="i">
+                  <input class="form-check-input flex-shrink-0" type="checkbox" formControlName="value">
+                  <span>{{ permission.name }}</span>
+                </label>
+              </div>
+          </div>
+
+          <div class="mt-4">
+            <button type="submit" class="btn btn-primary">Speichern</button>
+          </div>
+        </form>
+      </div>
+      </div>
+      </div>
+  </div>
+  </section>
+  
+  

@@ -8,7 +8,7 @@
         </ol>
       </nav>
     </div>
-    <div></div>
+    <div><button routerLink="/roles-create" class="btn btn-sm btn-outline-primary">+ Neue Rolle</button></div>
   </div>
   
 </div>
@@ -20,16 +20,19 @@
           <table class="table">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Action</th>
+                <th scope="col" width="10%">#</th>
+                <th scope="col" width="80%">Name</th>
+                <th scope="col"width="10%">Action</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let role of roles">
                 <td scope="row">{{ role.id }}</td>
                 <td>{{ role.name }}</td>
-                <td>Action</td>
+                <td>
+                  <a href="javascript:void(0)" [routerLink]="['/roles', role.id, 'edit']"><i class="bi-pencil" style="margin-right:1rem; font-size: 1.25rem; color: cornflowerblue;"></i></a>
+                  <a href="javascript:void(0)" (click)="delete(role.id)"><i class="bi-trash" style="font-size: 1.25rem; color: cornflowerblue;"></i></a>
+                </td>
               </tr>
             </tbody>
           </table>

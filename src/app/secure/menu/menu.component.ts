@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Injectable } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { User } from 'src/app/interfaces/user';
 import { Auth } from './../../classes/auth';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -19,11 +20,13 @@ export class MenuComponent implements OnInit {
 
   public visible() {
    this.status = !this.status;
-    //return alert('alerto');
+   this.cdRef.detectChanges();
+   return alert(this.status);
   }
 
   constructor(
     private authService: AuthService,
+    private cdRef: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
