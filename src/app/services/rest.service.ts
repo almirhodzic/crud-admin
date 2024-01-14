@@ -16,22 +16,22 @@ export abstract class RestService {
   all(page?: number): Observable<any> {
     let url = this.endpoint;
     if (page) { url += `?page=${page}`; }
-    return this.http.get(url);
+    return this.http.get<any>(url);
+  }
+
+  create(data: any): Observable<any> {
+    return this.http.post(`${this.endpoint}`, data);
   }
 
   get(id: number): Observable<any> {
     return this.http.get(`${this.endpoint}/${id}`);
   }
 
-  delete(id: number): Observable<any> {
-    return this.http.delete(`${this.endpoint}/${id}`);
-  }
-
   update(id: number, data: any): Observable<any> {
     return this.http.put(`${this.endpoint}/${id}`, data);
   }
 
-  create(data: any): Observable<any> {
-    return this.http.post(`${this.endpoint}`, data);
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.endpoint}/${id}`);
   }
 }
