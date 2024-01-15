@@ -28,11 +28,11 @@
               </thead>
               <tbody>
                 <tr *ngFor="let product of products">
-                  <td valign="middle">{{ product.id }}</td>
-                  <td><img [src]="product.image" height="50" /></td>
-                  <td valign="middle">{{ product.title }}</td>
-                  <td valign="middle">{{ product.price }}</td>
-                  <td valign="middle">
+                  <td valign="middle" width="10%">{{ product.id }}</td>
+                  <td width="15%"><img [src]="product.image" height="50" /></td>
+                  <td valign="middle" width="40%">{{ product.title }}</td>
+                  <td valign="middle" width="20%">{{ product.price }}</td>
+                  <td valign="middle" width="10%">
                     <a href="javascript:void(0)" [routerLink]="['/product', product.id, 'edit']"><i class="bi-pencil" style="margin-right:1rem; font-size: 1.25rem; color: cornflowerblue;"></i></a>
                     <a href="javascript:void(0)" (click)="delete(product.id)"><i class="bi-trash" style="font-size: 1.25rem; color: cornflowerblue;"></i></a>
                   </td>

@@ -16,6 +16,7 @@ import { RoleCreateComponent } from './secure/roles/role-create/role-create.comp
 import { RoleEditComponent } from './secure/roles/role-edit/role-edit.component';
 import { ProductCreateComponent } from './secure/products/product-create/product-create.component';
 import { ProductEditComponent } from './secure/products/product-edit/product-edit.component';
+import { OrdersComponent } from './secure/orders/orders.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,7 @@ const routes: Routes = [
       { path: 'products', component: ProductsComponent },
       { path: 'product/:id/edit', component: ProductEditComponent },
       { path: 'product-create', component: ProductCreateComponent },
+      { path: 'orders', component: OrdersComponent },
     ]
   },
   {
