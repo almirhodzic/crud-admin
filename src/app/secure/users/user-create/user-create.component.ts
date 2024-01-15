@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-create.component.css', '../../secure.component.css']
 })
 export class UserCreateComponent implements OnInit {
-
+  roleDefault = 2;
   form!: FormGroup;
   roles: Role[] = [];
 

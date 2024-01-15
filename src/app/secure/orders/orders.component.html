@@ -34,20 +34,30 @@
                   <td valign="middle" width="30%">{{ order.email }}</td>
                   <td valign="middle" width="13%">{{ formatPrice(order.total) }}</td>
                   <td valign="middle" width="7%">
-                    <a href="javascript:void(0)"><i class="bi-eye" style="font-size: 1.25rem; color: cornflowerblue;"></i></a>
+                    <a href="javascript:void(0)" (click)="select(order.id)"><i class="bi-eye" style="font-size: 1.25rem; color: cornflowerblue;"></i></a>
                   </td>
                 </tr>
-                <tr>
-                    <td colspan="5">
-                        <table class="table">
+                <tr [hidden]="order.id !== selected">
+                    <td colspan="5" class="bg-primary-subtle">
+                        <table class="table fs-6">
                             <thead>
                                 <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Product</th>
                                 <th scope="col">Quantity</th>
-                                <th scope="col">Price</th>
+                                <th scope="col">Price item</th>
+                                <th scope="col">PreSum</th>
                                 </tr>
                             </thead>
+                            <tbody class="bg-primary-subtle">
+                                <tr *ngFor="let item of order.order_items">
+                                    <td width="10%">{{ item.id }}</td>
+                                    <td width="28%">{{ item.product_title }}</td>
+                                    <td width="15%">{{ item.quantity }}</td>
+                                    <td width="17%">{{ formatPrice(item.price) }}</td>
+                                    <td width="23%">{{ preSum(item.price, item.quantity) }}</td>
+                                </tr>
+                            </tbody>
                         </table>
                     </td> 
                 </tr>

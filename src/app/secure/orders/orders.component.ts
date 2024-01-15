@@ -11,6 +11,7 @@ export class OrdersComponent implements OnInit {
   orders: Order[] = [];
   page: number = 1;
   lastPage!: number;
+  selected: number = 0;
 
   constructor(
     private orderService: OrderService
@@ -43,5 +44,16 @@ export class OrdersComponent implements OnInit {
 
   formatPrice(price: number) {
     return (Math.round(price * 100)/100).toFixed(2);
+  }
+
+  preSum(itemPrice: number, itemQuantyity: number): number {
+    let sum = 0;
+    sum = itemPrice * itemQuantyity;
+    const formtedSum = this.formatPrice(sum);
+    return Number(formtedSum);
+  }
+
+  select(id: number): void {
+    this.selected = id;
   }
 }

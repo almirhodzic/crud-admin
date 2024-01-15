@@ -20,7 +20,7 @@ export abstract class RestService {
   }
 
   create(data: any): Observable<any> {
-    return this.http.post(`${this.endpoint}`, data);
+    return this.http.post<any>(`${this.endpoint}`, data);
   }
 
   get(id: number): Observable<any> {

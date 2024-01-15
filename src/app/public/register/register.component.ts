@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
   email?: '';
   password?: '';
   password_confirm?: '';
+  role_id?: 1;
 
   constructor(
     private router: Router,

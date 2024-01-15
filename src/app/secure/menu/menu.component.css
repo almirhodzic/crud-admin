@@ -49,7 +49,6 @@ background-color: #fff;
 background-color: #aab7cf;
 }
 
-
 .sidebar-nav {
 padding: 0;
 margin: 0;
@@ -151,6 +150,11 @@ color: #4154f1;
 .sidebar-nav .nav-content a.active i {
 background-color: #4154f1;
 }
+
+a.activus {
+    color: #4154f1 !important;
+    background: #f6f9ff !important;
+    }
 
 li.nav-item a i {
     font-size: 1.5rem !important;
