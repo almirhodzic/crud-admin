@@ -6,16 +6,16 @@
 <form class="row g-3 needs-validation" [formGroup]="form" (submit)="submit()">
 
   <div class="col-12">
-    <label for="email" class="form-label">E-Mail Adresse</label>
+    <label for="email" class="form-label">E-Mail Adresse*</label>
     <div class="input-group has-validation">
-      <span class="input-group-text" id="email">&#64;</span>
-      <input formControlName="email" type="email" name="email" class="form-control" id="email" required>
+      <span class="input-group-text" id="useremail">&#64;</span>
+      <input formControlName="email" type="email" name="email" class="form-control" id="useremail" required>
       <div class="invalid-feedback">Bitte deine E-mail Adresse eingeben!</div>
     </div>
   </div>
 
   <div class="col-12">
-    <label for="password" class="form-label">Passwort</label>
+    <label for="password" class="form-label">Passwort*</label>
     <input formControlName="password" type="password" name="password" class="form-control" id="password" required>
     <div class="invalid-feedback">Bitte dein passwort eingeben!</div>
   </div>

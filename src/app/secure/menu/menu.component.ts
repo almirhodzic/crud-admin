@@ -29,7 +29,7 @@ export class MenuComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private cdRef: ChangeDetectorRef,
-    private sharedService: SharedService
+    private sharedService: SharedService,
   ) { }
 
   ngOnInit(): void {

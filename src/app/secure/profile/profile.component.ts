@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { AuthService } from './../../services/auth.service';
 import { Auth } from './../../classes/auth';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-profile',
@@ -18,6 +19,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -46,6 +48,14 @@ export class ProfileComponent implements OnInit {
 
   profileSubmit(): void {
     this.authService.updateProfile(this.profileForm.getRawValue())
-    .subscribe(user => Auth.userEmitter.next(user));
+    .subscribe(
+      user => { 
+        Auth.userEmitter.next(user),
+        this.toastr.success('Benutzerdaten gespeichert!', '');
+      },
+      (error) => {
+        // Fehlerbehandlung, hier können Sie eine Fehler-Toast-Nachricht anzeigen
+        this.toastr.error('Fehler beim Speichern', '');
+      });
   }
 }

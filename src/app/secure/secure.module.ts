@@ -21,6 +21,7 @@ import { ProductEditComponent } from './products/product-edit/product-edit.compo
 import { OrdersComponent } from './orders/orders.component';
 import { UploadComponent } from './components/upload/upload.component';
 import { SharedService } from './shared.service';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { SharedService } from './shared.service';
     CommonModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [SharedService],
 })

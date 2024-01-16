@@ -7,6 +7,7 @@ import { RoleService } from 'src/app/services/role.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Role } from 'src/app/interfaces/role';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-role-edit',
@@ -23,7 +24,8 @@ export class RoleEditComponent {
     private permissionService: PermissionService,
     private roleService: RoleService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastr: ToastrService
   ) { }
 
   get permissionArray(): FormArray {
@@ -81,7 +83,12 @@ export class RoleEditComponent {
       };
 
       this.roleService.update(this.id, data).subscribe(
-        () => this.router.navigate(['/roles'])
+        () => { this.router.navigate(['/roles']),
+        this.toastr.success('Rolle gespeichert!', '');
+      },
+      (error) => {
+        this.toastr.error('Fehler beim Speichern', '');
+      }
       );
     }
 

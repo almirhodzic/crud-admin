@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { ProductService } from 'src/app/services/product.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-edit',
@@ -21,6 +22,7 @@ export class ProductEditComponent implements OnInit {
     private productService: ProductService,
     private router: Router,
     private route: ActivatedRoute,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -42,12 +44,11 @@ export class ProductEditComponent implements OnInit {
     }
   }
 
-
   submit() {
     this.productService.update(this.id, this.form.getRawValue()).subscribe(
       () => {
-      this.router.navigate(['/products']);
+      this.router.navigate(['/products']),
+      this.toastr.success('Produkt gespeichert!', '')
     });
   }
-
 }

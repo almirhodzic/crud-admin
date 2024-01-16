@@ -4,6 +4,7 @@ import { RoleService } from 'src/app/services/role.service';
 import { Role } from '../../../interfaces/role';
 import { UserService } from '../../../services/user.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user-create',
@@ -19,7 +20,8 @@ export class UserCreateComponent implements OnInit {
     private formBuilder: FormBuilder,
     private roleservice: RoleService,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -43,7 +45,10 @@ export class UserCreateComponent implements OnInit {
 
   submit(): void {
     this.userService.create(this.form.getRawValue()).subscribe(
-      () => this.router.navigate(['/users']),
+      () => { this.router.navigate(['/users']),
+      this.toastr.success('Benutzer erstellt!', '')
+    },
+      (error) => this.toastr.error('Fehler beim Speichern', '')
     );
   }
 

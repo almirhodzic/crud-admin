@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { AuthService } from './../../services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-password',
@@ -14,7 +15,8 @@ export class PasswordComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -26,7 +28,16 @@ export class PasswordComponent implements OnInit {
 
   passwordSubmit(): void {
     this.authService.updatePassword(this.passwordForm.getRawValue())
-    .subscribe(res => console.log('Password updated successfully'));
+    .subscribe(
+      res =>{ 
+        console.log('Password updated successfully') 
+        this.toastr.success('Passwort geändert!', '')
+      },
+      err => {
+        this.toastr.error('Fehler beim Speichern', '');
+      }
+
+      );
   }
 
 }

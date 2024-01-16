@@ -5,6 +5,7 @@ import { Role } from '../../../interfaces/role';
 import { UserService } from '../../../services/user.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user-edit',
@@ -23,6 +24,7 @@ export class UserEditComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private route: ActivatedRoute,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -63,7 +65,10 @@ export class UserEditComponent implements OnInit {
 
   submitEditUser(): void {
     this.userService.update(this.id, this.form.getRawValue()).subscribe(
-      () => this.router.navigate(['/users']),
+      () => { this.router.navigate(['/users']),
+      this.toastr.success('Benutzerdaten gespeichert!', '')
+    },
+    (error) => this.toastr.error('Fehler beim Bearbeiten', '')
     );
   }
 }

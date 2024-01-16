@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RoleService } from '../../services/role.service';
 import { Role } from '../../interfaces/role';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-roles',
@@ -13,6 +14,7 @@ export class RolesComponent implements OnInit {
   
   constructor(
     private roleservice: RoleService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -24,7 +26,11 @@ export class RolesComponent implements OnInit {
   delete(id: number): void {
     if (confirm(`Are you sure you want to delete this (${id}) role?`)) {
       this.roleservice.delete(id).subscribe(
-        () => this.roles = this.roles.filter(role => role.id !== id)
+        () => { 
+          this.roles = this.roles.filter(role => role.id !== id),
+          this.toastr.success('Rolle gelöscht!', '')
+        },
+        (error) => this.toastr.error('Fehler beim Löschen', '')
       );
     }
   }

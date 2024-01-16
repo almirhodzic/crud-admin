@@ -5,7 +5,7 @@ import { PermissionService } from '../../../services/permission.service';
 import { FormArray } from '@angular/forms';
 import { RoleService } from 'src/app/services/role.service';
 import { Router } from '@angular/router';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-role-create',
@@ -21,7 +21,8 @@ export class RoleCreateComponent implements OnInit {
     private formBuilder: FormBuilder,
     private permissionService: PermissionService,
     private roleService: RoleService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   get permissionArray(): FormArray {
@@ -61,7 +62,12 @@ export class RoleCreateComponent implements OnInit {
       };
 
       this.roleService.create(data).subscribe(
-        () => this.router.navigateByUrl('/roles')
+        () => { this.router.navigateByUrl('/roles'),
+        this.toastr.success('Neue Rolle gespeichert!', '');
+      },
+      (error) => {
+        this.toastr.error('Fehler beim Speichern', '');
+      }
       );
     }
   }

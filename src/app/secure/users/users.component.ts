@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { User } from '../../interfaces/user';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-users',
@@ -15,6 +16,7 @@ export class UsersComponent implements OnInit {
 
   constructor(
     private userService: UserService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
@@ -50,9 +52,11 @@ export class UsersComponent implements OnInit {
     if(confirm(`Are you sure you want to delete this (${id}) user ?`)) {
       this.userService.delete(id).subscribe(
         () => {
-          this.users = this.users.filter(u => u.id !== id);
-          this.load();
-        }
+          this.users = this.users.filter(u => u.id !== id),
+          this.load(),
+          this.toastr.success('Benutezr gelöscht!', '')
+        },
+        (error) => this.toastr.error('Fehler beim Löschen', '')
       );
     }
   }
