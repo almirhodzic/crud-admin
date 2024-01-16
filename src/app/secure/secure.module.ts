@@ -20,7 +20,7 @@ import { ProductCreateComponent } from './products/product-create/product-create
 import { ProductEditComponent } from './products/product-edit/product-edit.component';
 import { OrdersComponent } from './orders/orders.component';
 import { UploadComponent } from './components/upload/upload.component';
-import { SharedService } from './shared.service';
+import { SharedService } from '../services/shared.service';
 import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({

@@ -12,6 +12,7 @@ export class OrdersComponent implements OnInit {
   page: number = 1;
   lastPage!: number;
   selected: number = 0;
+  totalOrders: number = 0;
 
   constructor(
     private orderService: OrderService
@@ -26,6 +27,7 @@ export class OrdersComponent implements OnInit {
       (res: any) => {
         this.orders = res.data;
         this.lastPage = res.meta.last_page;
+        this.totalOrders = res.meta.total;
       }
     );
   }

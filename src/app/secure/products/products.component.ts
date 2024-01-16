@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Product } from '../../interfaces/product';
 import { ProductService } from '../../services/product.service';
 
@@ -12,6 +12,7 @@ export class ProductsComponent implements OnInit {
   products: Product[] = [];
   page = 1;
   lastPage!: number;
+  totalProducts!: number;
   
   constructor(
     private productService: ProductService
@@ -26,6 +27,7 @@ export class ProductsComponent implements OnInit {
       (res: any) => {
         this.products = res.data;
         this.lastPage = res.meta.last_page;
+        this.totalProducts = res.meta.total;
       }
     );
   }

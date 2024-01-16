@@ -13,6 +13,7 @@ export class UsersComponent implements OnInit {
   users: User[] = [];
   page = 1;
   lastPage!: number;
+  totalUsers!: number;
 
   constructor(
     private userService: UserService,
@@ -20,11 +21,7 @@ export class UsersComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.userService.all(this.page).subscribe(
-      (res: any) => {
-        this.users = res.data;
-      }
-    );
+    this.load();
   }
 
   load(): void {
@@ -32,6 +29,7 @@ export class UsersComponent implements OnInit {
       (res: any) => {
         this.users = res.data;
         this.lastPage = res.meta.last_page;
+        this.totalUsers = res.meta.total;
       }
     );
   }
@@ -52,23 +50,12 @@ export class UsersComponent implements OnInit {
     if(confirm(`Are you sure you want to delete this (${id}) user ?`)) {
       this.userService.delete(id).subscribe(
         () => {
-          this.users = this.users.filter(u => u.id !== id),
+          //this.users = this.users.filter(u => u.id !== id),
           this.load(),
           this.toastr.success('Benutezr gelöscht!', '')
         },
         (error) => this.toastr.error('Fehler beim Löschen', '')
       );
     }
-  }
-
-  editUser(id: number): void {
-
-    alert(id);
-      /* this.userService.delete(id).subscribe(
-        () => {
-          this.users = this.users.filter(u => u.id !== id);
-        }
-      ); */
-
   }
 }

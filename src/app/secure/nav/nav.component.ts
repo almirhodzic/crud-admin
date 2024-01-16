@@ -1,7 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { MenuComponent } from '../menu/menu.component';
-import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-nav',
@@ -20,12 +19,7 @@ export class NavComponent implements OnInit {
   constructor(
     private authService: AuthService,
     public sidebar: MenuComponent,
-    private sharedService: SharedService
   ) {}
-
-  triggerClick() {
-    this.sharedService.triggerClickEvent();
-  }
   
   ngOnInit() {
 

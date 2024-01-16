@@ -25,9 +25,12 @@
             <label for="price" class="form-label">Preis</label>
             <input formControlName="price" type="text" class="form-control" id="price">
           </div>
-          <div class="col-12">
+          <div class="col-12 mb-4">
             <label for="image" class="form-label">Produktfoto</label>
-            <input formControlName="image" type="text" class="form-control" id="image">
+            <div class="input-group">
+              <input formControlName="image" class="form-control" name="image">
+              <app-upload (uploaded)="form.patchValue({'image': $event})"></app-upload>
+            </div>
           </div>
           <div class="mt-4 d-flex justify-content-between">
             <div><button type="submit" class="btn btn-primary">Speichern</button></div>
