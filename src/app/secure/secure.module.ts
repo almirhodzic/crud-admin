@@ -20,6 +20,7 @@ import { ProductCreateComponent } from './products/product-create/product-create
 import { ProductEditComponent } from './products/product-edit/product-edit.component';
 import { OrdersComponent } from './orders/orders.component';
 import { UploadComponent } from './components/upload/upload.component';
+import { SharedService } from './shared.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { UploadComponent } from './components/upload/upload.component';
     ProductCreateComponent,
     ProductEditComponent,
     OrdersComponent,
-    UploadComponent
+    UploadComponent,
   ],
   imports: [
     CommonModule,
@@ -48,5 +49,6 @@ import { UploadComponent } from './components/upload/upload.component';
     FormsModule,
     ReactiveFormsModule
   ],
+  providers: [SharedService],
 })
 export class SecureModule { }

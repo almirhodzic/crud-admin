@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth.service';
 import { User } from 'src/app/interfaces/user';
 import { Auth } from './../../classes/auth';
 import { ChangeDetectorRef } from '@angular/core';
+import { SharedService } from '../shared.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ import { ChangeDetectorRef } from '@angular/core';
 export class MenuComponent implements OnInit {
 
   user?: User;
-  status: boolean = false;
+  status: boolean = true;
+  clicked = false;
 
   public visible() {
    this.status = !this.status;
@@ -26,13 +28,18 @@ export class MenuComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private cdRef: ChangeDetectorRef
+    private cdRef: ChangeDetectorRef,
+    private sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
     Auth.userEmitter.subscribe(
       user => this.user = user
     );
+
+    this.sharedService.clickEvent$.subscribe(() => {
+      this.status = !this.status;
+    });
   }
 
   logout(): void {

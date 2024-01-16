@@ -3,10 +3,10 @@ text-decoration: underline;
 }
 
 .sidebar_show {
-left: 0px !important;
+visibility: visible !important;
 }
 .sidebar_hide {
-left: -300 !important;
+visibility: hidden !important;
 }
 
 .sidebar {
