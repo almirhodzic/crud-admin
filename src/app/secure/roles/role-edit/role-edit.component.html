@@ -15,12 +15,12 @@
         <form class="row g-3" [formGroup]="form" (submit)="submit()">
 
           <div class="col-12 mb-4">
-            <label for="first_name" class="form-label">Bezeichnung</label>
+            <label for="name" class="form-label">Bezeichnung</label>
             <input formControlName="name" type="text" class="form-control" id="name">
           </div>
 
           <div class="col-12" formArrayName="permissions">
-            <label for="city" class="form-label">Berechtigung</label>
+            <label class="form-label">Berechtigung</label>
             <div class="list-group">
                 <label class="list-group-item d-flex gap-2" *ngFor="let permission of permissions; let i = index" [formGroupName]="i">
                   <input class="form-check-input flex-shrink-0" type="checkbox" formControlName="value">
