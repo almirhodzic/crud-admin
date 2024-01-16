@@ -19,6 +19,7 @@ import { RoleEditComponent } from './roles/role-edit/role-edit.component';
 import { ProductCreateComponent } from './products/product-create/product-create.component';
 import { ProductEditComponent } from './products/product-edit/product-edit.component';
 import { OrdersComponent } from './orders/orders.component';
+import { UploadComponent } from './components/upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { OrdersComponent } from './orders/orders.component';
     RoleEditComponent,
     ProductCreateComponent,
     ProductEditComponent,
-    OrdersComponent
+    OrdersComponent,
+    UploadComponent
   ],
   imports: [
     CommonModule,
