@@ -64,7 +64,7 @@
                   "with": "src/app/environments/environment.ts"
                 }
               ],
-              "outputHashing": "none"
+              "outputHashing": "all"
             },
             "development": {
               "buildOptimizer": true,

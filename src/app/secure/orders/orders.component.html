@@ -1,7 +1,7 @@
 <div class="pagetitle">
     <div class="d-flex justify-content-between">
       <div>
-        <h1>Orders</h1>
+        <h1>Bestellungen</h1>
         <nav>
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a routerLink="/dashboard">Dashboard</a></li>
@@ -20,10 +20,10 @@
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Email</th>
+                  <th scope="col">Kunde</th>
+                  <th scope="col">E-Mail</th>
                   <th scope="col">Total</th>
-                  <th scope="col">Action</th>
+                  <th scope="col">&nbsp;</th>
                 </tr>
               </thead>
               <tbody>
@@ -43,10 +43,10 @@
                             <thead>
                                 <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Product</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Price item</th>
-                                <th scope="col">PreSum</th>
+                                <th scope="col">Produkt</th>
+                                <th scope="col">Anzahl</th>
+                                <th scope="col">Stückpreis</th>
+                                <th scope="col">Zwischensumme</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-primary-subtle">
@@ -54,8 +54,8 @@
                                     <td width="10%">{{ item.id }}</td>
                                     <td width="28%">{{ item.product_title }}</td>
                                     <td width="15%">{{ item.quantity }}</td>
-                                    <td width="17%">{{ formatPrice(item.price) }}</td>
-                                    <td width="23%">{{ preSum(item.price, item.quantity) }}</td>
+                                    <td width="18%">{{ formatPrice(item.price) }}</td>
+                                    <td width="22%">{{ preSum(item.price, item.quantity) }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -70,10 +70,10 @@
     <nav>
       <ul class="pagination">
         <li class="page-item">
-          <a class="page-link" href="javascript:void(0)" aria-label="Previous" (click)="previous()">Previous</a>
+          <a class="page-link" href="javascript:void(0)" aria-label="Previous" (click)="previous()">zurück</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="javascript:void(0)" aria-label="Previous" (click)="next()">Next</a>
+          <a class="page-link" href="javascript:void(0)" aria-label="Previous" (click)="next()">vor</a>
         </li>
       </ul>
     </nav>

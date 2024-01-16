@@ -11,7 +11,7 @@
       <div class="col-lg-12">
       <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Rolle</h5>
+        <h5 class="card-title">Rolle (Id: {{id}})</h5>
         <form class="row g-3" [formGroup]="form" (submit)="submit()">
 
           <div class="col-12 mb-4">
@@ -28,9 +28,9 @@
                 </label>
               </div>
           </div>
-
-          <div class="mt-4">
-            <button type="submit" class="btn btn-primary">Speichern</button>
+          <div class="mt-4 d-flex justify-content-between">
+            <div><button type="submit" class="btn btn-primary">Speichern</button></div>
+            <div><button onclick="history.back()" type="button" class="btn btn-light">Abbrechen</button></div>
           </div>
         </form>
       </div>

@@ -12,6 +12,8 @@ import { Auth } from './../../classes/auth';
 export class ProfileComponent implements OnInit {
 
   profileForm!: FormGroup;
+  username: string = '';
+  userid: number = 0;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -35,6 +37,8 @@ export class ProfileComponent implements OnInit {
     Auth.userEmitter.subscribe(user => {
       if(user){
         this.profileForm.patchValue(user);
+        this.username = user.first_name;
+        this.userid = user.id;
         }
       }
     );

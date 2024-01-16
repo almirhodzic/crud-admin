@@ -55,8 +55,9 @@
               <option *ngFor="let role of roles" [ngValue]="role.id">{{ role.name }}</option>
           </select>
           </div>
-          <div class="mt-4">
-            <button type="submit" class="btn btn-primary">Speichern</button>
+          <div class="mt-4 d-flex justify-content-between">
+            <div><button type="submit" class="btn btn-primary">Speichern</button></div>
+            <div><button onclick="history.back()" type="button" class="btn btn-light">Abbrechen</button></div>
           </div>
         </form>
       </div>

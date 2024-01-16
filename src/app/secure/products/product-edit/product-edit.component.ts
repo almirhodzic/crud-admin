@@ -14,6 +14,8 @@ export class ProductEditComponent implements OnInit {
 
   form!: FormGroup;
   id!: number;
+  productid: number = 0;
+
   constructor(
     private formBuilder: FormBuilder,
     private productService: ProductService,
@@ -34,6 +36,7 @@ export class ProductEditComponent implements OnInit {
       this.productService.get(this.id).subscribe(
         product => {
           this.form.patchValue(product);
+          this.productid = product.id;
         }
       );
     }
