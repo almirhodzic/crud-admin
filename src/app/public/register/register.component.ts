@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/app/environments/environment.dev';
+import { FormGroup, FormBuilder,  Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+
 
 @Component({
   selector: 'app-register',
@@ -10,29 +11,47 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterComponent implements OnInit {
 
-  first_name?: '';
-  last_name?: '';
-  email?: '';
-  password?: '';
-  password_confirm?: '';
-  role_id?: 1;
-
+  form!: FormGroup;
+ 
   constructor(
+    private formBuilder: FormBuilder,
     private router: Router,
     private authService: AuthService
   ) { }
 
   ngOnInit() {
-
+    this.form = this.formBuilder.group({
+      first_name: ['', Validators.required ],
+      last_name: '',
+      email: '',
+      password: '',
+      password_confirm: '',
+    });
   }
 
-  submit(): void {
-    this.authService.register({
-      first_name: this.first_name,
-      last_name: this.last_name,
-      email: this.email,
-      password: this.password,
-      password_confirm: this.password_confirm
-    }).subscribe(() => this.router.navigate(['/login']));
+  err: [] = [];
+  firstNameError: string = '';
+  lastNameError: string = '';
+  emailError: string = '';
+  passwordError: string = '';
+  passwordConfirmError: string = '';
+
+  submit(): void {  
+    this.authService.register(this.form.getRawValue())
+    .subscribe(
+      () => {
+        this.router.navigate(['/login']);
+    },
+    (err) => {
+      err = err.error.errors;
+      if (err.first_name && err.first_name.length > 0) { const firstNameError = err.first_name[0]; this.firstNameError = firstNameError; };
+      if (err.last_name && err.last_name.length > 0) { const lastNameError = err.last_name[0]; this.lastNameError = lastNameError; };
+      if (err.email && err.email.length > 0) { const emailError = err.email[0]; this.emailError = emailError; };
+      if (err.password && err.password.length > 0) { const passwordError = err.password[0]; this.passwordError = passwordError; };
+      if (err.password_confirm && err.password_confirm.length > 0) { const passwordConfirmError = err.password_confirm[0]; this.passwordConfirmError = passwordConfirmError; };
+    },
+    () => {
+      console.log('complete');
+    });
   }
 }

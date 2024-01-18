@@ -3,35 +3,36 @@
     <p class="text-center">Bitte Formular ausfüllen und absenden.</p>
   </div>
 
-  <form class="row g-3 needs-validation" (submit)="submit()">
+  <form class="row g-3 needs-validation" [formGroup]="form" (submit)="submit()">
     <div class="col-lg-6 col-12 col-sm-6">
       <label for="first_name" class="form-label">Vorname*</label>
-      <input [(ngModel)]="first_name" type="text" name="first_name" class="form-control" id="first_name" required>
+      <input formControlName="first_name" type="text" name="first_name" class="form-control" id="first_name" autocomplete="off" required>
       <div class="invalid-feedback">Bitte deinen Vorname eingeben!</div>
+      <div *ngIf="firstNameError" aria-multiline="false" class="input-error">{{firstNameError}}</div>
     </div>
 
     <div class="col-lg-6 col-12 col-sm-6">
       <label for="last_name" class="form-label">Nachname*</label>
-      <input [(ngModel)]="last_name" type="text" name="last_name" class="form-control" id="last_name" required>
-      <div class="invalid-feedback">Bitte deinen Nachnamen eingeben!</div>
+      <input formControlName="last_name" type="text" name="last_name" class="form-control" id="last_name" required>
+      <div *ngIf="lastNameError" class="input-error">{{lastNameError}}</div>
     </div>
 
     <div class="col-12">
       <label for="email" class="form-label">E-Mail Adresse*</label>
-      <input [(ngModel)]="email" type="email" name="email" class="form-control" id="email" required>
-      <div class="invalid-feedback">Bitte E-Mail Adresse eingeben!</div>
+      <input formControlName="email" type="email" name="email" class="form-control" id="email" autocomplete="off" required>
+      <div *ngIf="emailError" class="input-error">{{emailError}}</div>
     </div>
 
     <div class="col-lg-6 col-12 col-sm-6">
       <label for="password" class="form-label">Passwort*</label>
-      <input [(ngModel)]="password" type="password" name="password" class="form-control" id="password" required>
-      <div class="invalid-feedback">Bitte Passwort eingeben!</div>
+      <input formControlName="password" type="password" name="password" class="form-control" id="password" required>
+      <div *ngIf="passwordError" class="input-error">{{passwordError}}</div>
     </div>
 
     <div class="col-lg-6 col-12 col-sm-6">
       <label for="password_confirm" class="form-label">Passwort bestätigen*</label>
-      <input [(ngModel)]="password_confirm" type="password" name="password_confirm" class="form-control" id="password_confirm" required>
-      <div class="invalid-feedback">Bitte Passwort bestätigen!</div>
+      <input formControlName="password_confirm" type="password" name="password_confirm" class="form-control" id="password_confirm" required>
+      <div *ngIf="passwordConfirmError" class="input-error">{{passwordConfirmError}}</div>
     </div>
 
     <div class="col-12">

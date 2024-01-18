@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from './../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -21,8 +21,8 @@ export class PasswordComponent implements OnInit {
 
   ngOnInit(): void {
     this.passwordForm = this.formBuilder.group({
-      password: [''],
-      password_confirm: ['']
+      password: ['', Validators.required],
+      password_confirm: ['', Validators.required]
     });
   }
 
