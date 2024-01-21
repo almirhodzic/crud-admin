@@ -753,3 +753,9 @@
       max-width: 50%;
     }
   }
+
+  .link-underline {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    color: #4154f1;
+  }

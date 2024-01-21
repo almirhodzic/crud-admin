@@ -5,12 +5,18 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ThankyouComponent } from './thankyou/thankyou.component';
+import { ConfirmedComponent } from './confirmed/confirmed.component';
+import { VerifyAccountComponent } from './verify-account/verify-account.component';
 
 @NgModule({
   declarations: [
     PublicComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ThankyouComponent,
+    ConfirmedComponent,
+    VerifyAccountComponent
   ],
   imports: [
     CommonModule,

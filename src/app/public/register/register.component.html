@@ -8,7 +8,7 @@
       <label for="first_name" class="form-label">Vorname*</label>
       <input formControlName="first_name" type="text" name="first_name" class="form-control" id="first_name" autocomplete="off" required>
       <div class="invalid-feedback">Bitte deinen Vorname eingeben!</div>
-      <div *ngIf="firstNameError" aria-multiline="false" class="input-error">{{firstNameError}}</div>
+      <div *ngIf="firstNameError" class="input-error">{{firstNameError}}</div>
     </div>
 
     <div class="col-lg-6 col-12 col-sm-6">

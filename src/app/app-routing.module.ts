@@ -17,6 +17,9 @@ import { RoleEditComponent } from './secure/roles/role-edit/role-edit.component'
 import { ProductCreateComponent } from './secure/products/product-create/product-create.component';
 import { ProductEditComponent } from './secure/products/product-edit/product-edit.component';
 import { OrdersComponent } from './secure/orders/orders.component';
+import { ThankyouComponent } from './public/thankyou/thankyou.component';
+import { ConfirmedComponent } from './public/confirmed/confirmed.component';
+import { VerifyAccountComponent } from './public/verify-account/verify-account.component';
 
 const routes: Routes = [
   {
@@ -43,6 +46,9 @@ const routes: Routes = [
     children: [
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
+      { path: 'thankyou', component: ThankyouComponent },
+      { path: 'verify', component: VerifyAccountComponent },
+      { path: 'account-confirmed', component: ConfirmedComponent }
     ]
   },
   { path: 'login', component: LoginComponent },
