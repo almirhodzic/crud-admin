@@ -11,5 +11,5 @@ export const environment = {
 }
 
 export const appSecurity = {
-  minPassword : '8',
+  minPasswordLenght : '8',
 }

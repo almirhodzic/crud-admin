@@ -13,7 +13,7 @@ export class PasswordComponent implements OnInit {
 
   form!: FormGroup;
   p1E: string = '';
-  minPassword = appSecurity.minPassword;
+  minPasswordLenght = appSecurity.minPasswordLenght;
 
 
   constructor(

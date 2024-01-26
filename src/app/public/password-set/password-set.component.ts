@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { PasswordService } from './../../services/password.service';
+import { appSecurity } from 'src/app/environments/environment';
 
 @Component({
   selector: 'app-password-set',
@@ -11,8 +12,10 @@ import { PasswordService } from './../../services/password.service';
 export class PasswordSetComponent implements OnInit {
 
   token!: string;
+  minPasswordLenght = appSecurity.minPasswordLenght;
   form! : FormGroup;
-  formVisible = '0';
+  p1E: string = '';
+  formVisible: boolean = true;
   formTitle = 'Passwort zurücksetzen';
   formMessage = 'Deine Passwort-Zurücksetzen Anfrage wird überprüft...';
   formLoading = true;
@@ -27,7 +30,7 @@ export class PasswordSetComponent implements OnInit {
   ngOnInit() {
     this.form = this.formBuilder.group({
       password: '',
-      passwordConfirm: ''
+      token: ''
     });
 
     this.route.queryParams
@@ -36,11 +39,15 @@ export class PasswordSetComponent implements OnInit {
         this.token = params['token'];
 
         if (this.token.length === 64) {
+
           this.verification(this.token);
+          this.form.patchValue({token: this.token});
+
         } else {
-          this.formVisible = '0';
+
+          this.formVisible = false;
           this.formTitle = 'Fehler!';
-          this.formMessage = 'Bei der Verifizierung ist ein Fehler aufgetaucht.';
+          this.formMessage = 'Der vorhandene Token hat kein gültiges Format!';
           this.formLoading = false;
         }
       }
@@ -51,14 +58,14 @@ export class PasswordSetComponent implements OnInit {
     this.passwordService.validatePasswordResetToken(this.token)
     .subscribe({
       next: (v) => { 
-        this.formVisible = '1';
-        this.formMessage = 'Bitte gib dein neues Passwort ein.';
+        this.formVisible = true;
+        this.formMessage = 'Bitte gib dein neues Passwort ein. Beachte die Passwortkriterien!';
         this.formLoading = false;
       },
       error: (e) => {
-        this.formVisible = '0';
+        this.formVisible = false;
         this.formTitle = 'Fehler!';
-        this.formMessage = 'Token nicht vorhanden oder abgelaufen!';
+        this.formMessage = 'Dieser Token wurde nicht gefunden oder ist abgelaufen!';
         this.formLoading = false;
       },
       complete: () => {} 
@@ -66,13 +73,17 @@ export class PasswordSetComponent implements OnInit {
   }
 
   submit(): void {
-    this.passwordService.updatePassword(this.token, this.form.getRawValue())
+    this.passwordService.updatePassword(this.form.getRawValue())
     .subscribe(
-      {
+    {
         next: (v) => { 
           this.router.navigate(['/password-reseted']);
         },
-        error: err => { },
+        error: (err) => { 
+          err = err.error.errors;
+          //console.log(err);
+          if (err.password && err.password.length > 0) { const p1E = err.password[0]; this.p1E = p1E; };
+         },
         complete: () => { }
       }
     );

@@ -12,7 +12,7 @@ import { appSecurity } from '../../environments/environment';
 export class RegisterComponent implements OnInit {
 
   form!: FormGroup;
-  minPassword = appSecurity.minPassword;
+  minPasswordLenght = appSecurity.minPasswordLenght;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
       if (err.password && err.password.length > 0) { const p1E = err.password[0]; this.p1E = p1E; };
       },
       complete: () => { 
-        console.log('complete');
+        console.log('');
       } 
     });
   }

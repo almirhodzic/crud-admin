@@ -22,7 +22,7 @@ export class PasswordService {
     return this.http.get<T>(`${this.endpoint}/request/passreset/validate-token/${token}`);
   }
 
-  updatePassword<T>(token: string, data: T): Observable<T> {
-    return this.http.put<T>(`${this.endpoint}/update-password/${token}`, data);
+  updatePassword<T>(data: T): Observable<T> {
+    return this.http.put<T>(`${this.endpoint}/update-password`, data);
   }
 }
