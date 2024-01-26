@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { appSecurity } from '../../environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -11,6 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class RegisterComponent implements OnInit {
 
   form!: FormGroup;
+  minPassword = appSecurity.minPassword;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -24,15 +26,13 @@ export class RegisterComponent implements OnInit {
       last_name: '',
       email: '',
       password: '',
-      password_confirm: '',
     });
   }
 
-  firstNameError: string = '';
-  lastNameError: string = '';
-  emailError: string = '';
-  passwordError: string = '';
-  passwordConfirmError: string = '';
+  f1E: string = '';
+  f2E: string = '';
+  f3E: string = '';
+  p1E: string = '';
 
   submit(): void {  
     this.authService.register(this.form.getRawValue()).subscribe({
@@ -40,12 +40,11 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/thankyou']);
       },
       error: (err) => { 
-        err = err.error.errors;
-      if (err.first_name && err.first_name.length > 0) { const firstNameError = err.first_name[0]; this.firstNameError = firstNameError; };
-      if (err.last_name && err.last_name.length > 0) { const lastNameError = err.last_name[0]; this.lastNameError = lastNameError; };
-      if (err.email && err.email.length > 0) { const emailError = err.email[0]; this.emailError = emailError; };
-      if (err.password && err.password.length > 0) { const passwordError = err.password[0]; this.passwordError = passwordError; };
-      if (err.password_confirm && err.password_confirm.length > 0) { const passwordConfirmError = err.password_confirm[0]; this.passwordConfirmError = passwordConfirmError; };
+      err = err.error.errors;
+      if (err.first_name && err.first_name.length > 0) { const f1E = err.first_name[0]; this.f1E = f1E; };
+      if (err.last_name && err.last_name.length > 0) { const f2E = err.last_name[0]; this.f2E = f2E; };
+      if (err.email && err.email.length > 0) { const f3E = err.email[0]; this.f3E = f3E; };
+      if (err.password && err.password.length > 0) { const p1E = err.password[0]; this.p1E = p1E; };
       },
       complete: () => { 
         console.log('complete');

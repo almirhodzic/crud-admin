@@ -9,3 +9,7 @@ export const environment = {
     name: 'MediaCode',
     version: '1.0.0',
 }
+
+export const appSecurity = {
+  minPassword : '8',
+}

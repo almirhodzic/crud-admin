@@ -6,6 +6,10 @@ export const environment = {
 
 export const appInfo = {
     appName : 'MiniCart',
-    name: 'MediaCode',
+    autor: 'MediaCode',
     version: '1.0.0',
+}
+
+export const appSecurity = {
+  minPassword : '8',
 }

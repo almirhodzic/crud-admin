@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder} from '@angular/forms';
 import { AuthService } from './../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
-import { map, tap } from 'rxjs/operators';
+import { appSecurity } from '../../environments/environment';
 
 @Component({
   selector: 'app-password',
@@ -12,8 +12,9 @@ import { map, tap } from 'rxjs/operators';
 export class PasswordComponent implements OnInit {
 
   form!: FormGroup;
-  fE1: string = '';
-  fE2: string = '';
+  p1E: string = '';
+  minPassword = appSecurity.minPassword;
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -24,7 +25,6 @@ export class PasswordComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       password: '',
-      password_confirm: ''
     });
   }
 
@@ -33,15 +33,14 @@ export class PasswordComponent implements OnInit {
     .subscribe(
       {
         next: res => {
-          this.fE1 = ''; this.fE2 = '';
+          this.p1E = '';
           this.toastr.success('Passwort geändert!', '');
           this.form.reset();
         },
         error: err => { 
-          this.fE1 = ''; this.fE2 = '';
+          this.p1E = '';
           err = err.error.errors;
-          if (err.password && err.password.length > 0) { const fE1 = err.password[0]; this.fE1 = fE1; };
-          if (err.password_confirm && err.password_confirm.length > 0) { const fE2 = err.password_confirm[0]; this.fE2 = fE2; };
+          if (err.password && err.password.length > 0) { const p1E = err.password[0]; this.p1E = p1E; };
         },
         complete: () => { }
       }
