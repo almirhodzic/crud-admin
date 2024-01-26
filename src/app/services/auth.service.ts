@@ -11,11 +11,11 @@ export class AuthService {
 
   constructor(protected http: HttpClient) {}
 
-  login(data:any): Observable<any> {
-    return this.http.post(`${environment.api}/login`, data);
+  login<T>(data:T): Observable<T> {
+    return this.http.post<T>(`${environment.api}/login`, data);
   }
 
-  register(data:any): Observable<User> {
+  register<T>(data:T): Observable<User> {
     return this.http.post<User>(`${environment.api}/register`, data);
   }
 
@@ -27,11 +27,11 @@ export class AuthService {
     return this.http.post<void>(`${environment.api}/logout`, {});
   }
 
-  updateProfile(data:any): Observable<User> {
+  updateProfile<T>(data:T): Observable<User> {
     return this.http.put<User>(`${environment.api}/users/info`, data);
   }
 
-  updatePassword(data:any): Observable<User> {
+  updatePassword<T>(data:T): Observable<User> {
     return this.http.put<User>(`${environment.api}/users/password`, data);
   }
 }

@@ -61,13 +61,18 @@ export class RoleCreateComponent implements OnInit {
         .map((p: any) => p.id)
       };
 
-      this.roleService.create(data).subscribe(
-        () => { this.router.navigateByUrl('/roles'),
-        this.toastr.success('Neue Rolle gespeichert!', '');
-      },
-      (error) => {
-        this.toastr.error('Fehler beim Speichern', '');
-      }
+      this.roleService.create(data).subscribe({
+          next: (d) =>  { 
+            this.router.navigateByUrl('/roles'),
+            this.toastr.success('Neue Rolle gespeichert!', '')
+          },
+          error: (err) => { 
+            this.toastr.error('Fehler beim Speichern', '');
+          },
+          complete: () => { 
+            console.log('complete');
+          }
+        }
       );
     }
   }

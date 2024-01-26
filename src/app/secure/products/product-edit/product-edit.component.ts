@@ -46,9 +46,16 @@ export class ProductEditComponent implements OnInit {
 
   submit() {
     this.productService.update(this.id, this.form.getRawValue()).subscribe(
-      () => {
-      this.router.navigate(['/products']),
-      this.toastr.success('Produkt gespeichert!', '')
-    });
+      {
+        next: (d) =>  { 
+          this.router.navigate(['/products']),
+          this.toastr.success('Produkt gespeichert!', '');
+        },
+        error: (err) => { 
+          this.toastr.error('Fehler beim Speichern', '');
+        },
+        complete: () => { }
+      }
+    );
   }
 }

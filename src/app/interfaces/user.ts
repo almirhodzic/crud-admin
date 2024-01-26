@@ -11,5 +11,6 @@ export interface User {
     country: string;
     phone: number;
     birthday: number;
+    message: string;
     role: Role;
 }

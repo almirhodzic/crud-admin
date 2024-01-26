@@ -9,11 +9,13 @@ import { PublicModule } from './public/public.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import { CredentialInterceptor } from './interceptors/credential.interceptor';
-
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { LoadingInterceptor } from './interceptors/loading.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +23,7 @@ import { CredentialInterceptor } from './interceptors/credential.interceptor';
     NgbModule,
     SecureModule,
     PublicModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     AuthService,
@@ -29,6 +31,9 @@ import { CredentialInterceptor } from './interceptors/credential.interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: CredentialInterceptor,
       multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true
     }
   ],
   bootstrap: [AppComponent]

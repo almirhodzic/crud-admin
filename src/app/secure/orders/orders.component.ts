@@ -24,7 +24,7 @@ export class OrdersComponent implements OnInit {
 
   load(): void {
     this.orderService.all(this.page).subscribe(
-      (res: any) => {
+      res => {
         this.orders = res.data;
         this.lastPage = res.meta.last_page;
         this.totalOrders = res.meta.total;
@@ -33,13 +33,13 @@ export class OrdersComponent implements OnInit {
   }
 
   next(): void {
-    if(this.page === this.lastPage) { return; }
+    if(this.page === this.lastPage) { }
     this.page++;
     this.load();
   }
   
   previous(): void {
-    if(this.page === 1) { return; }
+    if(this.page === 1) { }
     this.page--;
     this.load();
   }
@@ -51,8 +51,8 @@ export class OrdersComponent implements OnInit {
   preSum(itemPrice: number, itemQuantyity: number): number {
     let sum = 0;
     sum = itemPrice * itemQuantyity;
-    const formtedSum = this.formatPrice(sum);
-    return Number(formtedSum);
+    const formatedSum = this.formatPrice(sum);
+    return Number(formatedSum);
   }
 
   select(id: number): void {

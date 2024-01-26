@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { appInfo } from '../environments/environment.dev';
 
 @Component({
   selector: 'app-public',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./public.component.css']
 })
 export class PublicComponent {
+
+  appInfo = appInfo;
+
+  constructor() { }
 
 }

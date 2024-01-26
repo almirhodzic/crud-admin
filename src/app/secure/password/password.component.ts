@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder} from '@angular/forms';
 import { AuthService } from './../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-password',
@@ -11,7 +11,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class PasswordComponent implements OnInit {
 
-  passwordForm!: FormGroup;
+  form!: FormGroup;
+  fE1: string = '';
+  fE2: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -20,24 +22,30 @@ export class PasswordComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.passwordForm = this.formBuilder.group({
-      password: ['', Validators.required],
-      password_confirm: ['', Validators.required]
+    this.form = this.formBuilder.group({
+      password: '',
+      password_confirm: ''
     });
   }
 
-  passwordSubmit(): void {
-    this.authService.updatePassword(this.passwordForm.getRawValue())
+  submit(): void {
+    this.authService.updatePassword(this.form.getRawValue())
     .subscribe(
-      res =>{ 
-        console.log('Password updated successfully') 
-        this.toastr.success('Passwort geändert!', '')
-      },
-      err => {
-        this.toastr.error('Fehler beim Speichern', '');
+      {
+        next: res => {
+          this.fE1 = ''; this.fE2 = '';
+          this.toastr.success('Passwort geändert!', '');
+          this.form.reset();
+        },
+        error: err => { 
+          this.fE1 = ''; this.fE2 = '';
+          err = err.error.errors;
+          if (err.password && err.password.length > 0) { const fE1 = err.password[0]; this.fE1 = fE1; };
+          if (err.password_confirm && err.password_confirm.length > 0) { const fE2 = err.password_confirm[0]; this.fE2 = fE2; };
+        },
+        complete: () => { }
       }
-
-      );
+    );
   }
 
 }

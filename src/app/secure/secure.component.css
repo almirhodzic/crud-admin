@@ -759,3 +759,44 @@
     text-underline-offset: 4px;
     color: #4154f1;
   }
+
+  .label-small {
+    font-size: 0.75rem;
+    color: #7a7a8b;
+  }
+  
+  .error-bag {
+    color: red;
+    font-size: 1rem;
+  }
+  
+  .alert {
+    padding: .55rem 1rem;
+    border: none;
+  }
+
+  .input-error {
+    font-size: 0.8rem;
+    color: red;
+    margin: 5px 0;
+  }
+  
+  .icon-symbol {
+    font-size: 30px !important;
+  }
+  
+  .icon-green {
+    color: #1f840b;
+  }
+  
+  .icon-red {
+    color: #de0b19;
+  }
+  
+  .icon-blue {
+    color: #012970;
+  }
+  
+  .icon-gray {
+    color: #7a7a8b;
+  }

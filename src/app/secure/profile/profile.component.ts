@@ -12,8 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ProfileComponent implements OnInit {
 
-  profileForm!: FormGroup;
-  username: string = '';
+  form!: FormGroup;
   userid: number = 0;
 
   constructor(
@@ -23,7 +22,7 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.profileForm = this.formBuilder.group({
+    this.form = this.formBuilder.group({
       first_name: '',
       last_name: '',
       birthday: '',
@@ -36,26 +35,29 @@ export class ProfileComponent implements OnInit {
       role: '',
     });
 
-    Auth.userEmitter.subscribe(user => {
-      if(user){
-        this.profileForm.patchValue(user);
-        this.username = user.first_name;
-        this.userid = user.id;
+    Auth.userEmitter.subscribe(
+      user => {
+        if(user) {
+          this.form.patchValue(user);
+          this.userid = user.id;
         }
       }
     );
   }
 
-  profileSubmit(): void {
-    this.authService.updateProfile(this.profileForm.getRawValue())
+  submit(): void {
+    this.authService.updateProfile(this.form.getRawValue())
     .subscribe(
-      user => { 
-        Auth.userEmitter.next(user),
-        this.toastr.success('Benutzerdaten gespeichert!', '');
-      },
-      (error) => {
-        // Fehlerbehandlung, hier können Sie eine Fehler-Toast-Nachricht anzeigen
-        this.toastr.error('Fehler beim Speichern', '');
-      });
+      {
+        next: user => { 
+          Auth.userEmitter.next(user),
+          this.toastr.success('Benutzerdaten gespeichert!', '');
+        },
+        error: err => { 
+          this.toastr.error('Fehler beim Speichern', '');
+        },
+        complete: () => { }
+      }
+    );
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { Product } from '../../interfaces/product';
 import { ProductService } from '../../services/product.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-products',
@@ -15,7 +16,8 @@ export class ProductsComponent implements OnInit {
   totalProducts!: number;
   
   constructor(
-    private productService: ProductService
+    private productService: ProductService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -24,7 +26,7 @@ export class ProductsComponent implements OnInit {
 
   load(): void {
     this.productService.all(this.page).subscribe(
-      (res: any) => {
+      res => {
         this.products = res.data;
         this.lastPage = res.meta.last_page;
         this.totalProducts = res.meta.total;
@@ -47,9 +49,14 @@ export class ProductsComponent implements OnInit {
   delete(id: number): void {
     if(confirm(`Are you sure you want to delete this (${id}) product ?`)) {
       this.productService.delete(id).subscribe(
-        () => {
-          this.products = this.products.filter(p => p.id !== id);
-          this.load();
+        {
+          next: (d) =>  { 
+            this.products = this.products.filter(p => p.id !== id);
+            this.toastr.success('Product deleted!', '');
+            this.load();
+          },
+          error: (err) => {},
+          complete: () => {}
         }
       );
     }

@@ -22,21 +22,25 @@ export class ProductCreateComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      title: [''],
-      price: [''],
-      description: [''],
-      image: [''],
+      title: '',
+      price: '',
+      description: '',
+      image: '',
     });
   }
+
   submit() {
     this.productService.create(this.form.getRawValue()).subscribe(
-      () => {
-      this.router.navigate(['/products']),
-      this.toastr.success('Neues Produkt aufgenommen!', '');
-    },
-    (error) => {
-      this.toastr.error('Fehler beim Speichern', '');
-    }
+      {
+        next: (d) =>  { 
+          this.router.navigate(['/products']),
+          this.toastr.success('Neues Produkt aufgenommen!', '');
+        },
+        error: (err) => { 
+          this.toastr.error('Fehler beim Speichern', '');
+        },
+        complete: () => { }
+      }
     );
   }
 }

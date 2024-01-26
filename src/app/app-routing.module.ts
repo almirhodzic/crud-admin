@@ -20,6 +20,9 @@ import { OrdersComponent } from './secure/orders/orders.component';
 import { ThankyouComponent } from './public/thankyou/thankyou.component';
 import { ConfirmedComponent } from './public/confirmed/confirmed.component';
 import { VerifyAccountComponent } from './public/verify-account/verify-account.component';
+import { PasswordForgotComponent } from './public/password-forgot/password-forgot.component';
+import { PasswordSetComponent } from './public/password-set/password-set.component';
+import { PasswordResetedComponent } from './public/password-reseted/password-reseted.component';
 
 const routes: Routes = [
   {
@@ -45,6 +48,9 @@ const routes: Routes = [
     path: '', component: PublicComponent,
     children: [
       { path: 'login', component: LoginComponent },
+      { path: 'password-forgot', component: PasswordForgotComponent },
+      { path: 'password-set', component: PasswordSetComponent },
+      { path: 'password-reseted', component: PasswordResetedComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'thankyou', component: ThankyouComponent },
       { path: 'verify', component: VerifyAccountComponent },

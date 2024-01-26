@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { appInfo } from '../../environments/environment.dev';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.css', '../secure.component.css']
 })
 export class DashboardComponent {
+
+  appInfo = appInfo;
+
 
 }

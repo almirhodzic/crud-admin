@@ -19,16 +19,16 @@ export abstract class RestService {
     return this.http.get(url);
   }
 
-  create(data: any): Observable<any> {
-    return this.http.post<any>(`${this.endpoint}`, data);
+  create<T>(data: T): Observable<T> {
+    return this.http.post<T>(`${this.endpoint}`, data);
   }
 
   get(id: number): Observable<any> {
     return this.http.get(`${this.endpoint}/${id}`);
   }
 
-  update(id: number, data: any): Observable<any> {
-    return this.http.put(`${this.endpoint}/${id}`, data);
+  update<T>(id: number, data: T): Observable<T> {
+    return this.http.put<T>(`${this.endpoint}/${id}`, data);
   }
 
   delete(id: number): Observable<void> {

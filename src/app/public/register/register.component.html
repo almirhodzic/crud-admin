@@ -5,32 +5,32 @@
 
   <form class="row g-3 needs-validation" [formGroup]="form" (submit)="submit()">
     <div class="col-lg-6 col-12 col-sm-6">
-      <label for="first_name" class="form-label">Vorname*</label>
+      <label for="first_name" class="form-label">Vorname *</label>
       <input formControlName="first_name" type="text" name="first_name" class="form-control" id="first_name" autocomplete="off" required>
       <div class="invalid-feedback">Bitte deinen Vorname eingeben!</div>
       <div *ngIf="firstNameError" class="input-error">{{firstNameError}}</div>
     </div>
 
     <div class="col-lg-6 col-12 col-sm-6">
-      <label for="last_name" class="form-label">Nachname*</label>
+      <label for="last_name" class="form-label">Nachname *</label>
       <input formControlName="last_name" type="text" name="last_name" class="form-control" id="last_name" required>
       <div *ngIf="lastNameError" class="input-error">{{lastNameError}}</div>
     </div>
 
     <div class="col-12">
-      <label for="email" class="form-label">E-Mail Adresse*</label>
+      <label for="email" class="form-label">E-Mail Adresse *</label>
       <input formControlName="email" type="email" name="email" class="form-control" id="email" autocomplete="off" required>
       <div *ngIf="emailError" class="input-error">{{emailError}}</div>
     </div>
 
     <div class="col-lg-6 col-12 col-sm-6">
-      <label for="password" class="form-label">Passwort*</label>
+      <label for="password" class="form-label">Passwort * <small class="label-small">(mind. 6 Zeichen)</small></label>
       <input formControlName="password" type="password" name="password" class="form-control" id="password" required>
       <div *ngIf="passwordError" class="input-error">{{passwordError}}</div>
     </div>
 
     <div class="col-lg-6 col-12 col-sm-6">
-      <label for="password_confirm" class="form-label">Passwort bestätigen*</label>
+      <label for="password_confirm" class="form-label">Passwort bestätigen *</label>
       <input formControlName="password_confirm" type="password" name="password_confirm" class="form-control" id="password_confirm" required>
       <div *ngIf="passwordConfirmError" class="input-error">{{passwordConfirmError}}</div>
     </div>
@@ -39,6 +39,6 @@
       <button class="btn btn-primary w-100 mt-4" type="submit">Registrieren</button>
     </div>
     <div class="col-12 text-center">
-      <p class="mb-0">Konto bereits vorhanden? <a href="javascript:void(0)" routerLink="/login">Hier anmelden</a></p>
+      <p class="mb-0">Konto bereits vorhanden? <a class="link-underline" href="javascript:void(0)" routerLink="/login">Hier anmelden</a></p>
     </div>
   </form>

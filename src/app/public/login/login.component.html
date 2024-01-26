@@ -1,30 +1,34 @@
 <div class="pb-2">
-  <h5 class="card-title text-center pb-0 fs-4">Anmelden</h5>
-  <p class="text-center">E-Mail Adresse und Passwort eingeben.</p>
+  <h5 class="card-title text-center pb-0 fs-4">Anmeldung</h5>
+  <p class="text-center">Bitte gib deine Benutzerdaten ein, um dich anzumelden.</p>
+</div>
+
+<div *ngIf="loginErrorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>Zugriff verweigert:</strong> keine gültige Benutzerdaten!
 </div>
 
 <form class="row g-3 needs-validation" [formGroup]="form" (submit)="submit()">
-
   <div class="col-12">
-    <label for="email" class="form-label">E-Mail Adresse*</label>
-    <div class="input-group has-validation">
-      <span class="input-group-text" id="useremail">&#64;</span>
-      <input formControlName="email" type="email" name="email" class="form-control" id="useremail" required>
-      <div class="invalid-feedback">Bitte deine E-mail Adresse eingeben!</div>
-    </div>
+    <label for="useremail" class="form-label">E-Mail-Adresse *</label>
+    <input formControlName="email" type="email" name="useremail" class="form-control" id="useremail" required>
+    <div class="invalid-feedback">Bitte deine E-mail Adresse eingeben!</div>
   </div>
 
   <div class="col-12">
-    <label for="password" class="form-label">Passwort*</label>
+    <label for="password" class="form-label">Passwort *</label>
     <input formControlName="password" type="password" name="password" class="form-control" id="password" required>
     <div class="invalid-feedback">Bitte dein passwort eingeben!</div>
+  </div>
+
+  <div class="col-12">
+    <p class="mb-0">Du hast dein <a href="javascript:void(0)" routerLink="/password-forgot">Passwort vergessen?</a></p>
   </div>
 
   <div class="col-12 mt-4">
     <button class="btn btn-primary w-100" type="submit">Anmelden</button>
   </div>
+  
   <div class="col-12 text-center">
-    <p class="mb-0">Noch kein Konto? <a href="javascript:void(0)" routerLink="/register">Jetzt erstellen</a></p>
+    <p class="mb-0">Noch kein Konto? <a class="link-underline" href="javascript:void(0)" routerLink="/register">Jetzt erstellen</a></p>
   </div>
 </form>
-
