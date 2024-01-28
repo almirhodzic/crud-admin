@@ -23,6 +23,9 @@ import { VerifyAccountComponent } from './public/verify-account/verify-account.c
 import { PasswordForgotComponent } from './public/password-forgot/password-forgot.component';
 import { PasswordSetComponent } from './public/password-set/password-set.component';
 import { PasswordResetedComponent } from './public/password-reseted/password-reseted.component';
+import { CategoriesComponent } from './secure/categories/categories.component';
+import { CategoryCreateComponent } from './secure/categories/category-create/category-create.component';
+import { CategoryEditComponent } from './secure/categories/category-edit/category-edit.component';
 
 const routes: Routes = [
   {
@@ -42,6 +45,9 @@ const routes: Routes = [
       { path: 'product/:id/edit', component: ProductEditComponent },
       { path: 'product-create', component: ProductCreateComponent },
       { path: 'orders', component: OrdersComponent },
+      { path: 'categories', component: CategoriesComponent },
+      { path: 'category-create', component: CategoryCreateComponent },
+      { path: 'category/:id/edit', component: CategoryEditComponent },
     ]
   },
   {

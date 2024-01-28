@@ -22,6 +22,9 @@ import { OrdersComponent } from './orders/orders.component';
 import { UploadComponent } from './components/upload/upload.component';
 import { SharedService } from '../services/shared.service';
 import { ToastrModule } from 'ngx-toastr';
+import { CategoriesComponent } from './categories/categories.component';
+import { CategoryCreateComponent } from './categories/category-create/category-create.component';
+import { CategoryEditComponent } from './categories/category-edit/category-edit.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,9 @@ import { ToastrModule } from 'ngx-toastr';
     ProductEditComponent,
     OrdersComponent,
     UploadComponent,
+    CategoriesComponent,
+    CategoryCreateComponent,
+    CategoryEditComponent
   ],
   imports: [
     CommonModule,
