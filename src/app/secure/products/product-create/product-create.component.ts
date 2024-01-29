@@ -4,6 +4,8 @@ import { FormBuilder } from '@angular/forms';
 import { ProductService } from 'src/app/services/product.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Category } from 'src/app/interfaces/category';
+import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-product-create',
@@ -12,10 +14,13 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ProductCreateComponent implements OnInit {
   form!: FormGroup;
+  categories: Category[] = [];
+  categorDefault: string = "0";
 
   constructor(
     private formBuilder: FormBuilder,
     private productService: ProductService,
+    private categoriesService: CategoryService,
     private router: Router,
     private toastr: ToastrService
   ) { }
@@ -26,7 +31,12 @@ export class ProductCreateComponent implements OnInit {
       price: '',
       description: '',
       image: '',
+      category_id: '',
     });
+
+    this.categoriesService.all().subscribe(
+      categories => this.categories = categories,
+    );
   }
 
   submit() {

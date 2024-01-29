@@ -14,15 +14,22 @@
         <h5 class="card-title">Produktdaten</h5>
         <form class="row g-3" [formGroup]="form" (submit)="submit()">
           <div class="col-12">
-            <label for="title" class="form-label">Titel</label>
+            <label for="city" class="form-label">Kategorie *</label>
+            <select [(ngModel)]='categorDefault' name="category_id" formControlName="category_id" id="category_id" class="form-control" >
+                <option ngValue="0">wählen...</option>
+                <option *ngFor="let category of categories" [ngValue]="category.id">{{ category.name }}</option>
+            </select>
+          </div>
+          <div class="col-12">
+            <label for="title" class="form-label">Titel *</label>
             <input formControlName="title" type="text" class="form-control" id="title">
           </div>
           <div class="col-12">
-            <label for="description" class="form-label">Beschreibung</label>
+            <label for="description" class="form-label">Beschreibung *</label>
             <textarea formControlName="description" class="form-control" id="description" rows="4"></textarea>
           </div>
           <div class="col-12">
-            <label for="price" class="form-label">Preis</label>
+            <label for="price" class="form-label">Preis *</label>
             <input formControlName="price" type="text" class="form-control" id="price">
           </div>
           <div class="col-12 mb-4">

@@ -6,6 +6,5 @@ import { environment } from '../environments/environment';
   providedIn: 'root'
 })
 export class CategoryService extends RestService{
-
   endpoint = `${environment.api}/category`;
 }

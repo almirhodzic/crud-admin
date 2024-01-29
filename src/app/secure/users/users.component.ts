@@ -50,7 +50,7 @@ export class UsersComponent implements OnInit {
     if(confirm(`Are you sure you want to delete this (${id}) user ?`)) {
       this.userService.delete(id).subscribe(
         () => {
-          //this.users = this.users.filter(u => u.id !== id),
+          this.users = this.users.filter(u => u.id !== id),
           this.load(),
           this.toastr.success('Benutezr gelöscht!', '')
         },

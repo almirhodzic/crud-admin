@@ -5,6 +5,8 @@ import { ProductService } from 'src/app/services/product.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Category } from 'src/app/interfaces/category';
+import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-product-edit',
@@ -16,10 +18,12 @@ export class ProductEditComponent implements OnInit {
   form!: FormGroup;
   id!: number;
   productid: number = 0;
+  categories: Category[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
     private productService: ProductService,
+    private categoriesService: CategoryService,
     private router: Router,
     private route: ActivatedRoute,
     private toastr: ToastrService
@@ -27,11 +31,16 @@ export class ProductEditComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      title: [''],
-      price: [''],
-      description: [''],
-      image: [''],
+      title: '',
+      price: '',
+      description: '',
+      image: '',
+      category_id: '',
     });
+
+    this.categoriesService.all().subscribe(
+      categories => this.categories = categories,
+    );
 
     this.id = this.route.snapshot.params['id'];
     if (this.id) {
