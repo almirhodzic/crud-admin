@@ -22,6 +22,7 @@
                   <th scope="col">#</th>
                   <th scope="col">Bild</th>
                   <th scope="col">Produkt</th>
+                  <th scope="col">an Lager</th>
                   <th scope="col">Preis</th>
                   <th scope="col">&nbsp;</th>
                 </tr>
@@ -29,9 +30,10 @@
               <tbody>
                 <tr *ngFor="let product of products">
                   <td valign="middle" width="10%">{{ product.id }}</td>
-                  <td width="15%"><img [src]="product.image" height="50" /></td>
-                  <td valign="middle" width="40%">{{ product.title }}</td>
-                  <td valign="middle" width="20%">{{ product.price }}</td>
+                  <td width="15%"><img [src]="product.image ? product.image : '../../../../assets/img/sample-product.png'" height="50" /></td>
+                  <td valign="middle" width="30%">{{ product.title }}</td>
+                  <td valign="middle" width="15%">{{ product.instock }}</td>
+                  <td valign="middle" width="15%">{{ product.price }}</td>
                   <td valign="middle" width="10%">
                     <a href="javascript:void(0)" [routerLink]="['/product', product.id, 'edit']"><i class="bi-pencil" style="margin-right:1rem; font-size: 1.25rem; color: cornflowerblue;"></i></a>
                     <a href="javascript:void(0)" (click)="delete(product.id)"><i class="bi-trash" style="font-size: 1.25rem; color: cornflowerblue;"></i></a>

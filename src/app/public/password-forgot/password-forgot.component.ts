@@ -28,7 +28,7 @@ export class PasswordForgotComponent implements OnInit {
   message: string = '';
 
   submit(): void {
-    this.passwordService.requestPasswordReset(this.form.getRawValue().email).subscribe({
+    this.passwordService.requestPassreset(this.form.getRawValue().email).subscribe({
       next: (response) => {
         const message = response.message;
         if (message) {

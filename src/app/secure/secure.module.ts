@@ -48,7 +48,7 @@ import { CategoryEditComponent } from './categories/category-edit/category-edit.
     UploadComponent,
     CategoriesComponent,
     CategoryCreateComponent,
-    CategoryEditComponent
+    CategoryEditComponent,
   ],
   imports: [
     CommonModule,

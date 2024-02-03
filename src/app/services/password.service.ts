@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../interfaces/user';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -14,7 +13,7 @@ export class PasswordService {
     private http: HttpClient,
   ) { }
 
-  requestPasswordReset<T>(email: T): Observable<T> {
+  requestPassreset<T>(email: T): Observable<T> {
     return this.http.get<T>(`${this.endpoint}/request/passreset/${email}`);
   }
 

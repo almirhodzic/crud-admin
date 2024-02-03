@@ -10,7 +10,7 @@ export interface User {
     zipcode: string;
     country: string;
     phone: number;
-    birthday: number;
     message: string;
     role: Role;
+    email_verified_at: Date;
 }

@@ -1,5 +1,5 @@
 <div class="pagetitle">
-    <h1>Neuer Benutzer</h1>
+    <h1>Neuen Benutzer erstellen</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item" ><a href="/">Alle Benutzer</a></li>
@@ -11,54 +11,79 @@
       <div class="col-lg-12">
       <div class="card">
       <div class="card-body">
+
         <h5 class="card-title">Benutzerdaten</h5>
+
+        <div class="alert alert-info d-flex align-items-center" role="alert">
+          <i class="bi bi-info-circle-fill icon-symbol-smaller"></i>
+          <div class="fs-6 mx-2"><small>
+            Der neu erstellte Benutzer erhält einen Aktivierungslink per E-Mail, um sein Konto zu bestätigen!</small>
+          </div>
+        </div>
+
+        <div class="alert alert-danger d-flex align-items-center" *ngIf="errorBlock">
+          <div><i class="bi bi-exclamation-triangle-fill icon-symbol-smaller icon-red"></i></div>
+          <div class="mx-2 text-danger"><small>Bei den Eingaben sind Fehler aufgetaucht!</small></div>
+        </div>
+
         <form class="row g-3" [formGroup]="form" (submit)="submit()">
           <div class="col-12 col-sm-6">
-            <label for="first_name" class="form-label">Vorname*</label>
-            <input formControlName="first_name" type="text" class="form-control" id="first_name">
+            <label for="first_name" class="form-label">Vorname *</label>
+            <input formControlName="first_name" type="text" class="form-control" id="first_name" autocomplete="off">
+            <div *ngIf="f1E" class="input-error">{{f1E}}</div>
           </div>
           <div class="col-12 col-sm-6">
-            <label for="last_name" class="form-label">Nachname*</label>
-            <input formControlName="last_name" type="text" class="form-control" id="last_name">
+            <label for="last_name" class="form-label">Nachname *</label>
+            <input formControlName="last_name" type="text" class="form-control" id="last_name" autocomplete="off">
+            <div *ngIf="f2E" class="input-error">{{f2E}}</div>
           </div>
-          <div class="col-12 col-sm-6">
-            <label for="birthday" class="form-label">Geburtstag</label>
-            <input formControlName="birthday" type="date" class="form-control" id="birthday">
-          </div>
-          <div class="col-12 col-sm-6">
-            <label for="email" class="form-label">E-Mail Adresse*</label>
-            <input formControlName="email" type="email" class="form-control" id="email">
+          <div class="col-12">
+            <label for="email" class="form-label">E-Mail Adresse *</label>
+            <input formControlName="email" type="email" class="form-control" id="email" autocomplete="off">
+            <div *ngIf="f4E" class="input-error">{{f4E}}</div>
           </div>
           <div class="col-12">
             <label for="phone" class="form-label">Telefon</label>
-            <input formControlName="phone" type="text" class="form-control" id="phone">
+            <input formControlName="phone" type="text" class="form-control" id="phone" autocomplete="off">
+            <div *ngIf="f5E" class="input-error">{{f5E}}</div>
           </div>
           <div class="col-12">
-            <label for="address" class="form-label">Strasse & Nr.</label>
-            <input type="text" class="form-control" id="address">
+            <label for="address" class="form-label">Strasse & Nr. *</label>
+            <input type="text" formControlName="address" class="form-control" id="address" autocomplete="off">
+            <div *ngIf="f6E" class="input-error">{{f6E}}</div>
           </div>
           <div class="col-12 col-sm-3">
-            <label for="country" class="form-label">Land</label>
-            <input formControlName="country" type="text" class="form-control" id="country">
+            <label for="country" class="form-label">Land *</label>
+            <select [(ngModel)]='countryDefault' name="country" formControlName="country" id="country" class="form-control" autocomplete="off">
+              <option value="CH">Schweiz</option>
+              <option value="D">Deutschland</option>
+              <option value="A">Österreich</option>
+          </select>
           </div>
           <div class="col-12 col-sm-3">
-            <label for="zipcode" class="form-label">PLZ</label>
-            <input formControlName="zipcode" type="text" class="form-control" id="zipcode">
+            <label for="zipcode" class="form-label">PLZ *</label>
+            <input formControlName="zipcode" type="text" class="form-control" id="zipcode" autocomplete="off">
+            <div *ngIf="f8E" class="input-error">{{f8E}}</div>
           </div>
           <div class="col-12 col-sm-6">
-            <label for="city" class="form-label">Ort</label>
-            <input formControlName="city" type="text" class="form-control" id="city">
+            <label for="city" class="form-label">Ort *</label>
+            <input formControlName="city" type="text" class="form-control" id="city" autocomplete="off">
+            <div *ngIf="f9E" class="input-error">{{f9E}}</div>
           </div>
           <div class="col-12">
-            <label for="city" class="form-label">Rolle*</label>
-            <select [(ngModel)]='roleDefault' name="role_id" formControlName="role_id" id="role_id" class="form-control" >
+            <label for="city" class="form-label">Rolle *</label>
+            <select [(ngModel)]='roleDefault' name="role_id" formControlName="role_id" id="role_id" class="form-control">
                 <option *ngFor="let role of roles" [ngValue]="role.id">{{ role.name }}</option>
             </select>
+          </div>
+          <div class="col-12 mb-4">
+            <small class="label-small">Felder mit Stern ( * ) sind Pflichtfelder</small>
           </div>
           <div class="mt-4 d-flex justify-content-between">
             <div><button type="submit" class="btn btn-primary">Speichern</button></div>
             <div><button onclick="history.back()" type="button" class="btn btn-light">Abbrechen</button></div>
           </div>
+          
         </form>
       </div>
       </div>

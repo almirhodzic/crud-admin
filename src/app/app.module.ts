@@ -15,7 +15,7 @@ import { LoadingInterceptor } from './interceptors/loading.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
-    SpinnerComponent
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,

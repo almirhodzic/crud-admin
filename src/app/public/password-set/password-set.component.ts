@@ -19,6 +19,7 @@ export class PasswordSetComponent implements OnInit {
   formTitle = 'Passwort zurücksetzen';
   formMessage = 'Deine Passwort-Zurücksetzen Anfrage wird überprüft...';
   formLoading = true;
+  usergreeting: string = '';
   
   constructor(
     private route: ActivatedRoute,
@@ -39,7 +40,6 @@ export class PasswordSetComponent implements OnInit {
         this.token = params['token'];
 
         if (this.token.length === 64) {
-
           this.verification(this.token);
           this.form.patchValue({token: this.token});
 
@@ -57,9 +57,11 @@ export class PasswordSetComponent implements OnInit {
   verification(token: string) {
     this.passwordService.validatePasswordResetToken(this.token)
     .subscribe({
-      next: (v) => { 
+      next: (v: any) => { 
+        console.log(v);
+        this.usergreeting = 'Hallo ' + v.username + '!';
         this.formVisible = true;
-        this.formMessage = 'Bitte gib dein neues Passwort ein. Beachte die Passwortkriterien!';
+        this.formMessage = 'Bitte gib dein neues Passwort, unter Berücksichtigung der Passwortkriterien, ein.';
         this.formLoading = false;
       },
       error: (e) => {

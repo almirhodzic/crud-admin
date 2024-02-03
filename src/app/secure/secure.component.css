@@ -762,7 +762,7 @@
 
   .label-small {
     font-size: 0.75rem;
-    color: #7a7a8b;
+    color: #97979d;
   }
   
   .error-bag {
@@ -784,9 +784,13 @@
   .icon-symbol {
     font-size: 30px !important;
   }
+
+  .icon-symbol-smaller {
+    font-size: 24px !important;
+  }
   
   .icon-green {
-    color: #1f840b;
+    color: #28b30c;
   }
   
   .icon-red {
@@ -799,4 +803,20 @@
   
   .icon-gray {
     color: #7a7a8b;
+  }
+
+  .form-check-label {
+    padding-left: 8px;
+  }
+
+  label {
+    color: #97979d;
+  }
+
+  .label-fake {
+    color: #97979d;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    box-sizing: border-box;
+    cursor: default;
   }

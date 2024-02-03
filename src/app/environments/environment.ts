@@ -1,6 +1,7 @@
 export const environment = {
     production: false,
     api: 'http://localhost:8000/api',
+    //api: 'https://api.mediafile.ch/api',
     stripe_key: 'pk_test_pHxuxSVelydymsQYmK0RO6TE'
   }
 

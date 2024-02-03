@@ -20,9 +20,21 @@ export class CategoryCreateComponent implements OnInit {
     private toastr: ToastrService
   ) { }
 
+  f1E: string = '';
+
+  handleErrors(errors: any) {
+    this.clearErrorFields();
+    if (errors.name && errors.name.length > 0) { this.f1E = errors.name[0]; }
+  }
+
+  clearErrorFields() {
+    this.f1E = '';
+  }
+
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       name: '',
+      order: '',
     });
   }
 
@@ -34,13 +46,10 @@ export class CategoryCreateComponent implements OnInit {
           this.toastr.success('Neue Kategorie aufgenommen!', '');
         },
         error: (err) => { 
-          this.toastr.error('Fehler beim Speichern', '');
+          this.handleErrors(err.error.errors);
         },
         complete: () => { }
       }
     );
   }
-
-  
-
 }

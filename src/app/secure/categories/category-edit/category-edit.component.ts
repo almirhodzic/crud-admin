@@ -23,6 +23,20 @@ export class CategoryEditComponent implements OnInit {
     private toastr: ToastrService
   ) { }
 
+  f1E: string = '';
+  f2E: string = '';
+
+  handleErrors(errors: any) {
+    this.clearErrorFields();
+    if (errors.name && errors.name.length > 0) { this.f1E = errors.name[0]; }
+    if (errors.order && errors.order.length > 0) { this.f2E = errors.order[0]; }
+  }
+
+  clearErrorFields() {
+    this.f1E = '';
+    this.f2E = '';
+  }
+
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       name: '',
@@ -47,7 +61,7 @@ export class CategoryEditComponent implements OnInit {
           this.toastr.success('Kategorie gespeichert!', '');
         },
         error: (err) => { 
-          this.toastr.error('Fehler beim Speichern', '');
+          this.handleErrors(err.error.errors);
         },
         complete: () => { }
       }

@@ -1,5 +1,5 @@
 <div class="pagetitle">
-    <h1>Neues Produkt</h1>
+    <h1>Produkt bearbeiten</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item" ><a href="javascript:void(0)" routerLink="/products">Alle Produkte</a></li>
@@ -11,50 +11,38 @@
       <div class="col-lg-12">
       <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Produktdaten</h5>
+        <h5 class="card-title">Produktdaten (Id: {{productid}})</h5>
         <form class="row g-3" [formGroup]="form" (submit)="submit()">
           <div class="col-12">
-            <label for="category_id" class="form-label">Kategorie wählen *</label>
+            <label for="city" class="form-label">Kategorie *</label>
             <select name="category_id" formControlName="category_id" id="category_id" class="form-control" >
-                <option *ngFor="let category of categories" [ngValue]="category.id">{{ category.name }}</option>
+                <option *ngFor="let category of categories" [ngValue]="category.id" selected="{{category.id}}">{{ category.name }}</option>
             </select>
-            <div *ngIf="f1E" class="input-error">{{f1E}}</div>
           </div>
           <div class="col-12">
-            <label for="title" class="form-label">Titel *</label>
+            <label for="title" class="form-label">Titel</label>
             <input formControlName="title" type="text" class="form-control" id="title">
-            <div *ngIf="f2E" class="input-error">{{f2E}}</div>
           </div>
           <div class="col-12">
-            <label for="description" class="form-label">Beschreibung *</label>
+            <label for="description" class="form-label">Beschreibung</label>
             <textarea formControlName="description" class="form-control" id="description" rows="4"></textarea>
-            <div *ngIf="f3E" class="input-error">{{f3E}}</div>
           </div>
           <div class="col-12">
-            <label for="price" class="form-label">Preis *</label>
-            <input formControlName="price" type="number" min="1" class="form-control" id="price">
-            <div *ngIf="f4E" class="input-error">{{f4E}}</div>
+            <label for="price" class="form-label">Preis</label>
+            <input formControlName="price" type="text" class="form-control" id="price">
           </div>
-          <div class="col-12">
-            <label for="image" class="form-label">Produktfoto *</label>
+          <div class="col-12 mb-4">
+            <label for="image" class="form-label">Produktfoto</label>
             <div class="input-group">
               <input formControlName="image" class="form-control" name="image">
               <app-upload (uploaded)="form.patchValue({'image': $event})"></app-upload>
             </div>
-            <div *ngIf="f5E" class="input-error">{{f5E}}</div>
-          </div>
-          <div class="col-12 mb-4">
-            <label for="instock" class="form-label">Lagerbestand *</label>
-            <input formControlName="instock" type="number" class="form-control" id="instock">
-            <div *ngIf="f6E" class="input-error">{{f6E}}</div>
-            
           </div>
           <div class="mt-4 d-flex justify-content-between">
             <div><button type="submit" class="btn btn-primary">Speichern</button></div>
             <div><button onclick="history.back()" type="button" class="btn btn-light">Abbrechen</button></div>
           </div>
         </form>
-
       </div>
       </div>
       </div>

@@ -14,8 +14,10 @@
         <h5 class="card-title">Kategiriedaten</h5>
         <form class="row g-3" [formGroup]="form" (submit)="submit()">
           <div class="col-12">
-            <label for="title" class="form-label">Titel</label>
+            <label for="title" class="form-label">Kategoriename *</label>
             <input formControlName="name" type="text" class="form-control" id="title">
+            <div *ngIf="f1E" class="input-error">{{f1E}}</div>
+            <input formControlName="order" type="hidden">
           </div>
           <div class="mt-4 d-flex justify-content-between">
             <div><button type="submit" class="btn btn-primary">Speichern</button></div>

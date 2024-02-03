@@ -134,7 +134,7 @@ pre {
 
 .label-small {
   font-size: 0.75rem;
-  color: #7a7a8b;
+  color: #97979d;
 }
 
 .error-bag {
@@ -160,4 +160,8 @@ pre {
   outline: 0;
   opacity: 0.75;
   background-color: white;
+}
+
+label {
+  color: #97979d;
 }

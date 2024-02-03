@@ -14,6 +14,8 @@ export class ProductsComponent implements OnInit {
   page = 1;
   lastPage!: number;
   totalProducts!: number;
+  productimage: string = '';
+  count: number = 1;
   
   constructor(
     private productService: ProductService,
