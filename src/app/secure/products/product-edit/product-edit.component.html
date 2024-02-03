@@ -43,7 +43,7 @@
                 <div class="col-12 mb-3">
                   <label for="instock" class="form-label">Lagerbestand *</label>
                   <input formControlName="instock" type="text" class="form-control" id="instock">
-                  <div *ngIf="f5E" class="input-error">{{f5E}}</div>
+                  <div *ngIf="f6E" class="input-error">{{f6E}}</div>
                 </div>
               </div>
               
@@ -61,7 +61,6 @@
                   <div class="input-group">
                     <input formControlName="image" class="form-control" name="image">
                     <app-upload (uploaded)="form.patchValue({'image': $event})"></app-upload>
-                    <div *ngIf="f6E" class="input-error">{{f6E}}</div>
                   </div>
                   <div class="mt-4 d-flex justify-content-between">
                     <div><button type="submit" class="btn btn-primary">Speichern</button></div>
