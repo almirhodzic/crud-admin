@@ -17,6 +17,25 @@
           <div class="row">
             <form class="row" [formGroup]="form" (submit)="submit()">
 
+              <div class="col-lg-6 col-12 rounded" style="padding-left: 0;">
+                <div class="col-12 mb-4">
+                  <label for="image" class="form-label">Produktfoto</label>
+                  <img class="p-4 object-fit-contain border rounded" height="60%" width="100%" [src]="productimage ? productimage : '../../../../assets/img/sample-product.png'">
+                </div>
+                <div class="col-12">
+                  <div class="input-group">
+                    <input formControlName="image" class="form-control" name="image">
+                    <app-upload (uploaded)="form.patchValue({'image': $event})"></app-upload>
+                    <div *ngIf="f6E" class="input-error">{{f6E}}</div>
+                  </div>
+                </div>
+                <div class="col-12 mt-4">
+                  <div>Produkt-Id: {{productid}}</div>
+                  <div>Aufgenommen: {{productcreated}}</div>
+                  <div>Aktualisiert: {{productupdated}}</div>
+                </div>
+              </div>
+
               <div class="col-lg-6 col-12">
                 <div class="col-12 mb-3">
                   <label for="city" class="form-label">Kategorie *</label>
@@ -46,29 +65,14 @@
                   <div *ngIf="f5E" class="input-error">{{f5E}}</div>
                 </div>
               </div>
-              
-              <div class="col-lg-6 col-12 rounded">
-                <div class="col-12 mb-4">
-                  <div>Produkt-Id: {{productid}}</div>
-                  <div>Aufgenommen: {{productcreated}}</div>
-                  <div>Aktualisiert: {{productupdated}}</div>
-                </div>
-                <div class="col-12 mb-4">
-                  <label for="image" class="form-label">Produktfoto</label>
-                  <img class="p-4 col-12 object-fit-contain border rounded" height="45%" width="100%" [src]="productimage ? productimage : '../../../../assets/img/sample-product.png'">
-                </div>
-                <div class="col-12">
-                  <div class="input-group">
-                    <input formControlName="image" class="form-control" name="image">
-                    <app-upload (uploaded)="form.patchValue({'image': $event})"></app-upload>
-                    <div *ngIf="f6E" class="input-error">{{f6E}}</div>
-                  </div>
-                  <div class="mt-4 d-flex justify-content-between">
-                    <div><button type="submit" class="btn btn-primary">Speichern</button></div>
-                    <div><button onclick="history.back()" type="button" class="btn btn-light">Abbrechen</button></div>
-                  </div>
+
+              <div class="col-12" style="padding-left: 0;">
+                <div class="mt-4 d-flex justify-content-between">
+                  <div><button type="submit" class="btn btn-primary">Speichern</button></div>
+                  <div><button onclick="history.back()" type="button" class="btn btn-light">Abbrechen</button></div>
                 </div>
               </div>
+
             </form>
           </div>
         </div>
