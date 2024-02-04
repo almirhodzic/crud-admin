@@ -1,59 +1,58 @@
 <!-- ======= Sidebar ======= -->
 <aside id="sidebar" class="sidebar">
-  <!-- <aside id="sidebar" class="sidebar"> -->
   <ul class="sidebar-nav" id="sidebar-nav">
 
     <li class="nav-item">
-      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/dashboard">
+      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/dashboard" (click)="closeSidebar()">
         <i class="bi bi-grid"></i>
         <span>Dashboard</span>
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/categories">
+      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/categories" (click)="closeSidebar()">
         <i class="bi bi-list-ul"></i>
         <span>Kategorien</span>
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/products">
+      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/products" (click)="closeSidebar()">
         <i class="bi bi-shop"></i>
         <span>Produkte</span>
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/orders">
+      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/orders" (click)="closeSidebar()">
         <i class="bi bi-bag-check"></i>
         <span>Bestellungen</span>
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/profile">
+      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/profile" (click)="closeSidebar()">
         <i class="bi bi-person"></i>
         <span>Mein Profil</span>
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/password">
+      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/password" (click)="closeSidebar()">
         <i class="bi bi-key"></i>
         <span>Passwort</span>
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/roles">
+      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/roles" (click)="closeSidebar()">
         <i class="bi bi-gear"></i>
         <span>Rollen</span>
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/users">
+      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/users" (click)="closeSidebar()">
         <i class="bi bi-people"></i>
         <span>Alle Benutzer</span>
       </a>

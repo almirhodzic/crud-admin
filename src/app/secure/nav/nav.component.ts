@@ -11,13 +11,16 @@ import { appInfo } from '../../environments/environment.dev';
 
 export class NavComponent implements OnInit {
 
-  status: boolean = false;
   appInfo = appInfo;
   
-  @Output() customEvent: EventEmitter<any> = new EventEmitter();
+  @Output() functionTriggered = new EventEmitter<void>();
 
-  triggerEvent() {
-    this.customEvent.emit();
+  triggerFunction() {
+    this.functionTriggered.emit();
+  }
+
+  triggerSidebar() {
+    this.functionTriggered.emit();
   }
   
   constructor(

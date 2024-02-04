@@ -28,15 +28,22 @@ background-color: #fff;
 @media (max-width: 1199px) {
 .sidebar {
     left: -300px;
-}
+  }
+.toggle-sidebar .sidebar {
+    left: 0;
+  }
 }
 
-.sidebar-toogle-0 {
-left: 0px !important;
-}
-.sidebar-toogle-330 {
-left: -300px !important;
-}
+@media (min-width: 1200px) {
+    .toggle-sidebar #main,
+    .toggle-sidebar #footer {
+      margin-left: 0;
+    }
+  
+    .toggle-sidebar .sidebar {
+      left: -300px;
+    }
+  }
 
 
 .sidebar::-webkit-scrollbar {

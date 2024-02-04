@@ -16,12 +16,18 @@ import { ChangeDetectorRef } from '@angular/core';
 export class MenuComponent implements OnInit {
 
   user?: User;
-  status: boolean = true;
 
-  public visible() {
-   this.status = !this.status;
-   this.cdRef.detectChanges();
-   return alert(this.status);
+  sidebarLeft = ''; // Anfangszustand
+  sidebarOpened = false;
+
+  reactToEvent() {
+    this.sidebarOpened = !this.sidebarOpened;
+    this.sidebarLeft = this.sidebarOpened ? '0px' : '-300px';
+  }
+
+  closeSidebar() {
+    this.sidebarLeft = '-300px'; // Anfangszustand
+    this.sidebarOpened = false;
   }
 
   constructor(

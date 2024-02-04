@@ -1,9 +1,9 @@
-<app-nav></app-nav>
+<app-nav #appNav (functionTriggered)="appMenu.reactToEvent()"></app-nav>
 
-<app-menu></app-menu>
+<app-menu #appMenu></app-menu>
 
-<main id="main" class="main">
+<main id="main" class="main" #appMain>
   <router-outlet></router-outlet>
 </main>
 
-<app-footer></app-footer>
+<app-footer #appFooter></app-footer>
