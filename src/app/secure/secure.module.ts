@@ -57,6 +57,8 @@ import { CategoryEditComponent } from './categories/category-edit/category-edit.
     ReactiveFormsModule,
     ToastrModule.forRoot(),
   ],
-  providers: [SharedService],
+  providers: [
+    SharedService
+  ],
 })
 export class SecureModule { }

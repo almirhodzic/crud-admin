@@ -26,6 +26,8 @@ import { PasswordResetedComponent } from './public/password-reseted/password-res
 import { CategoriesComponent } from './secure/categories/categories.component';
 import { CategoryCreateComponent } from './secure/categories/category-create/category-create.component';
 import { CategoryEditComponent } from './secure/categories/category-edit/category-edit.component';
+import { CanActivate } from './auth.guard';
+import { RestrictedComponent } from './secure/restricted/restricted.component';
 
 const routes: Routes = [
   {
@@ -33,21 +35,22 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       { path: 'profile', component: ProfileComponent },
-      { path: 'password', component: PasswordComponent },
+      { path: 'password', component: PasswordComponent},
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'users', component: UsersComponent },
-      { path: 'user-create', component: UserCreateComponent },
-      { path: 'user/:id/edit', component: UserEditComponent },
-      { path: 'roles', component: RolesComponent },
-      { path: 'roles-create', component: RoleCreateComponent },
-      { path: 'roles/:id/edit', component: RoleEditComponent },
-      { path: 'products', component: ProductsComponent },
-      { path: 'product/:id/edit', component: ProductEditComponent },
-      { path: 'product-create', component: ProductCreateComponent },
-      { path: 'orders', component: OrdersComponent },
-      { path: 'categories', component: CategoriesComponent },
-      { path: 'category-create', component: CategoryCreateComponent },
-      { path: 'category/:id/edit', component: CategoryEditComponent },
+      { path: 'users', component: UsersComponent, canActivate: [CanActivate] },
+      { path: 'user-create', component: UserCreateComponent, canActivate: [CanActivate] },
+      { path: 'user/edit/:id', component: UserEditComponent, canActivate: [CanActivate] },
+      { path: 'roles', component: RolesComponent, canActivate: [CanActivate] },
+      { path: 'roles-create', component: RoleCreateComponent, canActivate: [CanActivate] },
+      { path: 'roles/edit/:id', component: RoleEditComponent, canActivate: [CanActivate] },
+      { path: 'products', component: ProductsComponent, canActivate: [CanActivate] },
+      { path: 'product/edit/:id', component: ProductEditComponent, canActivate: [CanActivate] },
+      { path: 'product-create', component: ProductCreateComponent, canActivate: [CanActivate] },
+      { path: 'orders', component: OrdersComponent, canActivate: [CanActivate] },
+      { path: 'categories', component: CategoriesComponent, canActivate: [CanActivate] },
+      { path: 'category-create', component: CategoryCreateComponent, canActivate: [CanActivate] },
+      { path: 'category/:id/edit', component: CategoryEditComponent, canActivate: [CanActivate] },
+      { path: 'restricted', component: RestrictedComponent },
     ]
   },
   {
@@ -64,7 +67,7 @@ const routes: Routes = [
     ]
   },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({

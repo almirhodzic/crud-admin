@@ -30,7 +30,7 @@
                 <td scope="row">{{ role.id }}</td>
                 <td>{{ role.name }}</td>
                 <td>
-                  <a href="javascript:void(0)" [routerLink]="['/roles', role.id, 'edit']"><i class="bi-pencil" style="margin-right:1rem; font-size: 1.25rem; color: cornflowerblue;"></i></a>
+                  <a href="javascript:void(0)" [routerLink]="['/roles', 'edit', role.id,]"><i class="bi-pencil" style="margin-right:1rem; font-size: 1.25rem; color: cornflowerblue;"></i></a>
                   <a href="javascript:void(0)" (click)="delete(role.id)"><i class="bi-trash" style="font-size: 1.25rem; color: cornflowerblue;"></i></a>
                 </td>
               </tr>
