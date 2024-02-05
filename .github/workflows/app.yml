@@ -2,7 +2,7 @@ on: push
 name: 🚀 Deploy minicart.ch
 jobs:
   web-deploy:
-    name: 🎉 Deploy minicart.ch
+    name: 🎉 Deploy minicart.ch 
     runs-on: ubuntu-latest
     steps:
     - name: 🚚 Get latest code
