@@ -20,6 +20,7 @@ export class UserEditComponent implements OnInit {
   emailchecked: string = 'E-Mail-Adresse nicht bestätigt';
   emailcheckedIcon: string = 'bi-question-circle icon-symbol icon-red';
   useremail: string = '';
+  userrole: number = 4;
   countryDefault = 'CH';
   errorBlock: boolean = false;
 
@@ -85,6 +86,7 @@ export class UserEditComponent implements OnInit {
           this.emailcheckedIcon = 'bi-check2-circle icon-symbol icon-green';
         }
         this.useremail = user.email;
+        this.userrole = user.role.id;
         this.form.patchValue({
           first_name: user.first_name,
           last_name: user.last_name,
