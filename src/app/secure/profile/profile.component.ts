@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { AuthService } from './../../services/auth.service';
 import { Auth } from './../../classes/auth';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -22,7 +23,8 @@ export class ProfileComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) { }
 
   f1E: string = '';
