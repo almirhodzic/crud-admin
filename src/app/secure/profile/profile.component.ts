@@ -19,6 +19,7 @@ export class ProfileComponent implements OnInit {
   emailcheckedIcon: string = 'bi-question-circle icon-symbol icon-red';
   useremail: string = '';
   errorBlock: boolean = false;
+  issue: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,

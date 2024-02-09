@@ -58,7 +58,6 @@ export class PasswordSetComponent implements OnInit {
     this.passwordService.validatePasswordResetToken(this.token)
     .subscribe({
       next: (v: any) => { 
-        console.log(v);
         this.usergreeting = 'Hallo ' + v.username + '!';
         this.formVisible = true;
         this.formMessage = 'Bitte gib dein neues Passwort, unter Berücksichtigung der Passwortkriterien, ein.';

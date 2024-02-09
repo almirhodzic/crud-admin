@@ -16,6 +16,7 @@ import { ChangeDetectorRef } from '@angular/core';
 export class MenuComponent implements OnInit {
 
   user?: User;
+  userrole: number = 0;
 
   sidebarLeft = ''; // Anfangszustand
   sidebarOpened = false;
@@ -37,7 +38,10 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
     Auth.userEmitter.subscribe(
-      user => this.user = user
+      (user: any) => {
+        this.user = user;
+        this.userrole = user?.role.id;
+      }
     );
   }
 

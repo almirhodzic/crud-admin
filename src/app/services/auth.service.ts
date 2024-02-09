@@ -3,16 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment.dev';
 import { Observable } from 'rxjs';
 import { User } from '../interfaces/user';
-import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  isLogged: Boolean = false;
-  userRole: number = 1;
-  
   constructor(protected http: HttpClient) {}
 
   login<T>(data:T): Observable<T> {
@@ -24,8 +20,7 @@ export class AuthService {
   }
 
   user(): Observable<User> {
-    return this.http.get<User>(`${environment.api}/user`).pipe(
-      tap(user => this.userRole = user.role.id));
+    return this.http.get<User>(`${environment.api}/user`);
   }
 
   logout(): Observable<void> {
@@ -38,13 +33,5 @@ export class AuthService {
 
   updatePassword<T>(data:T): Observable<User> {
     return this.http.put<User>(`${environment.api}/users/password`, data);
-  }
-
-  IsAuthenticated(){
-    return this.isLogged;
-  }
-
-  isRole(){
-    return this.userRole;
   }
 }

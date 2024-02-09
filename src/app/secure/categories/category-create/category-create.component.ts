@@ -46,7 +46,6 @@ export class CategoryCreateComponent implements OnInit {
           this.toastr.success('Neue Kategorie aufgenommen!', '');
         },
         error: (err) => { 
-          console.log(err);
           this.handleErrors(err.error.errors);
         },
         complete: () => { }

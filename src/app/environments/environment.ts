@@ -1,12 +1,10 @@
 export const environment = {
-    production: false,
-    api: 'http://localhost:8000/api',
-    //api: 'https://api.mediafile.ch/api',
+    api: 'https://api.minicart.ch/api',
     stripe_key: 'pk_test_pHxuxSVelydymsQYmK0RO6TE'
   }
 
 export const appInfo = {
-    appName : 'MiniCart',
+    appName: 'MiniCart',
     autor: 'MediaCode',
     version: '1.0.0',
 }

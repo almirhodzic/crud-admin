@@ -19,16 +19,16 @@
           <table class="table">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">E-Mail</th>
-                <th scope="col">Rolle</th>
-                <th scope="col">&nbsp;</th>
+                <th scope="col" width="10%">#</th>
+                <th scope="col" width="30%">Name</th>
+                <th scope="col" width="35%">E-Mail</th>
+                <th scope="col" width="15%">Rolle</th>
+                <th scope="col" width="10%">&nbsp;</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let user of users">
-                <th scope="row">{{user.id}}</th>
+                <td>{{user.id}}</td>
                 <td>{{user.first_name}} {{user.last_name}}</td>
                 <td>{{user.email}}</td>
                 <td>{{user.role.name}}</td>

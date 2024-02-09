@@ -19,21 +19,21 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Kunde</th>
-                  <th scope="col">E-Mail</th>
-                  <th scope="col">Total</th>
-                  <th scope="col">&nbsp;</th>
+                  <th scope="col" width="10%">#</th>
+                  <th scope="col" width="30%">Kunde</th>
+                  <th scope="col" width="35%">E-Mail</th>
+                  <th scope="col" width="15%">Total</th>
+                  <th scope="col" width="10%">&nbsp;</th>
                 </tr>
               </thead>
               <tbody>
                 <ng-container *ngFor="let order of orders">
                 <tr>
-                  <td valign="middle" width="10%">{{ order.id }}</td>
-                  <td width="25%">{{ order.first_name }} {{ order.last_name }}</td>
-                  <td valign="middle" width="30%">{{ order.email }}</td>
-                  <td valign="middle" width="13%">{{ formatPrice(order.total) }}</td>
-                  <td valign="middle" width="7%">
+                  <td valign="middle">{{ order.id }}</td>
+                  <td>{{ order.first_name }} {{ order.last_name }}</td>
+                  <td valign="middle">{{ order.email }}</td>
+                  <td valign="middle">{{ formatPrice(order.total) }}</td>
+                  <td valign="middle">
                     <a href="javascript:void(0)" (click)="select(order.id)"><i class="bi-eye" style="font-size: 1.25rem; color: cornflowerblue;"></i></a>
                   </td>
                 </tr>

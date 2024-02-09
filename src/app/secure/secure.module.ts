@@ -25,6 +25,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryCreateComponent } from './categories/category-create/category-create.component';
 import { CategoryEditComponent } from './categories/category-edit/category-edit.component';
+import { OnlyAdminDirective } from '../directives/only-admin.directive';
+import { OnlyClientsDirective } from '../directives/only-clients.directive';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { CategoryEditComponent } from './categories/category-edit/category-edit.
     CategoriesComponent,
     CategoryCreateComponent,
     CategoryEditComponent,
+    OnlyAdminDirective,
+    OnlyClientsDirective
   ],
   imports: [
     CommonModule,

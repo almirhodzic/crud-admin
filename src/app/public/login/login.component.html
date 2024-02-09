@@ -3,21 +3,22 @@
   <p class="text-center">Bitte gib deine Benutzerdaten ein, um dich anzumelden.</p>
 </div>
 
-<div *ngIf="loginErrorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
-  <strong>Zugriff verweigert:</strong> keine gültige Benutzerdaten!
+<div class="alert alert-danger d-flex align-items-center" *ngIf="issue" role="alert">
+  <div><i class="bi bi-exclamation-triangle-fill icon-symbol-smaller icon-red"></i></div>
+  <div class="mx-2 text-danger"><small>{{loginErrorMessage}}</small></div>
 </div>
 
 <form class="row g-3 needs-validation" [formGroup]="form" (submit)="submit()">
   <div class="col-12">
-    <label for="useremail" class="form-label">E-Mail-Adresse *</label>
-    <input formControlName="email" type="email" name="useremail" class="form-control" id="useremail" required>
-    <div class="invalid-feedback">Bitte deine E-mail Adresse eingeben!</div>
+    <label for="emaillogin" class="form-label">E-Mail-Adresse *</label>
+    <input formControlName="email" type="email" class="form-control" id="emaillogin">
+    <div *ngIf="f1E" class="input-error">{{f1E}}</div>
   </div>
 
   <div class="col-12">
     <label for="password" class="form-label">Passwort *</label>
-    <input formControlName="password" type="password" name="password" class="form-control" id="password" required>
-    <div class="invalid-feedback">Bitte dein passwort eingeben!</div>
+    <input formControlName="password" type="password" class="form-control" id="password">
+    <div *ngIf="f2P" class="input-error">{{f2P}}</div>
   </div>
 
   <div class="col-12">
@@ -29,6 +30,7 @@
   </div>
   
   <div class="col-12 text-center">
-    <p class="mb-0">Noch kein Konto? <a class="link-underline" href="javascript:void(0)" routerLink="/register">Jetzt erstellen</a></p>
+    <p class="mb-0">Du hast noch kein {{applicationName}}-Konto?<br>
+      <a class="link-underline" href="javascript:void(0)" routerLink="/register">Jetzt erstellen</a></p>
   </div>
 </form>

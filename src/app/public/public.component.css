@@ -165,3 +165,8 @@ pre {
 label {
   color: #97979d;
 }
+
+.credential-list {
+  padding: 0;
+  margin-left: 12px;
+}

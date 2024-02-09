@@ -10,20 +10,34 @@
     </li>
 
     <li class="nav-item">
+      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/shop" (click)="closeSidebar()">
+        <i class="bi bi-shop-window"></i>
+        <span>Shop</span>
+      </a>
+    </li>
+
+    <li class="nav-item" *appOnlyClients="userrole">
+      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/myorders" (click)="closeSidebar()">
+        <i class="bi bi-list-ul"></i>
+        <span>Meine Bestellungen</span>
+      </a>
+    </li>
+
+    <li class="nav-item" *appOnlyAdmin="userrole">
       <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/categories" (click)="closeSidebar()">
         <i class="bi bi-list-ul"></i>
         <span>Kategorien</span>
       </a>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item" *appOnlyAdmin="userrole">
       <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/products" (click)="closeSidebar()">
         <i class="bi bi-shop"></i>
         <span>Produkte</span>
       </a>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item" *appOnlyAdmin="userrole">
       <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/orders" (click)="closeSidebar()">
         <i class="bi bi-bag-check"></i>
         <span>Bestellungen</span>
@@ -44,14 +58,14 @@
       </a>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item" *appOnlyAdmin="userrole">
       <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/roles" (click)="closeSidebar()">
         <i class="bi bi-gear"></i>
         <span>Rollen</span>
       </a>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item" *appOnlyAdmin="userrole">
       <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/users" (click)="closeSidebar()">
         <i class="bi bi-people"></i>
         <span>Alle Benutzer</span>

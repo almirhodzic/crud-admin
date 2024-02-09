@@ -19,20 +19,20 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th scope="col">Id</th>
-                  <th scope="col">Kategoriename</th>
-                  <th scope="col">Slug</th>
-                  <th scope="col">Reihenfolge</th>
-                  <th scope="col">&nbsp;</th>
+                  <th scope="col" width="10%">Id</th>
+                  <th scope="col" width="30%">Kategoriename</th>
+                  <th scope="col" width="35%">Slug</th>
+                  <th scope="col" width="15%">Reihenfolge</th>
+                  <th scope="col" width="10%">&nbsp;</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let category of categories">
-                  <td valign="middle" width="10%">{{category.id}}</td>
-                  <td valign="middle" width="30%">{{category.name}}</td>
-                  <td valign="middle" width="30%">/{{category.slug}}</td>
-                  <td valign="middle" width="20%">{{category.order}}</td>
-                  <td valign="middle" width="10%">
+                  <td>{{category.id}}</td>
+                  <td>{{category.name}}</td>
+                  <td>/{{category.slug}}</td>
+                  <td>{{category.order}}</td>
+                  <td valign="middle">
                     <a href="javascript:void(0)" [routerLink]="['/category', category.id, 'edit']"><i class="bi-pencil" style="margin-right:1rem; font-size: 1.25rem; color: cornflowerblue;"></i></a>
                   <a href="javascript:void(0)"  (click)="delete(category.id)"><i class="bi-trash" style="font-size: 1.25rem; color: cornflowerblue;"></i></a>
                   </td>
