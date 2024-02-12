@@ -27,6 +27,9 @@ import { CategoryCreateComponent } from './categories/category-create/category-c
 import { CategoryEditComponent } from './categories/category-edit/category-edit.component';
 import { OnlyAdminDirective } from '../directives/only-admin.directive';
 import { OnlyClientsDirective } from '../directives/only-clients.directive';
+import { RestrictedComponent } from './restricted/restricted.component';
+import { BreadcrumbsComponent } from '../components/breadcrumbs/breadcrumbs.component';
+import { BreadcrumbItemComponent } from '../components/breadcrumbs/breadcrumb-item/breadcrumb-item.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,10 @@ import { OnlyClientsDirective } from '../directives/only-clients.directive';
     CategoryCreateComponent,
     CategoryEditComponent,
     OnlyAdminDirective,
-    OnlyClientsDirective
+    OnlyClientsDirective,
+    BreadcrumbsComponent,
+    BreadcrumbItemComponent,
+    RestrictedComponent
   ],
   imports: [
     CommonModule,

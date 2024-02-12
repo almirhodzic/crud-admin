@@ -1,10 +1,8 @@
 <div class="pagetitle">
     <h1>Kategorie bearbeiten</h1>
-    <nav>
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item" ><a href="javascript:void(0)" routerLink="/categories">Alle Kategorien</a></li>
-      </ol>
-    </nav>
+    <app-breadcrumbs>
+      <app-breadcrumb-item [link]="'/categories'" [title]="'Alle Kategorien'"></app-breadcrumb-item>
+    </app-breadcrumbs>
   </div>
   <section class="section">
     <div class="row">

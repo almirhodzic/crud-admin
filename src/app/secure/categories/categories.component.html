@@ -2,11 +2,9 @@
     <div class="d-flex justify-content-between">
       <div>
         <h1>Kategorien ({{totalCategories}})</h1>
-        <nav>
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a routerLink="/dashboard">Dashboard</a></li>
-          </ol>
-        </nav>
+        <app-breadcrumbs>
+          <app-breadcrumb-item [link]="'/dashboard'" [title]="'Dashboard'"></app-breadcrumb-item>
+        </app-breadcrumbs>
       </div>
       <div><button class="btn btn-sm btn-outline-primary" routerLink="/category-create">+ Neue Kategorie</button></div>
     </div>

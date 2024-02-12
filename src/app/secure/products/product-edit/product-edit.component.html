@@ -1,10 +1,8 @@
 <div class="pagetitle">
     <h1>Produkt bearbeiten</h1>
-    <nav>
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item" ><a href="javascript:void(0)" routerLink="/products">Alle Produkte</a></li>
-      </ol>
-    </nav>
+    <app-breadcrumbs>
+      <app-breadcrumb-item [link]="'/products'" [title]="'Alle Produkte'"></app-breadcrumb-item>
+    </app-breadcrumbs>
   </div>
   <section class="section">
     <div class="row">

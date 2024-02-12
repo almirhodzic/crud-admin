@@ -1,10 +1,8 @@
 <div class="pagetitle">
   <h1>Mein Profil</h1>
-  <nav>
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item" routerLink="/dashboard"><a href="/">Administrator</a></li>
-    </ol>
-  </nav>
+  <app-breadcrumbs>
+    <app-breadcrumb-item [link]="'/dashboard'" [title]="'Dashboard'"></app-breadcrumb-item>
+  </app-breadcrumbs>
 </div>
 <section class="section">
 <div class="row">
@@ -69,9 +67,9 @@
         <div class="col-12 mb-4">
           <small class="label-small">Felder mit Stern ( * ) sind Pflichtfelder</small>
         </div>
-
-          <div class="mt-4">
-            <button type="submit" class="btn btn-primary">Speichern</button>
+          <div class="mt-4 d-flex justify-content-between">
+            <div><button type="submit" class="btn btn-primary">Speichern</button></div>
+            <div><button onclick="history.back()" type="button" class="btn btn-light">Abbrechen</button></div>
           </div>
         </form>
       </div>
@@ -79,4 +77,3 @@
   </div>
 </div>
 </section>
-

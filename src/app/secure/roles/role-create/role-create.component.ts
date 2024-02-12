@@ -69,9 +69,7 @@ export class RoleCreateComponent implements OnInit {
           error: (err) => { 
             this.toastr.error('Fehler beim Speichern', '');
           },
-          complete: () => { 
-            console.log('complete');
-          }
+          complete: () => { }
         }
       );
     }

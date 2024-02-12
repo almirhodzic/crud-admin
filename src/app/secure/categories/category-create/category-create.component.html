@@ -1,33 +1,31 @@
 <div class="pagetitle">
-    <h1>Neue Kategorie</h1>
-    <nav>
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item" ><a href="javascript:void(0)" routerLink="/categories">Alle Kategorien</a></li>
-      </ol>
-    </nav>
-  </div>
-  <section class="section">
-    <div class="row">
-      <div class="col-lg-12">
+<h1>Neue Kategorie</h1>
+  <app-breadcrumbs>
+    <app-breadcrumb-item [link]="'/categories'" [title]="'Alle Kategorien'"></app-breadcrumb-item>
+  </app-breadcrumbs>
+</div>
+<section class="section">
+  <div class="row">
+    <div class="col-lg-12">
       <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Kategiriedaten</h5>
-        <form class="row g-3" [formGroup]="form" (submit)="submit()">
-          <div class="col-12">
-            <label for="title" class="form-label">Kategoriename *</label>
-            <input formControlName="name" type="text" class="form-control" id="title">
-            <div *ngIf="f1E" class="input-error">{{f1E}}</div>
-            <input formControlName="order" type="hidden">
-          </div>
-          <div class="mt-4 d-flex justify-content-between">
-            <div><button type="submit" class="btn btn-primary">Speichern</button></div>
-            <div><button onclick="history.back()" type="button" class="btn btn-light">Abbrechen</button></div>
-          </div>
-        </form>
+        <div class="card-body">
+          <h5 class="card-title">Kategiriedaten</h5>
+          <form class="row g-3" [formGroup]="form" (submit)="submit()">
+            <div class="col-12">
+              <label for="title" class="form-label">Kategoriename *</label>
+              <input formControlName="name" type="text" class="form-control" id="title">
+              <div *ngIf="f1E" class="input-error">{{f1E}}</div>
+              <input formControlName="order" type="hidden">
+            </div>
+            <div class="mt-4 d-flex justify-content-between">
+              <div><button type="submit" class="btn btn-primary">Speichern</button></div>
+              <div><button onclick="history.back()" type="button" class="btn btn-light">Abbrechen</button></div>
+            </div>
+          </form>
+        </div>
       </div>
-      </div>
-      </div>
+    </div>
   </div>
-  </section>
+</section>
   
   

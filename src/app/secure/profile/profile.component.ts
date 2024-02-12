@@ -5,6 +5,7 @@ import { AuthService } from './../../services/auth.service';
 import { Auth } from './../../classes/auth';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { UserService } from './../../services/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -24,6 +25,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
+    private userService: UserService,
     private toastr: ToastrService,
     private router: Router
   ) { }
@@ -91,12 +93,12 @@ export class ProfileComponent implements OnInit {
   }
 
   submit(): void {
-    this.authService.updateProfile(this.form.getRawValue())
+    this.userService.update(this.userid, this.form.getRawValue())
     .subscribe(
       {
         next: user => { 
           this.clearErrorFields();
-          Auth.userEmitter.next(user),
+          //Auth.userEmitter.next(user),
           this.toastr.success('Benutzerdaten gespeichert!', '');
         },
         error: err => { 
