@@ -29,12 +29,14 @@ import { CategoryEditComponent } from './secure/categories/category-edit/categor
 import { AuthGuard } from './guards/auth.guard';
 import { RestrictedComponent } from './secure/restricted/restricted.component';
 import { MyordersComponent } from './secure/myorders/myorders.component';
+import { ShopComponent } from './secure/shop/shop.component';
 
 const routes: Routes = [
   {
     path: '', component: SecureComponent,
     children: [
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+      { path: 'shop', component: ShopComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'password', component: PasswordComponent},
       { path: 'dashboard', component: DashboardComponent },
@@ -58,6 +60,7 @@ const routes: Routes = [
   {
     path: '', component: PublicComponent,
     children: [
+      { path: '', redirectTo: '/login', pathMatch: 'full' },
       { path: 'login', component: LoginComponent },
       { path: 'password-forgot', component: PasswordForgotComponent },
       { path: 'password-set', component: PasswordSetComponent },

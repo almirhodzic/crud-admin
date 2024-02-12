@@ -2,15 +2,12 @@
   <div class="d-flex justify-content-between">
     <div>
       <h1>Rollen</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a routerLink="/users">Alle Benutzer</a></li>
-        </ol>
-      </nav>
-    </div>
+        <app-breadcrumbs>
+          <app-breadcrumb-item [link]="'/dashboard'" [title]="'Dashboard'" />
+        </app-breadcrumbs>
+       </div>
     <div><button routerLink="/roles-create" class="btn btn-sm btn-outline-primary">+ Neue Rolle</button></div>
   </div>
-  
 </div>
 <section class="section">
   <div class="row">
