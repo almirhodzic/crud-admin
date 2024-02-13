@@ -19,7 +19,7 @@ export class ProductsComponent implements OnInit {
   
   constructor(
     private productService: ProductService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit(): void {

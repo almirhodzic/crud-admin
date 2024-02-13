@@ -1,1 +1,40 @@
-<p>shop works!</p>
+<div class="pagetitle">
+    <div class="d-flex justify-content-between">
+      <div>
+        <h1>Shop</h1>
+          <app-breadcrumbs>
+            <app-breadcrumb-item [link]="'/dashboard'" [title]="'Dashboard'" />
+          </app-breadcrumbs>
+         </div>
+      <div>Warenkorb</div>
+    </div>
+  </div>
+  <section class="section">
+    <div class="row">
+
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6 d-flex" *ngFor="let product of products">
+                <div class="card shadow">
+                    <img [src]="product.image ? product.image : '../../../../assets/img/sample-product.png'" [alt]="product.title" class="p-4 object-fit-scale"> 
+                    <div class="card-footer bg-gray-200 border-top border-gray-300 p-4">
+                        <a href="#" class="h5">{{product.title}}</a>
+                        <div class="mt-2">CHF {{product.price}}</div> 
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+        
+
+
+      
+    
+    
+    
+    </div>
+
+  </section>
+  
+    
+  
+    

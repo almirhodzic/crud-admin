@@ -1,0 +1,25 @@
+.shop-product-image {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+}
+.card-body {
+    padding: 15px !important;
+}
+.card-title {
+    padding: 20px 0 5px 0 !important;
+  }
+.card-title.custom {
+  font-size: .9rem;
+  font-weight: 600;
+}
+.card-text.custom {
+  font-size: .7rem;
+  font-weight: 400;
+}
+
+.card-footer .price {
+  font-size: .75rem;
+  font-weight: 400;
+  color: #2a265e;
+}

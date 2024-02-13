@@ -30,6 +30,7 @@ import { OnlyClientsDirective } from '../directives/only-clients.directive';
 import { RestrictedComponent } from './restricted/restricted.component';
 import { BreadcrumbsComponent } from '../components/breadcrumbs/breadcrumbs.component';
 import { BreadcrumbItemComponent } from '../components/breadcrumbs/breadcrumb-item/breadcrumb-item.component';
+import { ShopComponent } from './shop/shop.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { BreadcrumbItemComponent } from '../components/breadcrumbs/breadcrumb-it
     OnlyClientsDirective,
     BreadcrumbsComponent,
     BreadcrumbItemComponent,
-    RestrictedComponent
+    RestrictedComponent,
+    ShopComponent
   ],
   imports: [
     CommonModule,
