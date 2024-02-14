@@ -12,10 +12,8 @@
   <section class="section">
     <div class="row">
       <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let product of products">
-        <div class="card">
-            <div class="shop-product-image text-center pt-4">
-                <img [src]="product.image ? product.image : '../../../../assets/img/sample-product.png'" height="100" class="object-fit-cover rounded" [alt]="product.title">
-            </div>
+        <div class="card shadow">
+          <img [src]="product.image ? product.image : '../../../../assets/img/sample-product.png'" [alt]="product.title" class="p-4 object-fit-scale"> 
             
             <div class="card-body">
               <div>ID: {{product.categoryname}}</div>
