@@ -3,6 +3,13 @@ import { Product } from '../../interfaces/product';
 import { ProductService } from '../../services/product.service';
 import { ToastrService } from 'ngx-toastr';
 
+interface CartProduct {
+  productId: number;
+  productName: string;
+  productPrice: string;
+  quantity: number;
+}
+
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
@@ -16,6 +23,8 @@ export class ShopComponent implements OnInit{
     totalProducts!: number;
     productimage: string = '';
     count: number = 1;
+    stockIconColor: string = 'white';
+    totalQuantity: number | undefined = 0;
     
     constructor(
       private productService: ProductService,
@@ -24,6 +33,7 @@ export class ShopComponent implements OnInit{
   
     ngOnInit(): void {
       this.load();
+      this.displayCartItems();
     }
   
     load(): void {
@@ -36,12 +46,78 @@ export class ShopComponent implements OnInit{
       );
     }
 
-    /* getCatName(catid: number): any {
-      this.categoryService.get(this.catid).subscribe(
-        (res: any) => {
-          return this.category.name;
-        }
-      );
+    inStock(quantity: number): any {
+      if(quantity > 4) {
+        return 'bi-check-circle-fill stockgreen';
+      } else if(quantity > 0) {
+        return 'bi-exclamation-circle-fill stockorange';
+      } else {
+        return 'bi-x-circle-fill stockgrey';
+      }
+    }
+
+    addToCart(productId: number, productName: string, productPrice: number, inStock: number): void {
+      // Versuchen Sie, das bestehende Warenkorb-Array aus dem localStorage zu lesen
+      let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    
+      // Finden Sie das Produkt im Warenkorb, falls vorhanden
+      const existingProductIndex = cart.findIndex((item: any) => item.productId === productId);
+    
+      if (existingProductIndex !== -1) {
+        // Wenn das Produkt bereits existiert, erhöhen Sie nur die Menge
+        cart[existingProductIndex].quantity += 1;
+      } else {
+        // Wenn das Produkt neu ist, fügen Sie es dem Warenkorb hinzu
+        cart.push({ productId, productName, productPrice, quantity: 1 });
+      }
+      // Speichern Sie das aktualisierte Warenkorb-Array zurück in den localStorage
+      localStorage.setItem('cart', JSON.stringify(cart));
+      this.displayCartItems();
+    }
+
+
+    displayCartItems() {
+      const cartItemsElement = document.getElementById('cartItems');
+
+      while (cartItemsElement!.firstChild) {
+        cartItemsElement!.removeChild(cartItemsElement!.firstChild);
+      }
+
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    
+      // Für jedes Produkt im Warenkorb ein Listenelement erstellen
+      cart.forEach((product: CartProduct) => {
+        const li = document.createElement('li');
+
+        li.textContent = `ID: ${product.productId} - ${product.productName} - €${product.productPrice} - Quantity: ${product.quantity}`;
+
+        cartItemsElement!.appendChild(li);
+      });
+
+      const totalQuantity = cart.reduce((total:any, product:any) => {
+        return total + product.quantity;
+      }, 0);
+
+      this.totalQuantity = totalQuantity;
+    }
+
+    getTotalinCart() {
+      const cartString = localStorage.getItem('cart');
+      const cart = cartString ? JSON.parse(cartString) : [];
+      const totalinCart = cart.reduce((total:number, product:any) => total + product.quantity, 0);
+      return totalinCart;
+    }
+
+    /* calculateTotalQuantity() {
+      // Warenkorb aus dem localStorage lesen und in ein Array umwandeln
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    
+      // Gesamtsumme der Produktmengen berechnen
+      const totalQuantity = cart.reduce((total:any, product:any) => {
+        return total + product.quantity;
+      }, 0); // Starten Sie den Gesamtwert mit 0
+    
+      return totalQuantity;
     } */
   
     next(): void {

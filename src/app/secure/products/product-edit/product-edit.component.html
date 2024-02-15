@@ -29,6 +29,11 @@
                   <div *ngIf="f2E" class="input-error">{{f2E}}</div>
                 </div>
                 <div class="col-12 mb-3">
+                  <label for="shortinfo" class="form-label">Short-info *</label>
+                  <input formControlName="shortinfo" type="text" class="form-control" id="shortinfo">
+                  <div *ngIf="f7E" class="input-error">{{f7E}}</div>
+                </div>
+                <div class="col-12 mb-3">
                   <label for="description" class="form-label">Beschreibung *</label>
                   <textarea formControlName="description" class="form-control" id="description" rows="4"></textarea>
                   <div *ngIf="f3E" class="input-error">{{f3E}}</div>

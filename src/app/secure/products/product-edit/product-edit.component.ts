@@ -39,11 +39,13 @@ export class ProductEditComponent implements OnInit {
   f4E: string = '';
   f5E: string = '';
   f6E: string = '';
+  f7E: string = '';
 
   handleErrors(errors: any) {
     this.clearErrorFields();
     if (errors.category_id && errors.category_id.length > 0) { this.f1E = errors.category_id[0]; }
     if (errors.title && errors.title.length > 0) { this.f2E = errors.title[0]; }
+    if (errors.shortinfo && errors.shortinfo.length > 0) { this.f7E = errors.shortinfo[0]; }
     if (errors.description && errors.description.length > 0) { this.f3E = errors.description[0]; }
     if (errors.price && errors.price.length > 0) { this.f4E = errors.price[0]; }
     if (errors.image && errors.image.length > 0) { this.f5E = errors.image[0]; }
@@ -57,11 +59,13 @@ export class ProductEditComponent implements OnInit {
     this.f4E = '';
     this.f5E = '';
     this.f6E = '';
+    this.f7E = '';
   }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
       title: '',
+      shortinfo: '',
       price: '',
       description: '',
       image: '',

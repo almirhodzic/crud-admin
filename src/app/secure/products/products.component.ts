@@ -2,6 +2,7 @@ import { Component, OnInit, Output } from '@angular/core';
 import { Product } from '../../interfaces/product';
 import { ProductService } from '../../services/product.service';
 import { ToastrService } from 'ngx-toastr';
+import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-products',
@@ -11,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ProductsComponent implements OnInit {
 
   products: Product[] = [];
+  catid: number = 0;
   page = 1;
   lastPage!: number;
   totalProducts!: number;
@@ -20,6 +22,7 @@ export class ProductsComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private toastr: ToastrService,
+    private categoryService: CategoryService
   ) { }
 
   ngOnInit(): void {

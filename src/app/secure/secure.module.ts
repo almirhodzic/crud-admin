@@ -32,6 +32,11 @@ import { BreadcrumbsComponent } from '../components/breadcrumbs/breadcrumbs.comp
 import { BreadcrumbItemComponent } from '../components/breadcrumbs/breadcrumb-item/breadcrumb-item.component';
 import { ShopComponent } from './shop/shop.component';
 import { ProductComponent } from './shop/product/product.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CartComponent } from './nav/cart/cart.component';
+import { SearchbarComponent } from './nav/searchbar/searchbar.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +67,11 @@ import { ProductComponent } from './shop/product/product.component';
     BreadcrumbItemComponent,
     RestrictedComponent,
     ShopComponent,
-    ProductComponent
+    ProductComponent,
+    PaginatorComponent,
+    CartComponent,
+    SearchbarComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
@@ -70,6 +79,8 @@ import { ProductComponent } from './shop/product/product.component';
     FormsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
+    BsDropdownModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [
     SharedService

@@ -7,11 +7,16 @@
     padding: 15px !important;
 }
 .card-title {
-    padding: 0 0 5px 0 !important;
+    padding: 0 !important;
   }
 .card-title.custom {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
+}
+.card-shortinfo.custom {
+  font-size: .75rem;
+  font-weight: 400;
+  color: rgb(54, 54, 68);
 }
 .card-text.custom {
   font-size: .8rem;
@@ -20,10 +25,25 @@
 a.card-category-link {
   font-size: .75rem;
   font-weight: 400;
-  color: #2a265e;
+  color: #5149c7;
 }
 .card-footer .price {
-  font-size: .75rem;
+  font-size: .85rem;
   font-weight: 400;
   color: #2a265e;
+}
+.stockicon {
+  font-size: .85rem;
+  position: absolute;
+    top: 5px;
+    right: 7px;
+}
+.stockgreen {
+  color: rgb(20, 202, 20);
+}
+.stockgrey {
+  color: rgb(219, 211, 210);
+}
+.stockorange {
+  color: rgb(244, 152, 82);
 }
