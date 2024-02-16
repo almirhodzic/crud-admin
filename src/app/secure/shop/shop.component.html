@@ -18,7 +18,7 @@
       <div class="card shadow">
           <i class="bi {{inStock(product.instock)}} stockicon" title="Lagerbestand:{{product.instock}}"></i>
           <div>
-              <img [src]="product.image ? product.image : '../../../../assets/img/sample-product.png'" [alt]="product.title" class="p-4 img-thumbnail border-0"> 
+              <img [src]="product.image ? product.image : './src/assets/img/sample-product.png'" [alt]="product.title" class="p-4 img-thumbnail border-0"> 
           </div>
           <div class="card-body">
           <div class="d-flex justify-content-between">
@@ -42,7 +42,3 @@
     </div>
   </div>
 </section>
-  
-    
-  
-    

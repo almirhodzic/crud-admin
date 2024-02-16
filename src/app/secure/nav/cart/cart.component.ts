@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { Product } from 'src/app/interfaces/product';
+import { ProductService } from 'src/app/services/product.service';
+import { ToastrService } from 'ngx-toastr';
+import { Cart } from 'src/app/interfaces/cart';
+
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,8 +13,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit{
 
-  constructor() { }
+  totalInCart: number | undefined = 0;
+
+  constructor(
+    private cartService: CartService
+    ) {}
 
   ngOnInit() {
+    this.cartService.currentTotalInCart.subscribe(total => {
+      this.totalInCart = total;
+    });
+    this.cartService.updateTotalInCart();
   }
 }

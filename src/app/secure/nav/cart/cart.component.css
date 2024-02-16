@@ -33,4 +33,12 @@ color: #919191;
 background-color: #f6f9ff;
 }
 
+.cart-icon .empty {
+    color: #919191;
+}
+
+.cart-icon .filled {
+    color: #291856;
+}
+
 

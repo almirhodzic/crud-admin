@@ -1,14 +1,9 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { Product } from '../../interfaces/product';
-import { ProductService } from '../../services/product.service';
+import { Product } from 'src/app/interfaces/product';
+import { ProductService } from 'src/app/services/product.service';
 import { ToastrService } from 'ngx-toastr';
-
-interface CartProduct {
-  productId: number;
-  productName: string;
-  productPrice: string;
-  quantity: number;
-}
+import { Cart } from 'src/app/interfaces/cart';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-shop',
@@ -29,11 +24,13 @@ export class ShopComponent implements OnInit{
     constructor(
       private productService: ProductService,
       private toastr: ToastrService,
+      private cartService: CartService
     ) { }
   
     ngOnInit(): void {
       this.load();
       this.displayCartItems();
+      this.cartService.updateTotalInCart();
     }
   
     load(): void {
@@ -73,6 +70,7 @@ export class ShopComponent implements OnInit{
       // Speichern Sie das aktualisierte Warenkorb-Array zurück in den localStorage
       localStorage.setItem('cart', JSON.stringify(cart));
       this.displayCartItems();
+      this.cartService.updateTotalInCart();
     }
 
 
@@ -86,7 +84,7 @@ export class ShopComponent implements OnInit{
       const cart = JSON.parse(localStorage.getItem('cart') || '[]');
     
       // Für jedes Produkt im Warenkorb ein Listenelement erstellen
-      cart.forEach((product: CartProduct) => {
+      cart.forEach((product: Cart) => {
         const li = document.createElement('li');
 
         li.textContent = `ID: ${product.productId} - ${product.productName} - €${product.productPrice} - Quantity: ${product.quantity}`;

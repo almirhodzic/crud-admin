@@ -3,8 +3,8 @@
 
       <li class="nav-item dropdown" dropdown>
         <a class="nav-link nav-icon" href="javascript:void(0)" data-bs-toggle="dropdown" dropdownToggle>
-          <i class="bi bi-cart2 nav-icon-cart"></i>
-          <span class="badge bg-primary badge-number">2</span>
+          <i class="bi bi-cart2 nav-icon-cart" style="color: gray;"></i>
+          <span class="badge bg-primary badge-number" *ngIf="totalInCart">{{totalInCart}}</span>
         </a><!-- End Cart Icon -->
 
 
