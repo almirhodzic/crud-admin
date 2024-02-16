@@ -1,0 +1,44 @@
+<nav class="header-nav ms-auto" >
+  <ul class="d-flex align-items-center">
+    <li class="nav-item dropdown pe-3" dropdown>
+      <a class="nav-link nav-profile d-flex align-items-center pe-0" href="javascript:void(0)" data-bs-toggle="dropdown" dropdownToggle>
+        <img src="./assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" *dropdownMenu>
+          <li class="dropdown-header">
+            <h6>{{user?.first_name + ' ' + user?.last_name}}</h6>
+            <span>{{userrole}}</span>
+          </li>
+          <li><hr class="dropdown-divider"></li>
+
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="javascript:void(0)" routerLink="/profile">
+              <i class="bi bi-person"></i>
+              <span>Mein Profil</span>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="javascript:void(0)" routerLink="/password">
+              <i class="bi bi-key"></i>
+              <span>Mein Passwort</span>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="javascript:void(0)" (click)="logout()">
+              <i class="bi bi-box-arrow-right"></i>
+              <span>Abmelden</span>
+            </a>
+          </li>
+
+      </ul>
+    </li>
+  </ul>
+</nav>
