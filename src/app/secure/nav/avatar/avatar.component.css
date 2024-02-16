@@ -43,3 +43,11 @@ line-height: 0;
 .header-nav .profile .dropdown-item:hover {
 background-color: #f6f9ff;
 }
+
+.header-nav .profile a:active {
+    color: #012970 !important;
+}
+
+.header-nav .profile a:hover {
+    color: #0e39ca !important;
+}

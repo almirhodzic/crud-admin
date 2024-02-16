@@ -15,7 +15,7 @@ import { ChangeDetectorRef } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  user?: User;
+  user!: User;
   userrole: number = 0;
 
   sidebarLeft = ''; // Anfangszustand
@@ -43,11 +43,5 @@ export class MenuComponent implements OnInit {
         this.userrole = user?.role.id;
       }
     );
-  }
-
-  logout(): void {
-    this.authService.logout().subscribe(() => {
-      location.reload();
-    });
   }
 }
