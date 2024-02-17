@@ -3,21 +3,20 @@
 
       <li class="nav-item dropdown" dropdown>
         <a class="nav-link nav-icon" href="javascript:void(0)" data-bs-toggle="dropdown" dropdownToggle>
-          <i class="bi bi-cart2 nav-icon-cart" style="color: gray;"></i>
+          <i class="bi bi-cart2 nav-icon-cart-big" [ngClass]="totalInCart ? 'cart-icon-filled' : 'cart-icon-empty'"></i>
           <span class="badge bg-primary badge-number" *ngIf="totalInCart">{{totalInCart}}</span>
         </a><!-- End Cart Icon -->
 
 
-        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages" *dropdownMenu>
-          <li class="dropdown-header">
-            You have 3 new messages
-            <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
-          </li>
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages cart-dropdown" *dropdownMenu>
+          <li class="dropdown-header cart-dropdown-title">
+            <i [ngClass]="totalInCart ? 'bi bi-cart4' : 'bi bi-cart4'" class="nav-icon-cart-medium mx-2"></i>
+             Warenkorb-Übersicht</li>
           <li>
             <hr class="dropdown-divider">
           </li>
           <li class="message-item">
-            <a href="#">
+            <a href="javascript:void(0)">
               <img src="./assets/img/messages-1.jpg" alt="" class="rounded-circle">
               <div>
                 <h4>Maria Hudson</h4>
@@ -30,7 +29,7 @@
             <hr class="dropdown-divider">
           </li>
           <li class="message-item">
-            <a href="#">
+            <a href="javascript:void(0)">
               <img src="./assets/img/messages-2.jpg" alt="" class="rounded-circle">
               <div>
                 <h4>Anna Nelson</h4>
@@ -43,7 +42,7 @@
             <hr class="dropdown-divider">
           </li>
           <li class="message-item">
-            <a href="#">
+            <a href="javascript:void(0)">
               <img src="./assets/img/messages-3.jpg" alt="" class="rounded-circle">
               <div>
                 <h4>David Muldon</h4>
@@ -56,7 +55,7 @@
             <hr class="dropdown-divider">
           </li>
           <li class="dropdown-footer">
-            <a href="#">Show all messages</a>
+            <a href="javascript:void(0)">Show all messages</a>
           </li>
         </ul>
       </li>

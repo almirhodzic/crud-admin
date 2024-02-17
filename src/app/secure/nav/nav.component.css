@@ -111,7 +111,7 @@ padding: 0;
 
 .header-nav .nav-icon {
 font-size: 22px;
-color: #012970;
+/* color: #012970; */
 margin-right: 25px;
 position: relative;
 }
@@ -287,7 +287,7 @@ background-color: #f6f9ff;
   animation-fill-mode: both;
   border: 0;
   box-shadow: 0 5px 30px 0 rgba(82, 63, 105, 0.2);
-  overflow: hidden;
+
 }
 
 .dropdown-menu .dropdown-header,
@@ -356,9 +356,14 @@ background-color: #f6f9ff;
   }
 }
 
-.nav-icon-cart {
+.nav-icon-cart-big {
   font-size: 28px !important;
 }
+
+.nav-icon-cart-medium {
+  font-size: 22px !important;
+}
+
 .badge-number {
   position: absolute;
   inset: 2px -7px auto auto !important;

@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class CartService {
+  
   private totalInCartSource = new BehaviorSubject<number>(0);
   currentTotalInCart = this.totalInCartSource.asObservable();
 

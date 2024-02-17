@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../services/auth.service';
-import { Auth } from '../../../classes/auth';
-import { User } from '../../../interfaces/user';
-import { Role } from '../../../interfaces/role';
+import { AuthService } from 'src/app/services/auth.service';
+import { Auth } from 'src/app/classes/auth';
+import { User } from 'src/app/interfaces/user';
+import { Role } from 'src/app/interfaces/role';
+
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-avatar',
