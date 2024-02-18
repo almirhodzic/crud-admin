@@ -1,17 +1,15 @@
 <nav class="header-nav ms-auto" >
     <ul class="d-flex align-items-center">
-
-      <li class="nav-item dropdown" dropdown>
+      <li class="nav-item dropdown" dropdown (click)="toggleCart(); $event.stopPropagation()">
         <a class="nav-link nav-icon" href="javascript:void(0)" data-bs-toggle="dropdown" dropdownToggle>
           <i class="bi bi-cart2 nav-icon-cart-big" [ngClass]="totalInCart ? 'cart-icon-filled' : 'cart-icon-empty'"></i>
           <span class="badge bg-primary badge-number" *ngIf="totalInCart">{{totalInCart}}</span>
-        </a><!-- End Cart Icon -->
+        </a>
 
-
-        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages cart-dropdown" *dropdownMenu>
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages cart-dropdown" *dropdownMenu="isCartOpen">
           <li class="dropdown-header cart-dropdown-title">
             <i [ngClass]="totalInCart ? 'bi bi-cart4' : 'bi bi-cart4'" class="nav-icon-cart-medium mx-2"></i>
-             Warenkorb-Übersicht</li>
+             Warenkorb-Übersicht <span role="button" dropdownToggle>(X)</span></li>
           <li>
             <hr class="dropdown-divider">
           </li>
@@ -58,6 +56,7 @@
             <a href="javascript:void(0)">Show all messages</a>
           </li>
         </ul>
+
       </li>
     </ul>
 </nav>
