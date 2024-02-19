@@ -6,10 +6,6 @@
           <app-breadcrumb-item [link]="'/dashboard'" [title]="'Dashboard'" />
       </app-breadcrumbs>
     </div>
-    <div>
-      <i class="bi bi-cart2"></i> ({{getTotalinCart()}})
-      <ul id="cartItems"></ul>
-    </div>
   </div>
 </div>
 <section class="section">
@@ -34,7 +30,14 @@
                 <span class="price">CHF {{product.price}}</span>
               </div>
               <div class="cursor">
-                  <i role="button" class="bi bi-cart2" (click)="addToCart(product.id,product.title,product.price,product.instock)"></i>
+                  <i role="button" class="bi bi-cart2" 
+                  (click)="addToCart(
+                    product.id,
+                    product.title,
+                    product.price,
+                    product.instock
+                    )">
+                  </i>
               </div>
             </div>
         </div>

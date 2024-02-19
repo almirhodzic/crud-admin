@@ -7,11 +7,13 @@ import { Subscription } from 'rxjs';
   template: `
 
       <a *ngIf="title" href="javascript:void(0)" (click)="toggleDropdown($event)" class="nav-link">{{ title }}</a>
+
       <a *ngIf="icon" href="javascript:void(0)" (click)="toggleDropdown($event)" class="nav-icon">
-        <i class="{{ icon }}"></i>
-        <span class="badge {{ badgeClass }} ">{{ badgeContent }}</span>
+        <i [ngClass]="badgeContent > 0 ? 'cart-icon-filled' : 'cart-icon-empty'" class="{{ icon }}" ></i>
+        <span *ngIf="badgeContent > 0"><span class="badge {{ badgeClass }} ">{{ badgeContent }}</span></span>
       </a>
-      <a *ngIf="image" class="nav-link nav-profile d-flex align-items-center px-3" href="javascript:void(0)" (click)="toggleDropdown($event)" >
+
+      <a *ngIf="image" class="nav-link nav-profile d-flex align-items-center" href="javascript:void(0)" (click)="toggleDropdown($event)" >
         <img [src]="image" alt="Profile" class="rounded-circle">
       </a>
 

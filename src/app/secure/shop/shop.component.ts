@@ -15,12 +15,11 @@ export class ShopComponent implements OnInit{
     products: Product[] = [];
     page = 1;
     lastPage!: number;
-    totalProducts!: number;
     productimage: string = '';
     count: number = 1;
     stockIconColor: string = 'white';
     totalQuantity: number | undefined = 0;
-    
+
     constructor(
       private productService: ProductService,
       private toastr: ToastrService,
@@ -30,7 +29,6 @@ export class ShopComponent implements OnInit{
     ngOnInit(): void {
       this.load();
       this.displayCartItems();
-      this.cartService.updateTotalInCart();
     }
   
     load(): void {
@@ -38,7 +36,6 @@ export class ShopComponent implements OnInit{
         res => {
           this.products = res.data;
           this.lastPage = res.meta.last_page;
-          this.totalProducts = res.meta.total;
         }
       );
     }
@@ -53,24 +50,12 @@ export class ShopComponent implements OnInit{
       }
     }
 
-    addToCart(productId: number, productName: string, productPrice: number, inStock: number): void {
-      // Versuchen Sie, das bestehende Warenkorb-Array aus dem localStorage zu lesen
-      let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    
-      // Finden Sie das Produkt im Warenkorb, falls vorhanden
-      const existingProductIndex = cart.findIndex((item: any) => item.productId === productId);
-    
-      if (existingProductIndex !== -1) {
-        // Wenn das Produkt bereits existiert, erhöhen Sie nur die Menge
-        cart[existingProductIndex].quantity += 1;
-      } else {
-        // Wenn das Produkt neu ist, fügen Sie es dem Warenkorb hinzu
-        cart.push({ productId, productName, productPrice, quantity: 1 });
-      }
-      // Speichern Sie das aktualisierte Warenkorb-Array zurück in den localStorage
-      localStorage.setItem('cart', JSON.stringify(cart));
-      this.displayCartItems();
-      this.cartService.updateTotalInCart();
+    addToCart(
+      productId: number, 
+      productName: string, 
+      productPrice: number, 
+      inStock: number): void {
+      this.cartService.addToCart(productId, productName, productPrice, inStock);
     }
 
 
@@ -99,12 +84,12 @@ export class ShopComponent implements OnInit{
       this.totalQuantity = totalQuantity;
     }
 
-    getTotalinCart() {
+    /* getTotalinCart() {
       const cartString = localStorage.getItem('cart');
       const cart = cartString ? JSON.parse(cartString) : [];
       const totalinCart = cart.reduce((total:number, product:any) => total + product.quantity, 0);
       return totalinCart;
-    }
+    } */
 
     /* calculateTotalQuantity() {
       // Warenkorb aus dem localStorage lesen und in ein Array umwandeln

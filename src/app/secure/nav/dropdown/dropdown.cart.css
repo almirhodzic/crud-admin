@@ -1,11 +1,15 @@
 /* --------------- HEADER NAV-CART MESSAGES --------------- */
 .header-nav .cart {
-inset: 45px 15px auto auto !important;
+inset: 45px 7px auto auto !important;
 }
 
 .header-nav .cart .cart-item {
-padding: 15px 10px;
+padding: 0 !important;
 transition: 0.3s;
+}
+
+.padding-10-15 {
+padding: 15px 10px;
 }
 
 .header-nav .cart .cart-item a {
@@ -40,15 +44,19 @@ background-color: #f6f9ff;
 width: 325px !important;
 }
 
-.cart-dropdown .dropdown-header {
-text-align: left !important;
-padding-bottom: 20px !important;
+.cart-dropdown .cart-dropdown-title {
+font-size: 18px !important;
+font-family: Nunito, sans-serif;
+color:#260a72;
+font-weight: 600;
 }
 
-.cart-dropdown .cart-dropdown-title {
-font-size: 16px !important;
-font-weight: 600 !important;
-color: #111111 !important;
+.cart-dropdown .cart-dropdown-title.empty-cart {
+    padding-bottom: 10px !important;
+}
+
+.cart-dropdown .cart-dropdown-title.filled-cart {
+    padding-bottom: 18px !important;
 }
 
 .cart-icon-empty {
@@ -68,7 +76,7 @@ font-size: 22px !important;
 }
 
 .badge-number {
-background-color: #260a72 !important;
+background-color: #7043eb !important;
 }
 
 
