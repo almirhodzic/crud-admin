@@ -1,0 +1,75 @@
+/* --------------- HEADER NAV-CART MESSAGES --------------- */
+.header-nav .cart {
+inset: 45px 15px auto auto !important;
+}
+
+.header-nav .cart .cart-item {
+padding: 15px 10px;
+transition: 0.3s;
+}
+
+.header-nav .cart .cart-item a {
+display: flex;
+}
+
+.header-nav .cart .cart-item img {
+margin: 0 20px 0 10px;
+max-height: 40px;
+}
+
+.header-nav .cart .cart-item h4 {
+font-size: 16px;
+font-weight: 600;
+margin-bottom: 5px;
+color: #444444;
+}
+
+.header-nav .cart .cart-item p {
+font-size: 13px;
+margin-bottom: 3px;
+color: #919191;
+}
+
+.header-nav .cart .cart-item:hover { 
+background-color: #f6f9ff;
+}
+/* --------------- HEADER NAV-CART MESSAGES END ------------ */
+
+/* --------------- HEADER NAV CART --------------- */
+.cart-dropdown {
+width: 325px !important;
+}
+
+.cart-dropdown .dropdown-header {
+text-align: left !important;
+padding-bottom: 20px !important;
+}
+
+.cart-dropdown .cart-dropdown-title {
+font-size: 16px !important;
+font-weight: 600 !important;
+color: #111111 !important;
+}
+
+.cart-icon-empty {
+color: #c0bdbd !important;
+}
+
+.cart-icon-filled {
+color: #260a72 !important;
+}
+
+.cart-icon-big {
+font-size: 28px !important;
+}
+
+.cart-icon-medium {
+font-size: 22px !important;
+}
+
+.badge-number {
+background-color: #260a72 !important;
+}
+
+
+/* --------------- HEADER NAV CART END ----------- */

@@ -35,8 +35,8 @@ import { ProductComponent } from './shop/product/product.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CartComponent } from './nav/cart/cart.component';
 import { AvatarComponent } from './nav/avatar/avatar.component';
+import { DropdownComponent } from './nav/dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
@@ -69,8 +69,8 @@ import { AvatarComponent } from './nav/avatar/avatar.component';
     ShopComponent,
     ProductComponent,
     PaginatorComponent,
-    CartComponent,
-    AvatarComponent
+    AvatarComponent,
+    DropdownComponent
   ],
   imports: [
     CommonModule,

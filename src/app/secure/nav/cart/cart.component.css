@@ -1,58 +1,10 @@
-.header-nav .messages {
-inset: 42px 12px auto auto !important;
-}
 
-.header-nav .messages .message-item {
-padding: 15px 10px;
-transition: 0.3s;
-}
 
-.header-nav .messages .message-item a {
-display: flex;
-}
 
-.header-nav .messages .message-item img {
-margin: 0 20px 0 10px;
-max-height: 40px;
-}
 
-.header-nav .messages .message-item h4 {
-font-size: 16px;
-font-weight: 600;
-margin-bottom: 5px;
-color: #444444;
-}
 
-.header-nav .messages .message-item p {
-font-size: 13px;
-margin-bottom: 3px;
-color: #919191;
-}
 
-.header-nav .messages .message-item:hover {
-background-color: #f6f9ff;
-}
 
-.cart-icon-empty {
-    color: #c0bdbd !important;
-}
 
-.cart-icon-filled {
-    color: #260a72 !important;
-}
 
-.cart-dropdown {
-    width: 325px !important;
-}
-
-.cart-dropdown .dropdown-header {
-    text-align: left !important;
-    padding-bottom: 20px !important;
-}
-
-.cart-dropdown .cart-dropdown-title {
-    font-size: 16px !important;
-    font-weight: 600 !important;
-    color: #111111 !important;
-}
 

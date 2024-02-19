@@ -1,21 +1,30 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DropdownService {
-  private openDropdown = new BehaviorSubject<string | null>(null);
+  private openDropdownId: string | null = null;
 
-  setOpenDropdown(name: string) {
-    this.openDropdown.next(name);
+  constructor() { }
+
+  toggleDropdown(dropdownId: string): void {
+    if (this.openDropdownId === dropdownId) {
+      this.openDropdownId = null; // Schließt das Dropdown, wenn es bereits geöffnet ist
+    } else {
+      this.openDropdownId = dropdownId; // Öffnet das neue Dropdown und speichert seine ID
+    }
   }
 
-  getOpenDropdown() {
-    return this.openDropdown.asObservable();
+  closeDropdown(): void {
+    this.openDropdownId = null; // Schließt jedes geöffnete Dropdown
   }
 
-  closeAllDropdowns() {
-    this.openDropdown.next(null);
+  closeAnyDropdown(): void {
+    this.openDropdownId = null;
+  }
+
+  isOpen(dropdownId: string): boolean {
+    return this.openDropdownId === dropdownId; // Überprüft, ob das Dropdown geöffnet ist
   }
 }
