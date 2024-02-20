@@ -17,7 +17,7 @@ import { Subscription } from 'rxjs';
         <img [src]="image" alt="Profile" class="rounded-circle">
       </a>
 
-      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow {{ dropdownClass }}" *ngIf="dropdownService.isOpen(id)" (click)="stopClickPropagation($event)">
+      <ul class="dropdown-menu dropdown-menu-end {{ dropdownClass }}" *ngIf="dropdownService.isOpen(id)" (click)="stopClickPropagation($event)">
         <ng-content></ng-content>
       </ul>
 

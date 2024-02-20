@@ -12,8 +12,7 @@
   <div class="row">
     <div class="col-lg-3 col-md-4 col-sm-6 d-flex relative" *ngFor="let product of products">
       <div class="card shadow">
-          <span class="shop-instock-number">noch {{product.instock}} Stück</span>
-          <i class="bi {{inStock(product.instock)}} stockicon" title="Lagerbestand:{{product.instock}}"></i>
+          <i class="bi {{inStock(product.instock)}} stockicon" title="Lagerbestand:{{product.instock}}" [title]=" 'Noch ' + product.instock + ' Stück an Lager'"></i>
           <div>
               <img [src]="product.image ? product.image : './src/assets/img/sample-product.png'" [alt]="product.title" class="p-4 img-thumbnail border-0"> 
           </div>

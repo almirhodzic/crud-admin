@@ -126,4 +126,10 @@ export class CartService {
     return this.formatPrice(cart[existingProductIndex].quantity * productPrice);
   }
 
+  totalItemsInCart() {
+    const cartString = localStorage.getItem('cart');
+    const cart = cartString ? JSON.parse(cartString) : [];
+    return cart.reduce((total: number, product: any) => total + product.quantity, 0);
+  }
+
 }

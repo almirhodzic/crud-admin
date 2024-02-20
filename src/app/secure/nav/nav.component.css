@@ -170,7 +170,7 @@ background-color: #f6f9ff;
   animation-duration: 0.2s;
   animation-fill-mode: both;
   border: 0;
-  box-shadow: 0 5px 30px 0 rgba(82, 63, 105, 0.2);
+  box-shadow: 0 5px 30px 0 rgba(82, 63, 105, 0.5);
 }
 
 .dropdown-menu .dropdown-header,
@@ -241,6 +241,19 @@ background-color: #f6f9ff;
   position: absolute;
   top: -7px;
   right: 20px;
+  transform: rotate(45deg);
+  border-top: 1px solid #eaedf1;
+  border-left: 1px solid #eaedf1;
+}
+
+.dropdown-menu-cart-arrow::before {
+  content: "";
+  width: 13px;
+  height: 13px;
+  background: #fff;
+  position: absolute;
+  top: -7px;
+  right: 70px;
   transform: rotate(45deg);
   border-top: 1px solid #eaedf1;
   border-left: 1px solid #eaedf1;

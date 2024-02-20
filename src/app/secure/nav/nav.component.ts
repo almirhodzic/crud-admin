@@ -117,4 +117,8 @@ export class NavComponent implements OnInit {
   sumPriceEachProduct(productId: number, productPrice: number) {
     return this.cartService.sumPriceEachProduct(productId, productPrice);
   }
+
+  moreItemsInCart() {
+    return this.cartService.totalItemsInCart() - 5;
+  }
 }

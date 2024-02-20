@@ -16,7 +16,7 @@
           icon="bi bi-cart2 cart-icon-big" 
           badgeClass="bg-primary badge-number" 
           [badgeContent]="cartService.currentTotalInCart | async" 
-          dropdownClass="cart cart-dropdown"
+          dropdownClass="dropdown-menu-cart-arrow cart cart-dropdown"
           >
 
           <li class="dropdown-header cart-dropdown-title">Dein Warenkorb 
@@ -34,8 +34,7 @@
                   <i class="bi bi-x-lg dropdown-item-trash" (click)="deleteCartItem(item.productId)"></i>
                   <div class="text-center">
                     <img [src]="item.productImage" alt="" class="rounded" routerLink="/product-detail/{{item.productId}}/{{item.productSlug}}" (click)="closeDropdown()">
-                    <span class="item-single-price mt-1 text-center">{{formatPrice(item.productPrice)}}</span>
-                    <span class="item-single-price-label text-center">E.Preis Fr.</span>
+                    <span class="item-single-price mt-1 text-center">EP {{formatPrice(item.productPrice)}}</span>
                   </div>
                   
                   <div>
@@ -65,7 +64,7 @@
             </li>
 
             <li *ngIf="totalInCart > 5" class="dropdown-footer">
-              <a href="javascript:void(0)">Alle Produkte im Warenkorb anzeigen</a><br>
+              <a href="javascript:void(0)">Weitere {{moreItemsInCart()}} Produkte im Warenkorb anzeigen</a><br>
               <a href="javascript:void(0)" (click)="clearCart()">Warenkorb leeren? </a>
             </li>
 
@@ -80,7 +79,7 @@
           icon="" 
           badgeClass="" 
           badgeContent="" 
-          dropdownClass="avatar profile" 
+          dropdownClass="dropdown-menu-arrow avatar profile" 
           image="{{ user?.avatar }}"
           >
           <li class="dropdown-header">

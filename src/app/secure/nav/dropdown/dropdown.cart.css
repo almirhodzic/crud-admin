@@ -1,6 +1,6 @@
 /* --------------- HEADER NAV-CART MESSAGES --------------- */
 .header-nav .cart {
-inset: 45px 7px auto auto !important;
+inset: 45px -44px auto auto !important;
 }
 
 .header-nav .cart .cart-item {
