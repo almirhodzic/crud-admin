@@ -30,6 +30,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { RestrictedComponent } from './secure/restricted/restricted.component';
 import { MyordersComponent } from './secure/myorders/myorders.component';
 import { ShopComponent } from './secure/shop/shop.component';
+import { ProductComponent } from './secure/shop/product/product.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       { path: 'shop', component: ShopComponent },
+      { path: 'product-detail/:id/:slug', component: ProductComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'password', component: PasswordComponent},
       { path: 'dashboard', component: DashboardComponent },

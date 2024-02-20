@@ -9,6 +9,11 @@
 .card-title {
     padding: 0 !important;
   }
+
+.card-title a {
+    color: #2a265e !important;
+  }
+
 .card-title.custom {
   font-size: 0.9rem;
   font-weight: 600;

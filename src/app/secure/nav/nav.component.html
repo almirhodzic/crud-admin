@@ -19,31 +19,40 @@
           dropdownClass="cart cart-dropdown"
           >
 
-          <li class="dropdown-header cart-dropdown-title" [ngClass]="totalInCart > 0 ? 'filled-cart' : 'empty-cart'">Dein Warenkorb <span *ngIf="!(cartService.currentTotalInCart | async)">ist leer</span></li>
+          <li class="dropdown-header cart-dropdown-title">Dein Warenkorb 
+            <span *ngIf="!(cartService.currentTotalInCart | async)">ist leer</span>
+            <span *ngIf="(cartService.currentTotalInCart | async)">(CHF {{getTotalPrice()}})</span>
+          </li>
           <div *ngIf="(cartService.currentTotalInCart | async)">
 
             <hr class="dropdown-divider-no-padding">
 
             <li class="cart-item" *ngFor="let item of cartService.cartItems | slice:0:5">  
               <div class="padding-10-15">
-                <a href="javascript:void(0)">
-                  <img src="./assets/img/messages-1.jpg" alt="" class="rounded-circle">
+
+                <div class="item-block position-relative">
+                  <i class="bi bi-x-lg dropdown-item-trash" (click)="deleteCartItem(item.productId)"></i>
+                  <img [src]="item.productImage" alt="" class="rounded">
                   <div>
-                    <h4>{{item.productName}}</h4>
-                    <p>{{item.productPrice}}</p>
-                    <p>{{item.quantity}}</p>
+                    <div role="button" class="item-title" routerLink="/product-detail/{{item.productId}}/{{item.productSlug}}" (click)="closeDropdown()"><h4>{{item.productName}}</h4></div>
+                    <div class="d-flex justify-content-between">
+                      <div class="item-price">CHF {{item.productPrice}}</div>
+                      <div class="item-quantity">{{item.quantity}}</div>
+                    </div>
                   </div>
-                </a>
+                </div>
               </div>
               <hr class="dropdown-divider-no-padding">
             </li>
 
             <li *ngIf="totalInCart < 6" class="dropdown-footer">
-              <a href="javascript:void(0)">Total Price: </a>
+              <a href="javascript:void(0)">Total Preis: CHF {{getTotalPrice()}}</a><br>
+              <a href="javascript:void(0)" (click)="clearCart()">Warenkorb leeren?</a>
             </li>
 
             <li *ngIf="totalInCart > 5" class="dropdown-footer">
-              <a href="javascript:void(0)">Alle Produkte im Warenkorb anzeigen</a>
+              <a href="javascript:void(0)">Alle Produkte im Warenkorb anzeigen</a><br>
+              <a href="javascript:void(0)" (click)="clearCart()">Warenkorb leeren? </a>
             </li>
 
           </div>
@@ -61,13 +70,13 @@
           image="{{ user?.avatar }}"
           >
           <li class="dropdown-header">
-            <h6>{{user!.first_name + ' ' + user!.last_name}}</h6>
+            <h6>{{user?.first_name + ' ' + user?.last_name}}</h6>
             <span>{{userrole}}</span>
           </li>
           <li><hr class="dropdown-divider"></li>
 
           <li>
-            <a class="dropdown-item d-flex align-items-center" href="javascript:void(0)" routerLink="/profile">
+            <a class="dropdown-item d-flex align-items-center" routerLink="/profile" (click)="closeDropdown()">
               <i class="bi bi-person"></i>
               <span>Mein Profil</span>
             </a>
@@ -77,7 +86,7 @@
           </li>
 
           <li>
-            <a class="dropdown-item d-flex align-items-center" href="javascript:void(0)" routerLink="/password">
+            <a class="dropdown-item d-flex align-items-center" routerLink="/password" (click)="closeDropdown()">
               <i class="bi bi-key"></i>
               <span>Mein Passwort</span>
             </a>
@@ -87,7 +96,7 @@
           </li>
 
           <li>
-            <a class="dropdown-item d-flex align-items-center" href="javascript:void(0)" (click)="logout()">
+            <a class="dropdown-item d-flex align-items-center" (click)="logout()">
               <i class="bi bi-box-arrow-right"></i>
               <span>Abmelden</span>
             </a>

@@ -20,7 +20,7 @@ export class ProductEditComponent implements OnInit {
   categories: Category[] = [];
   productid: number = 0;
   producttitle: string = '';
-  productimage: string = '';
+  productImage: string = '';
   productcreated: string = '';
   productupdated: string = '';
 
@@ -87,7 +87,7 @@ export class ProductEditComponent implements OnInit {
           this.form.patchValue(product);
           this.productid = product.id;
           this.producttitle = product.title;
-          this.productimage = product.image;
+          this.productImage = product.image;
           this.productcreated = new Date(product.created_at).toLocaleString('de-DE');
           this.productupdated = new Date(product.updated_at).toLocaleString('de-DE');
         }

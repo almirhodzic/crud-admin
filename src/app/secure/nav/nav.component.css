@@ -304,3 +304,17 @@ background-color: #f6f9ff;
   .header-nav .profile a:hover {
       color: #0e39ca !important;
   }
+
+  .fade-out {
+    animation: fadeOutAnimation 2s forwards;
+  }
+  
+  @keyframes fadeOutAnimation {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      display: none;
+    }
+  }

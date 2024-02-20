@@ -2,7 +2,6 @@ import { Component, OnInit, Output } from '@angular/core';
 import { Product } from 'src/app/interfaces/product';
 import { ProductService } from 'src/app/services/product.service';
 import { ToastrService } from 'ngx-toastr';
-import { Cart } from 'src/app/interfaces/cart';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -15,7 +14,6 @@ export class ShopComponent implements OnInit{
     products: Product[] = [];
     page = 1;
     lastPage!: number;
-    productimage: string = '';
     count: number = 1;
     stockIconColor: string = 'white';
     totalQuantity: number | undefined = 0;
@@ -28,7 +26,7 @@ export class ShopComponent implements OnInit{
   
     ngOnInit(): void {
       this.load();
-      this.displayCartItems();
+      //this.displayCartItems();
     }
   
     load(): void {
@@ -40,7 +38,7 @@ export class ShopComponent implements OnInit{
       );
     }
 
-    inStock(quantity: number): any {
+    inStock(quantity: any): any {
       if(quantity > 4) {
         return 'bi-check-circle-fill stockgreen';
       } else if(quantity > 0) {
@@ -51,15 +49,25 @@ export class ShopComponent implements OnInit{
     }
 
     addToCart(
-      productId: number, 
-      productName: string, 
-      productPrice: number, 
-      inStock: number): void {
-      this.cartService.addToCart(productId, productName, productPrice, inStock);
+        productId: number, 
+        productName: string, 
+        productPrice: number, 
+        productImage: string,
+        inStock: number,
+        productSlug: string
+        ): void {
+      this.cartService.addToCart(
+        productId, 
+        productName, 
+        productPrice,
+        productImage,
+        inStock,
+        productSlug
+        );
     }
 
 
-    displayCartItems() {
+    /* displayCartItems() {
       const cartItemsElement = document.getElementById('cartItems');
 
       while (cartItemsElement!.firstChild) {
@@ -82,7 +90,7 @@ export class ShopComponent implements OnInit{
       }, 0);
 
       this.totalQuantity = totalQuantity;
-    }
+    } */
 
     /* getTotalinCart() {
       const cartString = localStorage.getItem('cart');

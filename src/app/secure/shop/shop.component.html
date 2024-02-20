@@ -18,10 +18,11 @@
           </div>
           <div class="card-body">
           <div class="d-flex justify-content-between">
-              <div class="p-0"><a href="#" routerLink="/shop/cat/{{product.categoryslug}}" class="card-category-link">{{product.categoryname}}</a></div>
-              <div></div>
+              <div class="p-0">
+                <a href="#" routerLink="/shop/cat/{{product.categoryslug}}" class="card-category-link">{{product.categoryname}}</a>
+              </div>
           </div>
-            <h5 class="card-title custom pt-0">{{product.title}}</h5>
+            <h5 class="card-title custom pt-0"><a routerLink="/product-detail/{{product.id}}/{{product.slug}}">{{product.title}}</a></h5>
             <p class="card-shortinfo custom">{{product.shortinfo}}</p>
           </div>
           <div class="card-footer">
@@ -35,7 +36,9 @@
                     product.id,
                     product.title,
                     product.price,
-                    product.instock
+                    product.image,
+                    product.instock,
+                    product.slug
                     )">
                   </i>
               </div>
