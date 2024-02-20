@@ -19,9 +19,9 @@
           dropdownClass="dropdown-menu-cart-arrow cart cart-dropdown"
           >
 
-          <li class="dropdown-header cart-dropdown-title">Dein Warenkorb 
-            <span *ngIf="!(cartService.currentTotalInCart | async)">ist leer</span>
-            <span *ngIf="(cartService.currentTotalInCart | async)">(CHF {{getTotalPrice()}})</span>
+          <li class="dropdown-header cart-dropdown-title">
+            <span *ngIf="!(cartService.currentTotalInCart | async)">Dein Warenkorb ist leer</span>
+            <span *ngIf="(cartService.currentTotalInCart | async)">Dein Warenkorb: {{getTotalPrice()}} Fr.</span>
           </li>
           <div *ngIf="(cartService.currentTotalInCart | async)">
 
@@ -33,17 +33,14 @@
                 <div class="item-block position-relative">
                   <i class="bi bi-x-lg dropdown-item-trash" (click)="deleteCartItem(item.productId)"></i>
                   <div class="text-center">
-                    <img [src]="item.productImage" alt="" class="rounded" routerLink="/product-detail/{{item.productId}}/{{item.productSlug}}" (click)="closeDropdown()">
-                    <span class="item-single-price mt-1 text-center">EP {{formatPrice(item.productPrice)}}</span>
+                    <img [src]="item.productImage" [alt]="item.productImage" [title]="'Einzelpreis: '+formatPrice(item.productPrice) " class="rounded" routerLink="/product-detail/{{item.productId}}/{{item.productSlug}}" (click)="closeDropdown()">
                   </div>
                   
                   <div>
                     <div role="button" class="item-title" routerLink="/product-detail/{{item.productId}}/{{item.productSlug}}" (click)="closeDropdown()"><h4>{{item.productName}}</h4></div>
                     <div class="d-flex justify-content-between">
                         
-                      <div class="d-flex item-price align-items-center">{{sumPriceEachProduct(item.productId, item.productPrice)}} 
-                        <span class="subtotal-label mx-2">Subtotal in Fr.</span>
-                      </div>
+                      <div class="d-flex item-price align-items-center">{{sumPriceEachProduct(item.productId, item.productPrice)}}</div>
 
                       <div class="item-quantity">
                         <span class="quantity-icon mx-1" (click)="increaseQuantity(item.productId)"><i class="bi bi-plus-circle"></i></span>
@@ -64,8 +61,8 @@
             </li>
 
             <li *ngIf="totalInCart > 5" class="dropdown-footer">
-              <a href="javascript:void(0)">Weitere {{moreItemsInCart()}} Produkte im Warenkorb anzeigen</a><br>
-              <a href="javascript:void(0)" (click)="clearCart()">Warenkorb leeren? </a>
+              <a routerLink="/basket" (click)="closeDropdown()">Weitere {{moreItemsInCart()}} Produkte im Warenkorb</a><br>
+              <a href="javascript:void(0)" (click)="clearCart()">Warenkorb leeren?</a>
             </li>
 
           </div>

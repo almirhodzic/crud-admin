@@ -37,6 +37,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AvatarComponent } from './nav/avatar/avatar.component';
 import { DropdownComponent } from './nav/dropdown/dropdown.component';
+import { BasketComponent } from './basket/basket.component';
 
 @NgModule({
   declarations: [
@@ -70,14 +71,21 @@ import { DropdownComponent } from './nav/dropdown/dropdown.component';
     ProductComponent,
     PaginatorComponent,
     AvatarComponent,
-    DropdownComponent
+    DropdownComponent,
+    BasketComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+      easing: 'ease-in',
+      enableHtml: true,
+    }),
     BsDropdownModule.forRoot(),
     BrowserAnimationsModule
   ],

@@ -22,6 +22,7 @@ export class ProductEditComponent implements OnInit {
   categories: Category[] = [];
   productid: number = 0;
   producttitle: string = '';
+  productshortinfo: string = '';
   productImage: string = '';
   productcreated: string = '';
   productupdated: string = '';
@@ -93,6 +94,7 @@ export class ProductEditComponent implements OnInit {
           this.form.patchValue(product);
           this.productid = product.id;
           this.producttitle = product.title;
+          this.productshortinfo = product.shortinfo;
           this.productImage = product.image;
           this.productcreated = this.formatDate(product.created);
           this.productupdated = this.formatDate(product.updated);
@@ -101,8 +103,8 @@ export class ProductEditComponent implements OnInit {
     }
   }
 
-  updateCartItemValue(productId: number, title: string, price: number, image: string, inStock: number) {
-    this.cartService.updateCartItemValue(productId, title, price, image, inStock);
+  updateCartItemValue(productId: number, title: string, shortinfo: string, price: number, image: string, inStock: number) {
+    this.cartService.updateCartItemValue(productId, title, shortinfo, price, image, inStock);
   }
 
   submit() {
@@ -111,7 +113,7 @@ export class ProductEditComponent implements OnInit {
         next: (d) =>  { 
           this.router.navigate(['/products']),
           this.toastr.success('Produkt gespeichert!', '');
-          this.updateCartItemValue(this.productid, this.form.value.title, this.form.value.price, this.form.value.image, this.form.value.instock);
+          this.updateCartItemValue(this.productid, this.form.value.title, this.form.value.shortinfo, this.form.value.price, this.form.value.image, this.form.value.instock);
         },
         error: (err) => { 
           this.handleErrors(err.error.errors);

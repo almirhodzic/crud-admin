@@ -1,6 +1,10 @@
 /* --------------- HEADER NAV-CART MESSAGES --------------- */
 .header-nav .cart {
-inset: 45px -44px auto auto !important;
+inset: 51px -44px auto auto !important;
+/* min-width: 240px;
+padding-bottom: 0;
+top: 48px !important;
+margin-right: 10px !important; */
 }
 
 .header-nav .cart .cart-item {
@@ -32,6 +36,11 @@ color: #fa1735 !important;
 .quantity-icon {
 font-size: 12px !important;
 color: #c5c1c1;
+}
+
+.quantity-icon-medium {
+font-size: 14px !important;
+color: #605671;
 }
 
 .header-nav .cart .cart-item img {

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject } from 'rxjs';
 import { Cart } from 'src/app/interfaces/cart';
 
@@ -14,7 +15,9 @@ export class CartService {
   private totalInCartSource = new BehaviorSubject<number>(0);
   currentTotalInCart = this.totalInCartSource.asObservable();
 
-  constructor() { }
+  constructor(
+    private toastr: ToastrService,
+  ) { }
 
   updateTotalInCart() {
     const cartString = localStorage.getItem('cart');
@@ -42,11 +45,13 @@ export class CartService {
     productPrice: number, 
     productImage: string,
     inStock: number,
-    productSlug: string
+    productSlug: string,
+    productShortinfo: string
     ): void {
 
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
     const existingProductIndex = cart.findIndex((item: any) => item.productId === productId);
+    this.toastr.success('<b>'+ productName + '</b> in den Warenkorb gelegt!', '');
       if (existingProductIndex !== -1) {
       cart[existingProductIndex].quantity += 1;
     } else {
@@ -56,7 +61,8 @@ export class CartService {
         productPrice, 
         productImage,
         quantity: 1,
-        productSlug
+        productSlug,
+        productShortinfo
       });
     }
 
@@ -80,16 +86,20 @@ export class CartService {
     const cartString = localStorage.getItem('cart');
     const cart = cartString ? JSON.parse(cartString) : [];
     const updatedCart = cart.filter((product: any) => product.productId !== productId);
+    const existingProductIndex = cart.findIndex((item: any) => item.productId === productId);
+    cart[existingProductIndex].productName;
     localStorage.setItem('cart', JSON.stringify(updatedCart));
     this.loadCartItems();
     this.updateTotalInCart();
+    this.toastr.info('<b>'+cart[existingProductIndex].productName + '</b> aus dem Warenkorb entfernt!', '');
   }
 
-  updateCartItemValue(productId: number, title: string, price: number, image: string, inStock: number) {
+  updateCartItemValue(productId: number, title: string, shortinfo: string,  price: number, image: string, inStock: number) {
     const cartString = localStorage.getItem('cart');
     const cart = cartString ? JSON.parse(cartString) : [];
     const existingProductIndex = cart.findIndex((item: any) => item.productId === productId);
     cart[existingProductIndex].productName = title;
+    cart[existingProductIndex].productShortinfo = shortinfo;
     cart[existingProductIndex].productPrice = price;
     cart[existingProductIndex].productImage = image;
     localStorage.setItem('cart', JSON.stringify(cart));

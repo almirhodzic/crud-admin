@@ -1,1 +1,69 @@
-<p>basket works!</p>
+<div class="pagetitle">
+    <div class="d-flex justify-content-between">
+        <div>
+        <h1>Warenkorb</h1>
+        <app-breadcrumbs>
+            <app-breadcrumb-item [link]="'/shop'" [title]="'Shop'"></app-breadcrumb-item>
+        </app-breadcrumbs>
+        </div>
+        <div>&nbsp;</div>
+    </div>
+</div>
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                
+                    <ul class="basket">
+                        <li class="basket-item" *ngFor="let item of cartService.cartItems">
+                            <div class="row">
+                                <div class="col-4 col-sm-3 col-md-2">
+                                    <img [src]="item.productImage" role="button" alt="" class="basket-item-image" routerLink="/product-detail/{{item.productId}}/{{item.productSlug}}">
+                                </div>  
+
+                                <div class="col-8 col-sm-9 col-md-10 basket-item-info">
+                                    <div class="row">
+                                        <div class="d-flex col-12 col-md-8">
+                                            <div class="row">
+                                                <div role="button" class="col-12">
+                                                    <span role="button" class="basket-item-title" routerLink="/product-detail/{{item.productId}}/{{item.productSlug}}">{{item.productName}}</span><br>
+                                                    <span class="basket-item-shortinfo">{{item.productShortinfo}}</span><br>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-4">
+
+                                            <div class="row justify-content-between">
+                                                <div class="col-6 basket-item-price">
+                                                    {{sumPriceEachProduct(item.productId, item.productPrice)}}
+                                                </div>
+                                                <div class="col-6 text-end">
+                                                    <span role="button" class="quantity-icon-medium" (click)="increaseQuantity(item.productId)"><i class="bi bi-plus-circle"></i></span>
+                                                    <span class="mx-2">{{item.quantity}}</span>
+                                                    <span role="button" class="quantity-icon-medium" (click)="decreaseQuantity(item.productId)"><i class="bi bi-dash-circle"></i></span>
+                                                </div>
+                                            <div>
+                                            <div class="row">
+                                                <div>
+                                                    <i role="button" class="bi bi-trash3 basket-item-delete" (click)="deleteCartItem(item.productId)">
+                                                        <span class="mx-1">Artiekl entfernen</span>
+                                                    </i>
+                                                </div>
+                                            </div>
+
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+                            </div>
+                           <hr class="dropdown-divider-basket">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -19,8 +19,8 @@ font-weight: 600;
 .header-nav .profile {
 min-width: 240px;
 padding-bottom: 0;
-top: 42px !important;
-margin-right: 10px !important;
+top: 48px !important;
+margin-right: 9px !important;
 } 
 
 .header-nav .profile .dropdown-header h6 {

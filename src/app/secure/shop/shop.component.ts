@@ -53,7 +53,8 @@ export class ShopComponent implements OnInit{
         productPrice: number, 
         productImage: string,
         inStock: number,
-        productSlug: string
+        productSlug: string,
+        productShortinfo: string
         ): void {
       this.cartService.addToCart(
         productId, 
@@ -61,7 +62,8 @@ export class ShopComponent implements OnInit{
         productPrice,
         productImage,
         inStock,
-        productSlug
+        productSlug,
+        productShortinfo
         );
     }
 
