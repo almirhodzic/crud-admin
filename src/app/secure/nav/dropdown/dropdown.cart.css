@@ -26,8 +26,13 @@ top: 0px;
 }
 
 .dropdown-item-trash:hover {
-    color: #fa1735 !important;
-    }
+color: #fa1735 !important;
+}
+
+.quantity-icon {
+font-size: 12px !important;
+color: #c5c1c1;
+}
 
 .header-nav .cart .cart-item img {
 margin: 0 20px 0 10px;

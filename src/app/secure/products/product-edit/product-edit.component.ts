@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Category } from 'src/app/interfaces/category';
 import { CategoryService } from 'src/app/services/category.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-product-edit',
@@ -30,7 +31,8 @@ export class ProductEditComponent implements OnInit {
     private categoryService: CategoryService,
     private router: Router,
     private route: ActivatedRoute,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private cartService: CartService
   ) { }
 
   f1E: string = '';
@@ -95,12 +97,17 @@ export class ProductEditComponent implements OnInit {
     }
   }
 
+  updateCartItemValue(productId: number, title: string, price: number, image: string, inStock: number) {
+    this.cartService.updateCartItemValue(productId, title, price, image, inStock);
+  }
+
   submit() {
     this.productService.update(this.id, this.form.getRawValue()).subscribe(
       {
         next: (d) =>  { 
           this.router.navigate(['/products']),
           this.toastr.success('Produkt gespeichert!', '');
+          this.updateCartItemValue(this.productid, this.form.value.title, this.form.value.price, this.productImage, this.form.value.instock);
         },
         error: (err) => { 
           this.handleErrors(err.error.errors);

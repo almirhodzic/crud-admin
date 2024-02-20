@@ -84,4 +84,46 @@ export class CartService {
     this.loadCartItems();
     this.updateTotalInCart();
   }
+
+  updateCartItemValue(productId: number, title: string, price: number, image: string, inStock: number) {
+    const cartString = localStorage.getItem('cart');
+    const cart = cartString ? JSON.parse(cartString) : [];
+    const existingProductIndex = cart.findIndex((item: any) => item.productId === productId);
+    cart[existingProductIndex].productName = title;
+    cart[existingProductIndex].productPrice = price;
+    cart[existingProductIndex].productImage = image;
+    localStorage.setItem('cart', JSON.stringify(cart));
+    this.loadCartItems();
+    this.updateTotalInCart();
+  }
+
+  increaseQuantity(productId: number) {
+    const cartString = localStorage.getItem('cart');
+    const cart = cartString ? JSON.parse(cartString) : [];
+    const existingProductIndex = cart.findIndex((item: any) => item.productId === productId);
+    cart[existingProductIndex].quantity += 1;
+    localStorage.setItem('cart', JSON.stringify(cart));
+    this.loadCartItems();
+    this.updateTotalInCart();
+  }
+
+  decreaseQuantity(productId: number) {
+    const cartString = localStorage.getItem('cart');
+    const cart = cartString ? JSON.parse(cartString) : [];
+    const existingProductIndex = cart.findIndex((item: any) => item.productId === productId);
+    if (cart[existingProductIndex].quantity > 1) {
+      cart[existingProductIndex].quantity -= 1;
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    this.loadCartItems();
+    this.updateTotalInCart();
+  }
+  
+  sumPriceEachProduct(productId: number, productPrice: number) {
+    const cartString = localStorage.getItem('cart');
+    const cart = cartString ? JSON.parse(cartString) : [];
+    const existingProductIndex = cart.findIndex((item: any) => item.productId === productId);
+    return this.formatTotalPrice(cart[existingProductIndex].quantity * productPrice);
+  }
+
 }

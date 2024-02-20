@@ -101,4 +101,16 @@ export class NavComponent implements OnInit {
   closeDropdown(): void {
     this.dropdownService.closeDropdown();
   }
+
+  increaseQuantity(productId: number) {
+    this.cartService.increaseQuantity(productId);
+  }
+
+  decreaseQuantity(productId: number) {
+    this.cartService.decreaseQuantity(productId);
+  }
+
+  sumPriceEachProduct(productId: number, productPrice: number) {
+    return this.cartService.sumPriceEachProduct(productId, productPrice);
+  }
 }

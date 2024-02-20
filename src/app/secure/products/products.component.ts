@@ -3,6 +3,7 @@ import { Product } from '../../interfaces/product';
 import { ProductService } from '../../services/product.service';
 import { ToastrService } from 'ngx-toastr';
 import { CategoryService } from '../../services/category.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-products',
@@ -22,7 +23,8 @@ export class ProductsComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private toastr: ToastrService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private cartService: CartService
   ) { }
 
   ngOnInit(): void {
@@ -37,6 +39,10 @@ export class ProductsComponent implements OnInit {
         this.totalProducts = res.meta.total;
       }
     );
+  }
+
+  deleteCartItem(productId: number) {
+    this.cartService.deleteCartItem(productId);
   }
 
   next(): void {
@@ -57,6 +63,7 @@ export class ProductsComponent implements OnInit {
         {
           next: (d) =>  { 
             this.products = this.products.filter(p => p.id !== id);
+            this.deleteCartItem(id);
             this.toastr.success('Product deleted!', '');
             this.load();
           },
