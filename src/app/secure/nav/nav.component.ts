@@ -54,6 +54,10 @@ export class NavComponent implements OnInit {
     private dropdownService: DropdownService
   ) {}
   
+  formatPrice(totalPrice: number): string {
+    return new Intl.NumberFormat('de-CH', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(totalPrice);
+  }
+
   loadCartItems() {
     this.cartService.loadCartItems();
   }

@@ -32,17 +32,26 @@
 
                 <div class="item-block position-relative">
                   <i class="bi bi-x-lg dropdown-item-trash" (click)="deleteCartItem(item.productId)"></i>
-                  <img [src]="item.productImage" alt="" class="rounded" routerLink="/product-detail/{{item.productId}}/{{item.productSlug}}" (click)="closeDropdown()">
+                  <div class="text-center">
+                    <img [src]="item.productImage" alt="" class="rounded" routerLink="/product-detail/{{item.productId}}/{{item.productSlug}}" (click)="closeDropdown()">
+                    <span class="item-single-price mt-1 text-center">{{formatPrice(item.productPrice)}}</span>
+                    <span class="item-single-price-label text-center">E.Preis Fr.</span>
+                  </div>
+                  
                   <div>
                     <div role="button" class="item-title" routerLink="/product-detail/{{item.productId}}/{{item.productSlug}}" (click)="closeDropdown()"><h4>{{item.productName}}</h4></div>
                     <div class="d-flex justify-content-between">
-                      <div class="item-price">CHF {{item.productPrice}}</div>
+                        
+                      <div class="d-flex item-price align-items-center">{{sumPriceEachProduct(item.productId, item.productPrice)}} 
+                        <span class="subtotal-label mx-2">Subtotal in Fr.</span>
+                      </div>
+
                       <div class="item-quantity">
-                        <span class="quantity-icon" (click)="increaseQuantity(item.productId)"><i class="bi bi-plus-circle"></i></span>
-                         {{item.quantity}}
-                         <span class="quantity-icon" (click)="decreaseQuantity(item.productId)"><i class="bi bi-dash-circle"></i></span>
-                        </div>
-                        <div class="item-price">CHF {{sumPriceEachProduct(item.productId, item.productPrice)}}</div>
+                        <span class="quantity-icon mx-1" (click)="increaseQuantity(item.productId)"><i class="bi bi-plus-circle"></i></span>
+                        <span>{{item.quantity}}</span>
+                        <span class="quantity-icon mx-1" (click)="decreaseQuantity(item.productId)"><i class="bi bi-dash-circle"></i></span>
+                      </div>
+
                     </div>
                   </div>
                 </div>

@@ -31,7 +31,7 @@
                   <td width="15%"><img [src]="product.image ? product.image : '../../../../assets/img/sample-product.png'" height="50" /></td>
                   <td valign="middle" width="30%">{{ product.title }}</td>
                   <td valign="middle" width="15%">{{ product.instock }}</td>
-                  <td valign="middle" width="15%">{{ product.price }}</td>
+                  <td valign="middle" width="15%">{{ formatPrice(product.price) }}</td>
                   <td valign="middle" width="10%">
                     <a href="javascript:void(0)" [routerLink]="['/product','edit', product.id]"><i class="bi-pencil" style="margin-right:1rem; font-size: 1.25rem; color: cornflowerblue;"></i></a>
                     <a href="javascript:void(0)" (click)="delete(product.id)"><i class="bi-trash" style="font-size: 1.25rem; color: cornflowerblue;"></i></a>

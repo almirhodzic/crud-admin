@@ -8,6 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Category } from 'src/app/interfaces/category';
 import { CategoryService } from 'src/app/services/category.service';
 import { CartService } from 'src/app/services/cart.service';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-product-edit',
@@ -64,7 +65,10 @@ export class ProductEditComponent implements OnInit {
     this.f7E = '';
   }
 
-  ngOnInit() {
+    formatDate(givenString: string ): string {
+      return new Date(givenString).toLocaleString('de-DE')
+    }
+    ngOnInit() {
     this.form = this.formBuilder.group({
       title: '',
       shortinfo: '',
@@ -90,8 +94,8 @@ export class ProductEditComponent implements OnInit {
           this.productid = product.id;
           this.producttitle = product.title;
           this.productImage = product.image;
-          this.productcreated = new Date(product.created_at).toLocaleString('de-DE');
-          this.productupdated = new Date(product.updated_at).toLocaleString('de-DE');
+          this.productcreated = this.formatDate(product.created);
+          this.productupdated = this.formatDate(product.updated);
         }
       );
     }
@@ -107,7 +111,7 @@ export class ProductEditComponent implements OnInit {
         next: (d) =>  { 
           this.router.navigate(['/products']),
           this.toastr.success('Produkt gespeichert!', '');
-          this.updateCartItemValue(this.productid, this.form.value.title, this.form.value.price, this.productImage, this.form.value.instock);
+          this.updateCartItemValue(this.productid, this.form.value.title, this.form.value.price, this.form.value.image, this.form.value.instock);
         },
         error: (err) => { 
           this.handleErrors(err.error.errors);

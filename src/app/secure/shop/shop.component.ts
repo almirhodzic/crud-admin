@@ -26,7 +26,6 @@ export class ShopComponent implements OnInit{
   
     ngOnInit(): void {
       this.load();
-      //this.displayCartItems();
     }
   
     load(): void {
@@ -66,51 +65,6 @@ export class ShopComponent implements OnInit{
         );
     }
 
-
-    /* displayCartItems() {
-      const cartItemsElement = document.getElementById('cartItems');
-
-      while (cartItemsElement!.firstChild) {
-        cartItemsElement!.removeChild(cartItemsElement!.firstChild);
-      }
-
-      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    
-      // Für jedes Produkt im Warenkorb ein Listenelement erstellen
-      cart.forEach((product: Cart) => {
-        const li = document.createElement('li');
-
-        li.textContent = `ID: ${product.productId} - ${product.productName} - €${product.productPrice} - Quantity: ${product.quantity}`;
-
-        cartItemsElement!.appendChild(li);
-      });
-
-      const totalQuantity = cart.reduce((total:any, product:any) => {
-        return total + product.quantity;
-      }, 0);
-
-      this.totalQuantity = totalQuantity;
-    } */
-
-    /* getTotalinCart() {
-      const cartString = localStorage.getItem('cart');
-      const cart = cartString ? JSON.parse(cartString) : [];
-      const totalinCart = cart.reduce((total:number, product:any) => total + product.quantity, 0);
-      return totalinCart;
-    } */
-
-    /* calculateTotalQuantity() {
-      // Warenkorb aus dem localStorage lesen und in ein Array umwandeln
-      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    
-      // Gesamtsumme der Produktmengen berechnen
-      const totalQuantity = cart.reduce((total:any, product:any) => {
-        return total + product.quantity;
-      }, 0); // Starten Sie den Gesamtwert mit 0
-    
-      return totalQuantity;
-    } */
-  
     next(): void {
       if(this.page === this.lastPage) { return; }
       this.page++;

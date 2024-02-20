@@ -43,6 +43,16 @@ a.card-category-link {
     top: 5px;
     right: 7px;
 }
+
+.shop-instock-number {
+  font-size: .65rem;
+  font-weight: 400;
+  color: #8c8aa0;
+  position: absolute;
+  top: 7px;
+  right: 27px;
+}
+
 .stockgreen {
   color: rgb(20, 202, 20);
 }

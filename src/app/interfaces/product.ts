@@ -11,5 +11,7 @@ export interface Product {
     category_id: Category;
     categoryname: string;
     categoryslug: string;
+    created_at: string;
+    updated_at: string;
     instock: number;
 }

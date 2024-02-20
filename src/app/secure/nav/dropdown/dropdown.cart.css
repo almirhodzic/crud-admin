@@ -35,7 +35,7 @@ color: #c5c1c1;
 }
 
 .header-nav .cart .cart-item img {
-margin: 0 20px 0 10px;
+margin: 0 15px;
 max-height: 40px;
 }
 
@@ -58,7 +58,7 @@ background-color: #f6f9ff;
 
 .cart .cart-item .item-title {
     display: block !important;
-    width: 220px !important;
+    width: 225px !important;
 }
 
 .cart .cart-item .item-price {

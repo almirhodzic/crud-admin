@@ -12,6 +12,7 @@
   <div class="row">
     <div class="col-lg-3 col-md-4 col-sm-6 d-flex relative" *ngFor="let product of products">
       <div class="card shadow">
+          <span class="shop-instock-number">noch {{product.instock}} Stück</span>
           <i class="bi {{inStock(product.instock)}} stockicon" title="Lagerbestand:{{product.instock}}"></i>
           <div>
               <img [src]="product.image ? product.image : './src/assets/img/sample-product.png'" [alt]="product.title" class="p-4 img-thumbnail border-0"> 
@@ -28,7 +29,7 @@
           <div class="card-footer">
             <div class="d-flex justify-content-between">
               <div>
-                <span class="price">CHF {{product.price}}</span>
+                <span class="price">Fr. {{product.price}}</span>
               </div>
               <div class="cursor">
                   <i role="button" class="bi bi-cart2" 

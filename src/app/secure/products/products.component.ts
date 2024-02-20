@@ -45,6 +45,10 @@ export class ProductsComponent implements OnInit {
     this.cartService.deleteCartItem(productId);
   }
 
+  formatPrice(totalPrice: number): string {
+    return this.cartService.formatPrice(totalPrice);
+  }
+
   next(): void {
     if(this.page === this.lastPage) { return; }
     this.page++;

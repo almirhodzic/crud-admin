@@ -65,7 +65,7 @@ export class CartService {
     this.updateTotalInCart();
   }
 
-  formatTotalPrice(totalPrice: number): string {
+  formatPrice(totalPrice: number): string {
     return new Intl.NumberFormat('de-CH', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(totalPrice);
   }
 
@@ -73,7 +73,7 @@ export class CartService {
     const cartString = localStorage.getItem('cart');
     const cart = cartString ? JSON.parse(cartString) : [];
     const totalPrice = cart.reduce((total: number, product: any) => total + product.productPrice * product.quantity, 0);
-    return this.formatTotalPrice(totalPrice);
+    return this.formatPrice(totalPrice);
   }
 
   deleteCartItem(productId: number) {
@@ -123,7 +123,7 @@ export class CartService {
     const cartString = localStorage.getItem('cart');
     const cart = cartString ? JSON.parse(cartString) : [];
     const existingProductIndex = cart.findIndex((item: any) => item.productId === productId);
-    return this.formatTotalPrice(cart[existingProductIndex].quantity * productPrice);
+    return this.formatPrice(cart[existingProductIndex].quantity * productPrice);
   }
 
 }
