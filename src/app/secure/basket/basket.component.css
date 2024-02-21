@@ -1,3 +1,6 @@
+.basket {
+    font-family: Nunito, sans-serif !important;
+}
 ul.basket {
     list-style-type: none;
     padding: 0;
@@ -18,10 +21,19 @@ ul.basket li {
 }
 
 .basket-item-title {
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 600;
+    line-height: normal !important;
     margin-bottom: 5px;
-    color: #19185a;
+    color: #444;
+}
+
+.basket-trash-top {
+    font-size: 20px;
+    color: #877a96;
+    position: absolute;
+    right: 0 !important;
+    top: 0 !important;
 }
 
 .basket-item-shortinfo {
@@ -40,16 +52,74 @@ ul.basket li {
 }
 
 .basket-item-delete {
-    color: #c31111;
-    font-size: 12px;
+    color: #877a96;
+    font-size: 16px;
 }
 
 .basket-item-delete:hover {
-    text-decoration: underline;
+    color: #fc0d0d;
 }
 
 .dropdown-divider-basket {
     color: #a5c5fe;
     margin: 0;
     padding: 10px 0 0 0;
-  }
+}
+
+.basket-trash-top {
+    display: none !important;
+}
+
+.basket-item-quantyfier-top {
+    display: none !important;
+}
+
+.basket-item-quantyfier-down {
+    display: inline-block !important;
+}
+
+@media (max-width: 768px) {
+    .basket-item .row{
+        padding: 0 0 2px 0;
+    }    
+    .basket-trash-top {
+        display: inline-block !important;
+    }
+    .basket-trash-down {
+        display: none !important;
+    }
+    .basket-item-quantyfier-top {
+        display: inline-block !important;
+    }
+    .basket-item-quantyfier-down {
+        display: none !important;
+    }
+
+    .basket-item-image {
+        width: 75px;
+        height: 75px;
+        float: left;
+        margin-right: 5px;
+        object-fit: contain !important;
+    }
+    .basket-item-title {
+        font-size: 17px !important;
+        line-height: normal !important;
+        font-weight: 600;
+        margin-bottom: 1px;
+        color: #444;
+    }
+    .basket-item-shortinfo {
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 10px;
+        color: #9393aa;
+        display: inline-block !important;
+    }
+    .basket-item-price {
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: #19185a;
+    }
+}

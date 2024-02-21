@@ -20,8 +20,28 @@
           >
 
           <li class="dropdown-header cart-dropdown-title">
-            <span *ngIf="!(cartService.currentTotalInCart | async)">Dein Warenkorb ist leer</span>
-            <span *ngIf="(cartService.currentTotalInCart | async)">Dein Warenkorb: {{getTotalPrice()}} Fr.</span>
+            <div class="d-flex justify-content-between align-items-center">
+
+            <div>
+              <span *ngIf="!(cartService.currentTotalInCart | async)">
+                <i class="bi bi-cart2 cart-icon-dropdown-title cart-icon-empty"></i>
+                <span class="cart-dropdown-title-lineheighter cart-icon-empty">Dein Warenkorb ist leer</span>
+              </span>
+              <span *ngIf="(cartService.currentTotalInCart | async)" class="mx-1">
+                <i class="bi bi-cart2 cart-icon-dropdown-title"></i>
+                <span class="cart-dropdown-title-lineheighter">Warenkorb-Übersicht</span>
+              </span>
+            </div>
+
+            <div>
+              <i role="button" class="bi bi-x-lg dropdown-close" (click)="closeDropdown()"></i>
+            </div>
+
+            
+
+            </div>
+            <div class="empty-cart-span-spacer" *ngIf="(cartService.currentTotalInCart | async)"></div>
+            
           </li>
           <div *ngIf="(cartService.currentTotalInCart | async)">
 
@@ -33,20 +53,22 @@
                 <div class="item-block position-relative">
                   <i class="bi bi-x-lg dropdown-item-trash" (click)="deleteCartItem(item.productId)"></i>
                   <div class="text-center">
-                    <img [src]="item.productImage" [alt]="item.productImage" [title]="'Einzelpreis: '+formatPrice(item.productPrice) " class="rounded" routerLink="/product-detail/{{item.productId}}/{{item.productSlug}}" (click)="closeDropdown()">
+                    <img [src]="item.productImage" [alt]="item.productImage" [title]="'Einzelpreis: '+formatPrice(item.productPrice) " class="rounded unselectable" routerLink="/product-detail/{{item.productId}}/{{item.productSlug}}" (click)="closeDropdown()">
                   </div>
                   
                   <div>
-                    <div role="button" class="item-title" routerLink="/product-detail/{{item.productId}}/{{item.productSlug}}" (click)="closeDropdown()"><h4>{{item.productName}}</h4></div>
+                    <div role="button" class="item-title unselectable" routerLink="/product-detail/{{item.productId}}/{{item.productSlug}}" (click)="closeDropdown()"><h4>{{item.productName}}</h4></div>
                     <div class="d-flex justify-content-between">
                         
-                      <div class="d-flex item-price align-items-center">{{sumPriceEachProduct(item.productId, item.productPrice)}}</div>
+                      
 
                       <div class="item-quantity">
-                        <span class="quantity-icon mx-1" (click)="increaseQuantity(item.productId)"><i class="bi bi-plus-circle"></i></span>
-                        <span>{{item.quantity}}</span>
-                        <span class="quantity-icon mx-1" (click)="decreaseQuantity(item.productId)"><i class="bi bi-dash-circle"></i></span>
+                        <span class="quantity-icon" (click)="increaseQuantity(item.productId)"><i class="bi bi-plus-circle"></i></span>
+                        <span class="mx-2 unselectable">{{item.quantity}}</span>
+                        <span class="quantity-icon" (click)="decreaseQuantity(item.productId)"><i class="bi bi-dash-circle"></i></span>
                       </div>
+
+                      <div class="d-flex item-price align-items-center unselectable">{{sumPriceEachProduct(item.productId, item.productPrice)}}</div>
 
                     </div>
                   </div>
@@ -55,14 +77,38 @@
               <hr class="dropdown-divider-no-padding">
             </li>
 
-            <li *ngIf="totalInCart < 6" class="dropdown-footer">
-              <a href="javascript:void(0)">Total Preis: CHF {{getTotalPrice()}}</a><br>
-              <a href="javascript:void(0)" (click)="clearCart()">Warenkorb leeren?</a>
+            <li class="cart-item">
+              <div class="padding-5-15 delivery-text">
+                <div class="row">
+                    <div class="d-flex align-items-center">
+                      <div class="cart-dropdown-delivery-label">Versand</div>
+                      <div class="cart-dropdown-delivery-condition text-end"> kostenlos</div>
+                  </div>
+                </div>
+              </div>
+              <hr class="dropdown-divider-no-padding">
             </li>
 
-            <li *ngIf="totalInCart > 5" class="dropdown-footer">
-              <a routerLink="/basket" (click)="closeDropdown()">Weitere {{moreItemsInCart()}} Produkte im Warenkorb</a><br>
-              <a href="javascript:void(0)" (click)="clearCart()">Warenkorb leeren?</a>
+            <li class="cart-item">
+              <div class="padding-5-15 delivery-text">
+                <div class="row">
+                    <div class="d-flex align-items-center">
+                      <div class="cart-dropdown-price-label">Total CHF</div>
+                      <div class="cart-dropdown-price-condition text-end">{{getTotalPrice()}}</div>
+                  </div>
+                </div>
+              </div>
+              <hr class="dropdown-divider-no-padding">
+            </li>
+
+            <li class="dropdown-footer d-grid">
+              <button class="btn btn-sm btn-primary my-2" routerLink="/basket" (click)="closeDropdown()">
+                <span *ngIf="totalInCart > 5">+{{moreItemsInCart()}} weitere Produkte im Warenkorb</span>
+                <span *ngIf="totalInCart < 6">Zum Warenkorb</span>
+              </button>
+              <a href="javascript:void(0)" class="clear-cart-link" (click)="clearCart()" (click)="closeDropdown()">
+                <span ><i class="bi bi-trash3 cart-dropdown-clear-trash-icon mx-1"></i>Warenkorb leeren?</span>
+              </a>
             </li>
 
           </div>

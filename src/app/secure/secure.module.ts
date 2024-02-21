@@ -35,7 +35,6 @@ import { ProductComponent } from './shop/product/product.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AvatarComponent } from './nav/avatar/avatar.component';
 import { DropdownComponent } from './nav/dropdown/dropdown.component';
 import { BasketComponent } from './basket/basket.component';
 
@@ -70,7 +69,6 @@ import { BasketComponent } from './basket/basket.component';
     ShopComponent,
     ProductComponent,
     PaginatorComponent,
-    AvatarComponent,
     DropdownComponent,
     BasketComponent
   ],

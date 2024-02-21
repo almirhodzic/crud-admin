@@ -276,3 +276,20 @@ background-color: #f6f9ff;
 .nav-icon-cart-medium {
   font-size: 22px !important;
 }
+
+a.clear-cart-link {
+  font-size: 15px;
+  color: #444444;
+  text-decoration: none !important;
+}
+
+a.clear-cart-link:hover {
+  color: #4e4bf5;
+  text-decoration: underline !important;
+}
+
+.cart-dropdown-clear-trash-icon {
+  font-size: 16px !important;
+  color: #877a96;
+  color: #877a96;
+}

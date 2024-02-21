@@ -64,9 +64,10 @@ export class NavComponent implements OnInit {
 
   clearCart() {
     this.cartService.clearCart();
-    setTimeout(() => {
+    this.closeDropdown();
+    /* setTimeout(() => {
       this.closeDropdown();
-    }, 2000);
+    }, 2000); */
   };
 
   deleteCartItem(productId: number) {

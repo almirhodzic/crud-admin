@@ -6,7 +6,11 @@
             <app-breadcrumb-item [link]="'/shop'" [title]="'Shop'"></app-breadcrumb-item>
         </app-breadcrumbs>
         </div>
-        <div>&nbsp;</div>
+        <div>
+            <a href="javascript:void(0)" class="clear-cart-link" (click)="clearCart()">
+                <span ><i class="bi bi-trash3 cart-dropdown-clear-trash-icon mx-1"></i>Warenkorb leeren?</span>
+              </a>
+        </div>
     </div>
 </div>
 <section class="section">
@@ -15,22 +19,35 @@
             <div class="card">
                 <div class="card-body">
                 
+                    
                     <ul class="basket">
+                        <li *ngIf="cartService.cartItems.length === 0">Keine Produkte</li>
                         <li class="basket-item" *ngFor="let item of cartService.cartItems">
                             <div class="row">
-                                <div class="col-4 col-sm-3 col-md-2">
-                                    <img [src]="item.productImage" role="button" alt="" class="basket-item-image" routerLink="/product-detail/{{item.productId}}/{{item.productSlug}}">
+                                <div class="col-3 col-md-2">
+                                 <img [src]="item.productImage" role="button" alt="" class="basket-item-image" routerLink="/product-detail/{{item.productId}}/{{item.productSlug}}">
                                 </div>  
 
-                                <div class="col-8 col-sm-9 col-md-10 basket-item-info">
+                                <div class="col-9 col-md-10 basket-item-info">
                                     <div class="row">
-                                        <div class="d-flex col-12 col-md-8">
+                                        <div class="col-12 col-md-8">
+
                                             <div class="row">
-                                                <div role="button" class="col-12">
-                                                    <span role="button" class="basket-item-title" routerLink="/product-detail/{{item.productId}}/{{item.productSlug}}">{{item.productName}}</span><br>
+                                            <div class="col-12 position-relative">
+
+                                                
+                                                <i role="button" class="basket-trash-top bi bi-trash3 basket-item-delete" (click)="deleteCartItem(item.productId)">
+                                                    <span class="mx-1"></span>
+                                                </i>
+
+                                                <div role="button" class="col-10">
+                                                    <span class="basket-item-title" routerLink="/product-detail/{{item.productId}}/{{item.productSlug}}">{{item.productName}}</span><br>
                                                     <span class="basket-item-shortinfo">{{item.productShortinfo}}</span><br>
                                                 </div>
+                                                <div class="col-2"></div>
                                             </div>
+                                            </div>
+
                                         </div>
 
                                         <div class="col-12 col-md-4">
@@ -40,16 +57,21 @@
                                                     {{sumPriceEachProduct(item.productId, item.productPrice)}}
                                                 </div>
                                                 <div class="col-6 text-end">
-                                                    <span role="button" class="quantity-icon-medium" (click)="increaseQuantity(item.productId)"><i class="bi bi-plus-circle"></i></span>
-                                                    <span class="mx-2">{{item.quantity}}</span>
-                                                    <span role="button" class="quantity-icon-medium" (click)="decreaseQuantity(item.productId)"><i class="bi bi-dash-circle"></i></span>
+                                                    <i role="button" class="basket-trash-down bi bi-trash3 basket-item-delete" (click)="deleteCartItem(item.productId)">
+                                                        <span class="mx-1"></span>
+                                                    </i>
+                                                    <div class="basket-item-quantyfier-top">
+                                                        <span role="button" class="quantity-icon-medium" (click)="increaseQuantity(item.productId)"><i class="bi bi-plus-circle"></i></span>
+                                                        <span class="mx-2">{{item.quantity}}</span>
+                                                        <span role="button" class="quantity-icon-medium" (click)="decreaseQuantity(item.productId)"><i class="bi bi-dash-circle"></i></span>
+                                                    </div>
                                                 </div>
                                             <div>
                                             <div class="row">
-                                                <div>
-                                                    <i role="button" class="bi bi-trash3 basket-item-delete" (click)="deleteCartItem(item.productId)">
-                                                        <span class="mx-1">Artiekl entfernen</span>
-                                                    </i>
+                                                <div class="basket-item-quantyfier-down">
+                                                    <span role="button" class="quantity-icon-medium" (click)="increaseQuantity(item.productId)"><i class="bi bi-plus-circle"></i></span>
+                                                    <span class="mx-2">{{item.quantity}}</span>
+                                                    <span role="button" class="quantity-icon-medium" (click)="decreaseQuantity(item.productId)"><i class="bi bi-dash-circle"></i></span>
                                                 </div>
                                             </div>
 

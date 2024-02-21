@@ -33,9 +33,14 @@ a.card-category-link {
   color: #5149c7;
 }
 .card-footer .price {
-  font-size: .85rem;
+  font-size: .9rem;
   font-weight: 400;
   color: #2a265e;
+}
+.card-footer .cart-icon {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #3c34b5;
 }
 .stockicon {
   font-size: .85rem;
