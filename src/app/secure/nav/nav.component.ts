@@ -100,6 +100,7 @@ export class NavComponent implements OnInit {
     this.authService.logout().subscribe(() => {
       this.router.navigate(['/login']);
     });
+    this.closeDropdown();
   }
 
   closeDropdown(): void {
