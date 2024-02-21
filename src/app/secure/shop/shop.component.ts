@@ -3,6 +3,7 @@ import { Product } from 'src/app/interfaces/product';
 import { ProductService } from 'src/app/services/product.service';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/services/cart.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-shop',
@@ -21,12 +22,15 @@ export class ShopComponent implements OnInit{
     constructor(
       private productService: ProductService,
       private toastr: ToastrService,
-      private cartService: CartService
+      private cartService: CartService,
+      private authService: AuthService,
     ) { }
-  
+
+
     ngOnInit(): void {
       this.load();
-    }
+    };
+
   
     load(): void {
       this.productService.all(this.page).subscribe(
