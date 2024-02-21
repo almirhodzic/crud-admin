@@ -3,6 +3,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { ViewEncapsulation } from '@angular/core';
+import { LoaderService } from 'src/app/services/loader.service';
 
 @Component({
   selector: 'app-basket',
@@ -17,6 +18,7 @@ export class BasketComponent implements OnInit, OnDestroy{
   constructor(
     public cartService: CartService,
     private router: Router,
+    private loaderService: LoaderService
   ) { }
 
   cartItems: any[] = [];
@@ -43,8 +45,12 @@ export class BasketComponent implements OnInit, OnDestroy{
   }
 
   clearCart() {
-    this.cartService.clearCart();
-    this.router.navigate(['/shop']);
+    this.loaderService.setLoading(true);
+    setTimeout(() => {
+      this.loaderService.setLoading(false);
+      this.cartService.clearCart();
+      this.router.navigate(['/shop']);
+    }, 1000);
   };
 
   deleteCartItem(productId: number) {

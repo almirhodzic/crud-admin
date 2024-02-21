@@ -11,6 +11,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { Subscription } from 'rxjs';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { DropdownService } from 'src/app/services/dropdown.service';
+import { LoaderService } from 'src/app/services/loader.service';
 
 @Component({
   selector: 'app-nav',
@@ -51,7 +52,8 @@ export class NavComponent implements OnInit {
     public sidebar: MenuComponent,
     private router: Router,
     public cartService: CartService,
-    private dropdownService: DropdownService
+    private dropdownService: DropdownService,
+    private loaderService: LoaderService
   ) {}
 
   ngOnInit() {
@@ -82,11 +84,12 @@ export class NavComponent implements OnInit {
   }
 
   clearCart() {
-    this.cartService.clearCart();
-    this.closeDropdown();
-    /* setTimeout(() => {
+    this.loaderService.setLoading(true);
+    setTimeout(() => {
+      this.loaderService.setLoading(false);
+      this.cartService.clearCart();
       this.closeDropdown();
-    }, 2000); */
+    }, 1000);
   };
 
   deleteCartItem(productId: number) {
@@ -98,9 +101,15 @@ export class NavComponent implements OnInit {
   } 
 
   logout(): void {
-    this.authService.logout().subscribe(() => {
-      this.router.navigate(['/login']);
-    });
+
+    this.loaderService.setLoading(true);
+    setTimeout(() => {
+      this.loaderService.setLoading(false);
+      this.authService.logout().subscribe(() => {
+        this.router.navigate(['/login']);
+      });
+      this.closeDropdown();
+    }, 1000);
   }
 
   closeDropdown(): void {
