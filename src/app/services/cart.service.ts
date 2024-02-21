@@ -13,8 +13,6 @@ export class CartService {
   cartItems: any[] = [];
   
   private totalInCartSource = new BehaviorSubject<number>(0);
-
-  cartCleared: BehaviorSubject<boolean> = new BehaviorSubject(false);
   currentTotalInCart = this.totalInCartSource.asObservable();
 
   constructor(
@@ -39,7 +37,6 @@ export class CartService {
     localStorage.removeItem('cart');
     this.loadCartItems();
     this.updateTotalInCart();
-    this.cartCleared.next(true);
     this.toastr.info('Dein <b>Warenkorb</b> wurde geleert!', '');
   }
 
@@ -55,7 +52,9 @@ export class CartService {
 
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
     const existingProductIndex = cart.findIndex((item: any) => item.productId === productId);
+
     this.toastr.success('<b>'+ productName + '</b><br> in Warenkorb gelegt!', '');
+    
       if (existingProductIndex !== -1) {
       cart[existingProductIndex].quantity += 1;
     } else {
@@ -144,22 +143,16 @@ export class CartService {
     const cartString = localStorage.getItem('cart');
     const cart = cartString ? JSON.parse(cartString) : [];
     const existingProductIndex = cart.findIndex((item: any) => item.productId === productId);
-  
-    // Überprüfe, ob existingProductIndex gültig ist, bevor du fortfährst
+
     if (existingProductIndex === -1) {
-      // Behandle den Fall, dass das Produkt nicht im Warenkorb gefunden wurde
-      // Du könntest hier z.B. 0 zurückgeben oder eine Fehlermeldung werfen
       return this.formatPrice(0);
     }
-  
     return this.formatPrice(cart[existingProductIndex].quantity * productPrice);
   }
-  
 
   totalItemsInCart() {
     const cartString = localStorage.getItem('cart');
     const cart = cartString ? JSON.parse(cartString) : [];
     return cart.reduce((total: number, product: any) => total + product.quantity, 0);
   }
-
 }

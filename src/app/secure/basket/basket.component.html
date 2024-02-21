@@ -7,7 +7,7 @@
         </app-breadcrumbs>
         </div>
         <div>
-            <a href="javascript:void(0)" class="clear-cart-link" (click)="clearCart()">
+            <a *ngIf="cartService.cartItems.length > 0" href="javascript:void(0)" class="clear-cart-link" (click)="clearCart()">
                 <span ><i class="bi bi-trash3 cart-dropdown-clear-trash-icon mx-1"></i>Warenkorb leeren?</span>
               </a>
         </div>
@@ -18,10 +18,10 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                
-                    
+
                     <ul class="basket">
-                        <li *ngIf="cartService.cartItems.length === 0">Keine Produkte</li>
+                        <li *ngIf="cartService.cartItems.length === 0">Dein Warenkorb ist leer!</li>
+
                         <li class="basket-item" *ngFor="let item of cartService.cartItems">
                             <div class="row">
                                 <div class="col-3 col-md-2">
@@ -83,6 +83,7 @@
                             </div>
                            <hr class="dropdown-divider-basket">
                         </li>
+                        
                     </ul>
                 </div>
             </div>

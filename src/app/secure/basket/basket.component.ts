@@ -1,8 +1,8 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
-import { ViewEncapsulation } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-basket',
@@ -15,7 +15,6 @@ export class BasketComponent implements OnInit, OnDestroy{
   private subscription: Subscription = new Subscription();
 
   constructor(
-    private cdr: ChangeDetectorRef,
     public cartService: CartService,
     private router: Router,
   ) { }
@@ -23,18 +22,11 @@ export class BasketComponent implements OnInit, OnDestroy{
   cartItems: any[] = [];
   totalInCart: number = 0;
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.cartService.updateTotalInCart();
     this.loadCartItems();
-    
     this.subscription.add(this.cartService.currentTotalInCart.subscribe(total => {
     this.totalInCart = total;
-    }));
-    this.subscription.add(this.cartService.cartCleared.subscribe(cleared => {
-      if (cleared) {
-        this.cartItems = []; // Warenkorb in der Komponente leeren
-        this.cartService.cartCleared.next(false); // Zurücksetzen, optional
-      }
     }));
   }
 
@@ -43,7 +35,7 @@ export class BasketComponent implements OnInit, OnDestroy{
   }
 
   formatPrice(totalPrice: number): string {
-    return new Intl.NumberFormat('de-CH', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(totalPrice);
+    return this.cartService.formatPrice(totalPrice);
   }
 
   loadCartItems() {

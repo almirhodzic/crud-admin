@@ -53,9 +53,28 @@ export class NavComponent implements OnInit {
     public cartService: CartService,
     private dropdownService: DropdownService
   ) {}
+
+  ngOnInit() {
+    this.cartService.updateTotalInCart();
+    this.loadCartItems();
+    this.subscription.add(this.cartService.currentTotalInCart.subscribe(total => {
+    this.totalInCart = total;
+    }));
+
+    Auth.userEmitter.subscribe(
+      (user: any) => {
+        this.user = user;
+        this.userrole = user?.role.name;
+      }
+    );
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
   
   formatPrice(totalPrice: number): string {
-    return new Intl.NumberFormat('de-CH', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(totalPrice);
+    return this.cartService.formatPrice(totalPrice);
   }
 
   loadCartItems() {
@@ -76,32 +95,12 @@ export class NavComponent implements OnInit {
 
   getTotalPrice() {
     return this.cartService.getTotalPrice();
-  }
-
-  ngOnInit() {
-    this.cartService.updateTotalInCart();
-    this.loadCartItems();
-    this.subscription.add(this.cartService.currentTotalInCart.subscribe(total => {
-    this.totalInCart = total;
-    }));
-
-    Auth.userEmitter.subscribe(
-      (user: any) => {
-        this.user = user;
-        this.userrole = user?.role.name;
-      }
-    );
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+  } 
 
   logout(): void {
     this.authService.logout().subscribe(() => {
       this.router.navigate(['/login']);
     });
-    this.closeDropdown();
   }
 
   closeDropdown(): void {
