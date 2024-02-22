@@ -101,7 +101,6 @@ export class NavComponent implements OnInit {
   } 
 
   logout(): void {
-
     this.loaderService.setLoading(true);
     setTimeout(() => {
       this.loaderService.setLoading(false);

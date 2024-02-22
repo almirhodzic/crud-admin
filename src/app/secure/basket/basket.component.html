@@ -7,9 +7,7 @@
         </app-breadcrumbs>
         </div>
         <div>
-            <a *ngIf="cartService.cartItems.length > 0" href="javascript:void(0)" class="clear-cart-link" (click)="clearCart()">
-                <span ><i class="bi bi-trash3 cart-dropdown-clear-trash-icon mx-1"></i>Warenkorb leeren?</span>
-              </a>
+            <button class="btn btn-sm btn-outline-secondary" (click)="clearCart()"><i class="bi bi-trash3"></i><span class="mx-2">Warenkorb leeren?</span></button>
         </div>
     </div>
 </div>
@@ -20,7 +18,7 @@
                 <div class="card-body">
 
                     <ul class="basket">
-                        <li *ngIf="cartService.cartItems.length === 0">Dein Warenkorb ist leer!</li>
+                        <li *ngIf="cartService.cartItems.length === 0">Dein Warenkorb ist leer. <a routerLink="/shop">Jetzt shoppen!</a></li>
 
                         <li class="basket-item" *ngFor="let item of cartService.cartItems">
                             <div class="row">
@@ -43,6 +41,7 @@
                                                 <div role="button" class="col-10">
                                                     <span class="basket-item-title" routerLink="/product-detail/{{item.productId}}/{{item.productSlug}}">{{item.productName}}</span><br>
                                                     <span class="basket-item-shortinfo">{{item.productShortinfo}}</span><br>
+                                                    <span class="basket-item-shortinfo">{{item.productinstock}}</span><br>
                                                 </div>
                                                 <div class="col-2"></div>
                                             </div>
@@ -85,8 +84,19 @@
                         </li>
                         
                     </ul>
+
+                    <div class="col-12 mt-4 d-flex justify-content-between" *ngIf="cartService.cartItems.length > 0">
+                        <div>
+                            <button class="btn btn-outline-secondary" routerLink="/shop"><i class="bi bi-shop-window"></i><span class="mx-2">weiter Einkaufen</span></button>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary"><i class="bi bi-cart-check-fill"></i><span class="mx-2">Jetzt Artikel bestellen</span></button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
+       
     </div>
 </section>

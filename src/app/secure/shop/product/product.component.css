@@ -1,0 +1,21 @@
+.productdetail .producttitle {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.productdetail .productinfo {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.productdetail .productprice {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.card-title-productdetail {
+    padding: 20px 0 15px !important;
+}

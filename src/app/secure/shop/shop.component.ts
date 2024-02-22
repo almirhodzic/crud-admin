@@ -23,14 +23,12 @@ export class ShopComponent implements OnInit{
       private productService: ProductService,
       private toastr: ToastrService,
       private cartService: CartService,
-      private authService: AuthService,
+      private authService: AuthService
     ) { }
-
 
     ngOnInit(): void {
       this.load();
     };
-
   
     load(): void {
       this.productService.all(this.page).subscribe(
@@ -42,13 +40,7 @@ export class ShopComponent implements OnInit{
     }
 
     inStock(quantity: any): any {
-      if(quantity > 4) {
-        return 'bi-check-circle-fill stockgreen';
-      } else if(quantity > 0) {
-        return 'bi-exclamation-circle-fill stockorange';
-      } else {
-        return 'bi-x-circle-fill stockgrey';
-      }
+      return this.cartService.inStock(quantity);
     }
 
     addToCart(
@@ -96,5 +88,9 @@ export class ShopComponent implements OnInit{
           }
         );
       }
+    }
+
+    formatPrice(totalPrice: number): string {
+      return this.cartService.formatPrice(totalPrice);
     }
 }

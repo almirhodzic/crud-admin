@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject } from 'rxjs';
-import { Cart } from 'src/app/interfaces/cart';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +10,7 @@ export class CartService {
   totalQuantity: number | undefined = 0;
   totalInCart: number = 0;
   cartItems: any[] = [];
+
   
   private totalInCartSource = new BehaviorSubject<number>(0);
   currentTotalInCart = this.totalInCartSource.asObservable();
@@ -68,14 +68,23 @@ export class CartService {
         productShortinfo
       });
     }
-
     localStorage.setItem('cart', JSON.stringify(cart));
     this.loadCartItems()
     this.updateTotalInCart();
   }
 
+  inStock(quantity: any): any {
+    if(quantity > 4) {
+      return 'bi-check-circle-fill stockgreen';
+    } else if(quantity > 0) {
+      return 'bi-exclamation-circle-fill stockorange';
+    } else {
+      return 'bi-x-circle-fill stockgrey';
+    }
+  }
+
   formatPrice(totalPrice: number): string {
-    return new Intl.NumberFormat('de-CH', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(totalPrice);
+    return 'Fr. '+ new Intl.NumberFormat('de-CH', { style: 'decimal', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(totalPrice) + '.–';
   }
 
   getTotalPrice() {
@@ -131,13 +140,6 @@ export class CartService {
     this.loadCartItems();
     this.updateTotalInCart();
   }
-  
-  /* sumPriceEachProduct(productId: number, productPrice: number) {
-    const cartString = localStorage.getItem('cart');
-    const cart = cartString ? JSON.parse(cartString) : [];
-    const existingProductIndex = cart.findIndex((item: any) => item.productId === productId);
-    return this.formatPrice(cart[existingProductIndex].quantity * productPrice);
-  } */
 
   sumPriceEachProduct(productId: number, productPrice: number) {
     const cartString = localStorage.getItem('cart');

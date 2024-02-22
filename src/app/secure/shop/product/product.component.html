@@ -1,1 +1,80 @@
-<p>product works!</p>
+<div class="pagetitle">
+    <h1>{{producttitle}}</h1>
+    <app-breadcrumbs>
+      <app-breadcrumb-item [link]="'/shop'" [title]="'Shop'"></app-breadcrumb-item>
+      <span class="breadcrumb-slash">/</span>
+      <!-- <app-breadcrumb-item [link]="'/shop/cat/' + productcatslug" [title]="productcatname"></app-breadcrumb-item> -->
+      <app-breadcrumb-item [link]="'/shop'" [title]="productcatname"></app-breadcrumb-item>
+    </app-breadcrumbs>
+  </div>
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+      <div class="card">
+      <div class="flex-d card-body">
+        <h5 class="card-title card-title-productdetail">Produktdetail</h5>
+
+        <div class="container">
+          <div class="row">
+
+              <div class="col-lg-6 col-12 rounded">
+                <div class="col-12 mb-1">
+                  <img role="button" [src]="productImage" [alt]="producttitle"
+                  class="p-4 col-12 object-fit-contain border rounded" height="45%" width="100%">
+                </div>
+                <div class="col-12">
+                  <small class="text-info">Produktfoto</small>
+                </div>
+              </div>
+
+              <div class="col-lg-6 col-12 productdetail">
+                <div class="col-12 mb-3">
+                  <div class="producttitle">{{producttitle}}</div>
+                </div>
+                <div class="col-12 mb-3">
+                    <div class="productinfo">{{productinfo}}</div>
+                </div>
+                <div class="col-12 mb-3">
+                    <div class="productprice">{{formatPrice(productprice)}}</div>
+                </div>
+                <div class="col-12 mb-3">
+                    Lagerbestand: <i class="bi {{inStock(productinstock)}}"></i><br><small class="text-info">(noch {{productinstock}} Stück an Lager)</small>
+                </div>
+                <div class="col-12 mb-4">
+                    <div>Artikel-Id: {{productid}}</div>
+                    <small class="text-info">
+                        <div>Aufgenommen: {{productcreated}}</div>
+                        <div>Zuletzt aktualisiert: {{productupdated}}</div>
+                    </small>
+                </div>
+                <div class="col-12 mb-3">
+                    <button class="btn btn-primary"
+                    (click)="addToCart(
+                    productid,
+                    producttitle,
+                    productprice,
+                    productImage,
+                    productinstock,
+                    productslug,
+                    productshortinfo
+                    )"
+                    
+                    ><i class="bi bi-cart2 mx-1"></i> In den Warenkorb</button>
+                </div>
+                <div class="col-12 mb-2">
+                    <a role="button" routerLink="/basket"><i class="bi bi-cart2"></i><span class="mx-2">Warenkorb ansehen</span></a><br>
+                </div>
+                <div class="col-12 mb-3">
+                  <a href="javascript:void(0)" onclick="history.back()" role="button"><i class="bi bi-arrow-left"></i><span class="mx-2">Zurück</span></a>
+              </div>
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+  
+  

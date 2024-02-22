@@ -25,5 +25,4 @@ export class UserdetailService{
   getUserRole(){
     return this.userrole;
   }
-
 }
