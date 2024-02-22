@@ -12,3 +12,7 @@ export const appInfo = {
 export const appSecurity = {
   minPasswordLenght : '8',
 }
+
+export const localStorageEnv = {
+  cartName : 'minicart'+ appInfo.version +'_',
+}

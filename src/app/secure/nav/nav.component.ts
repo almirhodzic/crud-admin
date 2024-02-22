@@ -34,6 +34,7 @@ export class NavComponent implements OnInit {
   stockIconColor: string = 'white';
   totalQuantity: number | undefined = 0;
   totalInCart: number = 0;
+  UserUuid: string = '';
 
   private subscription: Subscription = new Subscription();
   
@@ -67,6 +68,7 @@ export class NavComponent implements OnInit {
       (user: any) => {
         this.user = user;
         this.userrole = user?.role.name;
+        this.UserUuid = user?.uuid;
       }
     );
   }

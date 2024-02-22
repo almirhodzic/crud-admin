@@ -82,6 +82,7 @@ export class ProductComponent implements OnInit{
   }
 
   addToCart(
+    userUuid: number | string,
     productId: number, 
     productName: string, 
     productPrice: number, 
@@ -91,6 +92,7 @@ export class ProductComponent implements OnInit{
     productShortinfo: string
     ): void {
   this.cartService.addToCart(
+    userUuid,
     productId, 
     productName, 
     productPrice,

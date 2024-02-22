@@ -3,7 +3,6 @@ import { Product } from 'src/app/interfaces/product';
 import { ProductService } from 'src/app/services/product.service';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/services/cart.service';
-import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-shop',
@@ -23,7 +22,6 @@ export class ShopComponent implements OnInit{
       private productService: ProductService,
       private toastr: ToastrService,
       private cartService: CartService,
-      private authService: AuthService
     ) { }
 
     ngOnInit(): void {
@@ -44,6 +42,7 @@ export class ShopComponent implements OnInit{
     }
 
     addToCart(
+        userUuid: number | string,
         productId: number, 
         productName: string, 
         productPrice: number, 
@@ -53,6 +52,7 @@ export class ShopComponent implements OnInit{
         productShortinfo: string
         ): void {
       this.cartService.addToCart(
+        userUuid,
         productId, 
         productName, 
         productPrice,

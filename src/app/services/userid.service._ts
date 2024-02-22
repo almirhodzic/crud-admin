@@ -1,0 +1,25 @@
+
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { User } from '../interfaces/user';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UseridService {
+  
+  private userIdSource = new BehaviorSubject<number | string | null>(null);
+  userId$ = this.userIdSource.asObservable(); // Exponiere die userId als Observable
+
+  constructor() { }
+
+  // Methode zum Aktualisieren der userId
+  setUserId(userId: number | string): void {
+    this.userIdSource.next(userId);
+  }
+
+  // Methode zum Abrufen der aktuellen userId
+  getUserId(): Observable<number | string | null> {
+    return this.userId$;
+  }
+}

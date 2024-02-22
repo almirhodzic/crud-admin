@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { appInfo } from '../../environments/environment.dev';
 
 @Component({
@@ -6,9 +6,13 @@ import { appInfo } from '../../environments/environment.dev';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css', '../secure.component.css']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit{
+
+  constructor() { }
+
+  ngOnInit() {
+
+  }
 
   appInfo = appInfo;
-
-
 }

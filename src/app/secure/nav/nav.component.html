@@ -18,7 +18,6 @@
           [badgeContent]="cartService.currentTotalInCart | async" 
           dropdownClass="dropdown-menu-cart-arrow cart cart-dropdown"
           >
-
           <li class="dropdown-header cart-dropdown-title">
             <div class="d-flex justify-content-between align-items-center">
 
@@ -152,7 +151,7 @@
           </li>
 
           <li>
-            <a class="dropdown-item d-flex align-items-center" href="javascript:void(0)" (click)="logout()">
+            <a class="dropdown-item d-flex align-items-center" href="javascript:void(0)" (click)="logout()" (click)="closeDropdown()">
               <i class="bi bi-box-arrow-right"></i>
               <span>Abmelden</span>
             </a>

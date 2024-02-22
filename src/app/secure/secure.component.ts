@@ -13,7 +13,7 @@ export class SecureComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit() :void {
@@ -23,5 +23,10 @@ export class SecureComponent implements OnInit {
         this.router.navigate(['/login']);
         return of(err);
       })
-    ).subscribe(user => Auth.userEmitter.next(user));
-}}
+    ).subscribe(user => 
+      {
+      Auth.userEmitter.next(user);
+      this.authService.setUuid(user.uuid);
+      });
+  }
+}
