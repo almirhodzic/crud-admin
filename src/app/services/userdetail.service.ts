@@ -25,4 +25,13 @@ export class UserdetailService{
   getUserRole(){
     return this.userrole;
   }
+
+  countrByName(country: string) {
+    switch(country) {
+      case 'CH': country = 'Schweiz'; break;
+      case 'DE': country = 'Deutschland'; break;
+      case 'AT': country = 'Österreich'; break;
+    }
+    return country;
+  } 
 }

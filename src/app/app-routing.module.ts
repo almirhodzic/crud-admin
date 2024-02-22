@@ -32,6 +32,7 @@ import { MyordersComponent } from './secure/myorders/myorders.component';
 import { ShopComponent } from './secure/shop/shop.component';
 import { ProductComponent } from './secure/shop/product/product.component';
 import { BasketComponent } from './secure/basket/basket.component';
+import { CheckoutComponent } from './secure/checkout/checkout.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,7 @@ const routes: Routes = [
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       { path: 'shop', component: ShopComponent },
       { path: 'basket', component: BasketComponent },
+      { path: 'checkout', component: CheckoutComponent },
       { path: 'product-detail/:id/:slug', component: ProductComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'password', component: PasswordComponent},
