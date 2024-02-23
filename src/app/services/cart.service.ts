@@ -17,8 +17,9 @@ export class CartService {
   cartItems: any[] = [];
   user?: User;
   cartName: string = localStorageEnv.cartName;
-  /* uuid: string = this.authService.getUuid(); */
-  uuid: string = '52983492-9516-458d-a916-0d695f76b84d';
+  /* uuid: string = this.authService.getUuid();
+  uuid: string = '52983492-9516-458d-a916-0d695f76b84d'; */
+  uuid: string = '';
 
   static userEmitter = new BehaviorSubject<User | undefined>(undefined);
   private totalInCartSource = new BehaviorSubject<number>(0);

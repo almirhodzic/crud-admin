@@ -9,6 +9,8 @@ import { UserdetailService } from 'src/app/services/userdetail.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { CheckoutService } from 'src/app/services/checkout.service';
 
 @Component({
   selector: 'app-basket',
@@ -31,6 +33,7 @@ export class CheckoutComponent implements OnInit, OnDestroy{
   useremail: string = '';
   userid: number = 0;
   ShowComponent: boolean = false;
+  agb: boolean = false;
  
   constructor(
     public cartService: CartService,
@@ -39,16 +42,18 @@ export class CheckoutComponent implements OnInit, OnDestroy{
     private userService: UserService,
     private userDetailService: UserdetailService,
     private formBuilder: FormBuilder,
+    private toastr: ToastrService,
+    private checkoutService: CheckoutService
   ) { }
 
   cartItems: any[] = [];
   totalInCart: number = 0;
 
+  f1E: string = '';
+
   ngOnInit() {
 
     this.form = this.formBuilder.group({
-      user_id: '',
-      cart_value: '',
       agb: '',
     });
 
@@ -71,7 +76,7 @@ export class CheckoutComponent implements OnInit, OnDestroy{
           this.zipcode = user.zipcode,
           this.useremail = user.email;
           this.userid = user.id;
-          
+
           if(this.address.length > 0) {
             this.ShowComponent = true
           }
@@ -79,6 +84,41 @@ export class CheckoutComponent implements OnInit, OnDestroy{
       }
     );
   }
+
+
+
+
+  submit(): void {
+    //this.loaderService.setLoading(true);
+    //setTimeout(() => {
+      this.checkoutService.create(this.form.getRawValue())
+      .subscribe(
+        {
+          next: user => { 
+            //this.toastr.success('Benutzerdaten gespeichert!', '');
+          },
+          error: err => { 
+            /* this.handleErrors(err.error.errors);
+            this.errorBlock = err.error.errors; */
+          },
+          complete: () => { }
+        }
+      );
+    //}, 500);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   redirectToProfile() {
     localStorage.setItem('redirectUrl', '/checkout');

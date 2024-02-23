@@ -47,8 +47,8 @@
                   <th class="cartlisbg" scope="col" width="11%">Art.Nr</th>
                   <th class="cartlisbg" scope="col" width="41%">Produkt</th>
                   <th class="cartlisbg" scope="col" width="10%">Stck.</th>
-                  <th class="cartlisbg" scope="col" width="13%">E.Preis</th>
-                  <th class="cartlisbg" scope="col" width="25%">Preis</th>
+                  <th class="cartlisbg" scope="col" width="13%" title="Einzelpreis">E.Preis</th>
+                  <th class="cartlisbg" scope="col" width="25%" title="Gesamtpreis">G.Preis</th>
                 </tr>
               </thead>
               <tbody>
@@ -82,20 +82,24 @@
 
 
 
-          <div class="row" *ngIf="ShowComponent">
-            <div>
-              <label class="list-group-item d-flex gap-2">
-                <input class="form-check-input flex-shrink-0" type="checkbox" value="" checked="">
-                <span>
-                  AGBs akzeptieren
-                  <small class="d-block text-body-secondary">Um eine Bestellung auszuführen, musst Du unsere AGBs akzeptieren</small>
-                </span>
-              </label>
+
+          <form [formGroup]="form">
+            <div class="row" *ngIf="ShowComponent">
+              <div>
+                <label class="list-group-item d-flex gap-2">
+                  <input formControlName="agb" class="form-check-input flex-shrink-0" type="checkbox">
+                  <span>
+                    AGBs akzeptieren
+                    <small class="d-block text-body-secondary">Um eine Bestellung auszuführen, musst Du unsere AGBs akzeptieren</small>
+                  </span>
+                </label>
+                <div *ngIf="f1E" class="input-error">{{f1E}}</div>
+              </div>
+              <div>
+                <button type="submit" class="btn btn-primary mt-4">Jetzt zahlungspflichtig bestellen</button><br>
+              </div>
             </div>
-            <div>
-              <button class="btn btn-primary mt-4">Jetzt zahlungspflichtig bestellen</button><br>
-            </div>
-          </div>
+          </form>
 
           <div *ngIf="!ShowComponent" class="mt-2">
             <a routerLink="redirectToProfile()"><i class="bi bi-info-square mx-1"></i> Vervollständige dein Profil um bestellen zu können!</a>

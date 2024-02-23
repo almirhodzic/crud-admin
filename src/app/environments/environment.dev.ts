@@ -14,5 +14,6 @@ export const appSecurity = {
 }
 
 export const localStorageEnv = {
-  cartName : 'minicart'+ appInfo.version +'_',
+  /* cartName : 'minicart'+ appInfo.version +'_', */
+  cartName : 'minicart',
 }
