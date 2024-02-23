@@ -1,0 +1,16 @@
+td.padding-heavy {
+    background-color: aliceblue !important;
+    border-top: 1px solid #271445;
+    padding: 12px 0 !important;
+}
+td.padding-medium {
+  background-color: aliceblue !important;
+  border-top: 1px solid #271445;
+  padding: 8px 0 !important;
+}
+.cartlisbg {
+  background-color: aliceblue !important;
+}
+.font-bold {
+    font-weight: bold !important;
+}

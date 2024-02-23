@@ -6,6 +6,7 @@ import { Auth } from './../../classes/auth';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { UserService } from './../../services/user.service';
+import { LoaderService } from './../../services/loader.service';
 
 @Component({
   selector: 'app-profile',
@@ -27,7 +28,8 @@ export class ProfileComponent implements OnInit {
     private authService: AuthService,
     private userService: UserService,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    private loaderService: LoaderService
   ) { }
 
   f1E: string = '';
@@ -93,20 +95,30 @@ export class ProfileComponent implements OnInit {
   }
 
   submit(): void {
-    this.userService.update(this.userid, this.form.getRawValue())
-    .subscribe(
-      {
-        next: user => { 
-          this.clearErrorFields();
-          //Auth.userEmitter.next(user),
-          this.toastr.success('Benutzerdaten gespeichert!', '');
-        },
-        error: err => { 
-          this.handleErrors(err.error.errors);
-          this.errorBlock = err.error.errors;
-        },
-        complete: () => { }
-      }
-    );
+    this.loaderService.setLoading(true);
+    setTimeout(() => {
+      this.loaderService.setLoading(false);
+      this.userService.update(this.userid, this.form.getRawValue())
+      .subscribe(
+        {
+          next: user => { 
+            const redirectUrl = localStorage.getItem('redirectUrl');
+            this.clearErrorFields();
+            this.toastr.success('Benutzerdaten gespeichert!', '');
+
+            if (redirectUrl) {
+              localStorage.setItem('dataCompleted', 'true');
+              localStorage.removeItem('redirectUrl');
+              this.router.navigate([redirectUrl]);
+            }
+          },
+          error: err => { 
+            this.handleErrors(err.error.errors);
+            this.errorBlock = err.error.errors;
+          },
+          complete: () => { }
+        }
+      );
+    }, 1000);
   }
 }

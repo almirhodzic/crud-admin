@@ -100,6 +100,14 @@ export class CartService {
     return 'Fr. '+ new Intl.NumberFormat('de-CH', { style: 'decimal', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(totalPrice) + '.–';
   }
 
+  getCurrentDate(): string {
+    const date = new Date();
+    const options: Intl.DateTimeFormatOptions = { day: '2-digit', month: '2-digit', year: 'numeric' };
+    return date.toLocaleDateString('de-CH', options);
+  }
+  
+  
+
   getTotalPrice() {
     const cartString = localStorage.getItem(this.cartName+this.uuid);
     const cart = cartString ? JSON.parse(cartString) : [];

@@ -14,21 +14,93 @@
     <div class="col-lg-12">
       <div class="card">
         <div class="card-body">
-          <div>
-            <h2>Lieferadresse</h2>
-            {{first_name}} {{last_name}}<br>
-            {{address}}<br>
-            {{zipcode}} {{city}}<br>
-            {{countrByName(country)}}
+
+          <h4 class="pb-4 pt-2">Deine Einkaufsliste</h4>
+
+          <div class="alert alert-danger pt-4 pb-2" role="alert" *ngIf="!ShowComponent">
+            <h6 class="alert-heading">Du kannst, zureit keine Bestellungen ausführen!</h6>
+            <p>Um eine Bestelung auszuführen, musst Du deine Adresse in deinem <a href="javascript:void(0)" (click)="redirectToProfile()"><u>Profil vervollständigen</u></a>.</p>
           </div>
 
-          <div>
-            Total Preis: {{getTotalPrice()}}
+            <div class="d-flex justify-content-between" *ngIf="ShowComponent">
+              <div>
+                <h5 class="card-title">Liefer- & Rechnungsadresse</h5>
+                {{first_name}} {{last_name}}<br>
+                {{address}}<br>
+                {{zipcode}} {{city}}<br>
+                {{countrByName(country)}}
+              </div>
+              <div style="width: 30%;">
+                <h5 class="card-title">Zahlungsmodalität</h5>
+                Auf Rechung<br>
+                <small>30 Tage Netto</small><br><br>
+                St. Gallen, {{getCurrentDate()}}
+              </div>
+            </div>
+
+          <div class="my-4 p-4 rounded cartlisbg">
+            <h6 class="mb-3">Deine Einkaufsliste beinhaltet {{totalInCart}} Produkte</h6>
+            <table class="table cartlisbg">
+              <thead>
+                <tr>
+                  <th class="cartlisbg" scope="col" width="8%">Pos.</th>
+                  <th class="cartlisbg" scope="col" width="11%">Art.Nr</th>
+                  <th class="cartlisbg" scope="col" width="41%">Produkt</th>
+                  <th class="cartlisbg" scope="col" width="10%">Stck.</th>
+                  <th class="cartlisbg" scope="col" width="13%">E.Preis</th>
+                  <th class="cartlisbg" scope="col" width="25%">Preis</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of cartService.cartItems; let i = index">
+                  <td class="padding-medium">{{i+1}}.</td>
+                  <td class="padding-medium">{{item.productId}}</td>
+                  <td class="padding-medium">{{item.productName}}</td>
+                  <td class="padding-medium">{{item.quantity}}</td>
+                  <td class="padding-medium">{{formatPrice(item.productPrice)}}</td>
+                  <td class="padding-medium">{{sumPriceEachProduct(item.productId, item.productPrice)}}</td>
+                </tr>
+                <tr>
+                  <td class="padding-heavy"></td>
+                  <td class="padding-heavy"></td>
+                  <td class="padding-heavy"></td>
+                  <td class="padding-heavy"></td>
+                  <td class="padding-heavy">Versand</td>
+                  <td class="padding-heavy">{{formatPrice(0)}}</td>
+                </tr>
+                <tr>
+                  <td class="padding-heavy"></td>
+                  <td class="padding-heavy"></td>
+                  <td class="padding-heavy"></td>
+                  <td class="padding-heavy"></td>
+                  <td class="padding-heavy font-bold">Total</td>
+                  <td class="padding-heavy font-bold">{{getTotalPrice()}}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
 
-          <div>
-            <button class="btn btn-primary">Bezahlen</button>
+
+
+          <div class="row" *ngIf="ShowComponent">
+            <div>
+              <label class="list-group-item d-flex gap-2">
+                <input class="form-check-input flex-shrink-0" type="checkbox" value="" checked="">
+                <span>
+                  AGBs akzeptieren
+                  <small class="d-block text-body-secondary">Um eine Bestellung auszuführen, musst Du unsere AGBs akzeptieren</small>
+                </span>
+              </label>
+            </div>
+            <div>
+              <button class="btn btn-primary mt-4">Jetzt zahlungspflichtig bestellen</button><br>
+            </div>
           </div>
+
+          <div *ngIf="!ShowComponent" class="mt-2">
+            <a routerLink="redirectToProfile()"><i class="bi bi-info-square mx-1"></i> Vervollständige dein Profil um bestellen zu können!</a>
+          </div>
+
         </div>
       </div>
   </div>
