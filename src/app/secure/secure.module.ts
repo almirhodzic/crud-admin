@@ -38,6 +38,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DropdownComponent } from './nav/dropdown/dropdown.component';
 import { BasketComponent } from './basket/basket.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { MyordersComponent } from './myorders/myorders.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     PaginatorComponent,
     DropdownComponent,
     BasketComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    MyordersComponent
   ],
   imports: [
     CommonModule,
