@@ -34,6 +34,11 @@ export class CheckoutComponent implements OnInit, OnDestroy{
   userid: number = 0;
   ShowComponent: boolean = false;
   agb: boolean = false;
+  cartSend: string = '';
+  cartItems: any[] = [];
+  totalInCart: number = 0;
+
+  f1E: string = '';
 
   constructor(
     public cartService: CartService,
@@ -46,21 +51,18 @@ export class CheckoutComponent implements OnInit, OnDestroy{
     private checkoutService: CheckoutService
   ) { }
 
-  cartItems: any[] = [];
-  totalInCart: number = 0;
-
-  f1E: string = '';
-
   ngOnInit() {
 
     this.form = this.formBuilder.group({
       agb: [this.agb],
       user_id: [this.userid],
+      cart: [this.cartSend]
     });
 
     this.reloadUserData();
     this.cartService.updateTotalInCart();
     this.loadCartItems();
+    this.cartSend = localStorage.getItem('minicart') ? JSON.parse(localStorage.getItem('minicart') || '{}') : [];
     this.subscription.add(this.cartService.currentTotalInCart.subscribe(total => {
     this.totalInCart = total;
     }));
@@ -84,7 +86,8 @@ export class CheckoutComponent implements OnInit, OnDestroy{
 
           this.form.patchValue({
             agb: this.agb,
-            user_id: this.userid
+            user_id: this.userid,
+            cart: this.cartSend
           });
         }
       }
@@ -100,9 +103,8 @@ export class CheckoutComponent implements OnInit, OnDestroy{
     if (errors.agb) { this.f1E = errors.agb[0]; }
   }
 
-
   submit(): void {
-      this.checkoutService.post(this.form.getRawValue())
+      this.checkoutService.test(this.form.getRawValue())
       .subscribe(
         {
           next: res => { 

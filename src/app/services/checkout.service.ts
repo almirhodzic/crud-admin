@@ -14,7 +14,7 @@ endpoint = `${environment.api}`;
     private http: HttpClient,
   ) { }
 
-  post<T>(data: T): Observable<T> {
+  test<T>(data: T): Observable<T> {
     return this.http.post<T>(`${this.endpoint}/checkout/test/`, data);
   }
 
