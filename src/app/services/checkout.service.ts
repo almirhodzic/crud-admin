@@ -18,6 +18,10 @@ endpoint = `${environment.api}`;
     return this.http.post<T>(`${this.endpoint}/checkout/test/`, data);
   }
 
+  checkout<T>(data: T): Observable<T> {
+    return this.http.post<T>(`${this.endpoint}/checkout/checkout/`, data);
+  }
+
   validatePasswordResetToken<T>(token: T): Observable<T> {
     return this.http.get<T>(`${this.endpoint}/request/passreset/validate-token/${token}`);
   }

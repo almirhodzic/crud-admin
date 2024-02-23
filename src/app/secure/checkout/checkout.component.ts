@@ -11,6 +11,7 @@ import { FormBuilder } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { CheckoutService } from 'src/app/services/checkout.service';
+import { appInfo } from 'src/app/environments/environment.dev';
 
 @Component({
   selector: 'app-basket',
@@ -37,6 +38,11 @@ export class CheckoutComponent implements OnInit, OnDestroy{
   cartSend: string = '';
   cartItems: any[] = [];
   totalInCart: number = 0;
+  checkout_success_success: number = 0;
+  checkout_success_message: string = '';
+  checkout_success_buyeremail: string = '';
+  checkout_success_orderid: number = 0;
+  appInfo = appInfo;
 
   f1E: string = '';
 
@@ -52,6 +58,10 @@ export class CheckoutComponent implements OnInit, OnDestroy{
   ) { }
 
   ngOnInit() {
+
+    if(this.cartService.cartIsEmpy()){
+      this.router.navigate(['/shop']);
+    }
 
     this.form = this.formBuilder.group({
       agb: [this.agb],
@@ -104,20 +114,36 @@ export class CheckoutComponent implements OnInit, OnDestroy{
   }
 
   submit(): void {
-      this.checkoutService.test(this.form.getRawValue())
+    this.loaderService.setLoading(true);
+    setTimeout(() => {
+      this.checkoutService.checkout(this.form.getRawValue())
       .subscribe(
         {
           next: res => { 
             this.clearErrorFields();
             console.log(res.message);
+
+            this.checkout_success_success = res.message.success;
+            this.checkout_success_message = res.message.message;
+            this.checkout_success_buyeremail = res.message.buyeremail;
+            this.checkout_success_orderid = res.message.bestellnr;
+            this.loaderService.setLoading(false);
+
+            if(this.checkout_success_success === 1) {
+              this.cartService.clearCartSilent();
+              setTimeout(() => {
+                this.router.navigate(['/dashboard']);
+              }, 30000);
+            }
+
           },
           error: err => { 
-            //alert(this.f1E);
             this.handleErrors(err.error.errors);
           },
           complete: () => { }
         }
       );
+    }, 2000);
   }
 
 

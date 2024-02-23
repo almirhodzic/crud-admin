@@ -30,6 +30,12 @@ export class CartService {
     private authService: AuthService
   ) {}
 
+  cartIsEmpy(): boolean {
+    const cartString = localStorage.getItem(this.cartName+this.uuid);
+    const cart = cartString ? JSON.parse(cartString) : [];
+    return cart.length === 0;
+  }
+
   updateTotalInCart() {
     const cartString = localStorage.getItem(this.cartName+this.uuid);
     const cart = cartString ? JSON.parse(cartString) : [];
@@ -49,6 +55,12 @@ export class CartService {
     this.loadCartItems();
     this.updateTotalInCart();
     this.toastr.info('Dein <b>Warenkorb</b> wurde geleert!', '');
+  }
+
+  clearCartSilent() {
+    localStorage.removeItem(this.cartName+this.uuid);
+    this.loadCartItems();
+    this.updateTotalInCart();
   }
 
   addToCart(

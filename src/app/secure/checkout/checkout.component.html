@@ -15,13 +15,12 @@
       <div class="card">
         <div class="card-body">
 
-          <h4 class="pb-4 pt-2">Deine Einkaufsliste</h4>
-
-          <div class="alert alert-danger pt-4 pb-2" role="alert" *ngIf="!ShowComponent">
-            <h6 class="alert-heading">Du kannst, zureit keine Bestellungen ausführen!</h6>
-            <p>Um eine Bestelung auszuführen, musst Du deine Adresse in deinem <a href="javascript:void(0)" (click)="redirectToProfile()"><u>Profil vervollständigen</u></a>.</p>
-          </div>
-
+          <div *ngIf="checkout_success_success === 0">
+            <h4 class="pb-4 pt-2">Deine Einkaufsliste</h4>
+            <div class="alert alert-danger pt-4 pb-2" role="alert" *ngIf="!ShowComponent">
+              <h6 class="alert-heading">Du kannst, zureit keine Bestellungen ausführen!</h6>
+              <p>Um eine Bestelung auszuführen, musst Du deine Adresse in deinem <a href="javascript:void(0)" (click)="redirectToProfile()"><u>Profil vervollständigen</u></a>.</p>
+            </div>
             <div class="d-flex justify-content-between" *ngIf="ShowComponent">
               <div>
                 <h5 class="card-title">Liefer- & Rechnungsadresse</h5>
@@ -37,54 +36,47 @@
                 St. Gallen, {{getCurrentDate()}}
               </div>
             </div>
-
-          <div class="my-4 p-4 rounded cartlisbg">
-            <h6 class="mb-3">Deine Einkaufsliste beinhaltet {{totalInCart}} Produkte</h6>
-            <table class="table cartlisbg">
-              <thead>
-                <tr>
-                  <th class="cartlisbg" scope="col" width="8%">Pos.</th>
-                  <th class="cartlisbg" scope="col" width="11%">Art.Nr</th>
-                  <th class="cartlisbg" scope="col" width="41%">Produkt</th>
-                  <th class="cartlisbg" scope="col" width="10%">Stck.</th>
-                  <th class="cartlisbg" scope="col" width="13%" title="Einzelpreis">E.Preis</th>
-                  <th class="cartlisbg" scope="col" width="25%" title="Gesamtpreis">G.Preis</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let item of cartService.cartItems; let i = index">
-                  <td class="padding-medium">{{i+1}}.</td>
-                  <td class="padding-medium">{{item.productId}}</td>
-                  <td class="padding-medium">{{item.productName}}</td>
-                  <td class="padding-medium">{{item.quantity}}</td>
-                  <td class="padding-medium">{{formatPrice(item.productPrice)}}</td>
-                  <td class="padding-medium">{{sumPriceEachProduct(item.productId, item.productPrice)}}</td>
-                </tr>
-                <tr>
-                  <td class="padding-heavy"></td>
-                  <td class="padding-heavy"></td>
-                  <td class="padding-heavy"></td>
-                  <td class="padding-heavy"></td>
-                  <td class="padding-heavy">Versand</td>
-                  <td class="padding-heavy">{{formatPrice(0)}}</td>
-                </tr>
-                <tr>
-                  <td class="padding-heavy"></td>
-                  <td class="padding-heavy"></td>
-                  <td class="padding-heavy"></td>
-                  <td class="padding-heavy"></td>
-                  <td class="padding-heavy font-bold">Total</td>
-                  <td class="padding-heavy font-bold">{{getTotalPrice()}}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-
-
-
-          
-
+            <div class="my-4 p-4 rounded cartlisbg">
+              <h6 class="mb-3">Deine Einkaufsliste beinhaltet {{totalInCart}} Produkte</h6>
+              <table class="table cartlisbg">
+                <thead>
+                  <tr>
+                    <th class="cartlisbg" scope="col" width="8%">Pos.</th>
+                    <th class="cartlisbg" scope="col" width="11%">Art.Nr</th>
+                    <th class="cartlisbg" scope="col" width="41%">Produkt</th>
+                    <th class="cartlisbg" scope="col" width="10%">Stck.</th>
+                    <th class="cartlisbg" scope="col" width="13%" title="Einzelpreis">E.Preis</th>
+                    <th class="cartlisbg" scope="col" width="25%" title="Gesamtpreis">G.Preis</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of cartService.cartItems; let i = index">
+                    <td class="padding-medium">{{i+1}}.</td>
+                    <td class="padding-medium">{{item.productId}}</td>
+                    <td class="padding-medium">{{item.productName}}</td>
+                    <td class="padding-medium">{{item.quantity}}</td>
+                    <td class="padding-medium">{{formatPrice(item.productPrice)}}</td>
+                    <td class="padding-medium">{{sumPriceEachProduct(item.productId, item.productPrice)}}</td>
+                  </tr>
+                  <tr>
+                    <td class="padding-heavy"></td>
+                    <td class="padding-heavy"></td>
+                    <td class="padding-heavy"></td>
+                    <td class="padding-heavy"></td>
+                    <td class="padding-heavy">Versand</td>
+                    <td class="padding-heavy">{{formatPrice(0)}}</td>
+                  </tr>
+                  <tr>
+                    <td class="padding-heavy"></td>
+                    <td class="padding-heavy"></td>
+                    <td class="padding-heavy"></td>
+                    <td class="padding-heavy"></td>
+                    <td class="padding-heavy font-bold">Total</td>
+                    <td class="padding-heavy font-bold">{{getTotalPrice()}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             <div class="row" *ngIf="ShowComponent">
               <form [formGroup]="form" (submit)="submit()">
               <div>
@@ -105,13 +97,23 @@
               </div>
             </form>
             </div>
-
-          
-
-          <div *ngIf="!ShowComponent" class="mt-2">
-            <a routerLink="redirectToProfile()"><i class="bi bi-info-square mx-1"></i> Vervollständige dein Profil um bestellen zu können!</a>
+            <div *ngIf="!ShowComponent" class="mt-2">
+              <a routerLink="redirectToProfile()"><i class="bi bi-info-square mx-1"></i> Vervollständige dein Profil um bestellen zu können!</a>
+            </div>
           </div>
 
+          <div *ngIf="checkout_success_success === 1">
+            <div>
+              <div class="alert alert-success my-4 p-4" role="alert">
+                <h4 class="alert-heading mb-4">Vielen Dank für deine Bestellung!</h4>
+                <div>{{checkout_success_message}}</div>
+                <div>Du erhälst eine Bestellbestätigung per E-Mail ({{checkout_success_buyeremail}}).</div>
+                <div class="mb-4">Sobald die Zahlung verbucht wird, werden wir die Ware an deine Adresse versenden.</div>
+                <div>Noch einmal, vielen Dank!</div>
+                <div>Dein {{appInfo.appName}}-Team</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
   </div>
