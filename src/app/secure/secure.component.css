@@ -678,6 +678,16 @@
     color: red;
     margin: 5px 0;
   }
+
+  .input-error-veryimportant {
+    font-size: 0.8rem;
+    background-color: red;
+    color: white;
+    margin: 5px 0;
+    padding: 4px 10px 4px 6px;
+    border-radius: 4px;
+    display: inline-block;
+  }
   
   .icon-symbol {
     font-size: 30px !important;

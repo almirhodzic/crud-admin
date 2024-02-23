@@ -83,23 +83,29 @@
 
 
 
-          <form [formGroup]="form">
+          
+
             <div class="row" *ngIf="ShowComponent">
+              <form [formGroup]="form" (submit)="submit()">
               <div>
                 <label class="list-group-item d-flex gap-2">
                   <input formControlName="agb" class="form-check-input flex-shrink-0" type="checkbox">
+                  <input formControlName="user_id" type="hidden">
                   <span>
                     AGBs akzeptieren
                     <small class="d-block text-body-secondary">Um eine Bestellung auszuführen, musst Du unsere AGBs akzeptieren</small>
                   </span>
+                  
                 </label>
-                <div *ngIf="f1E" class="input-error">{{f1E}}</div>
+                <div *ngIf="f1E" class="input-error-veryimportant mx-4"><i class="bi bi-exclamation-triangle mx-1"></i>{{f1E}}</div>
               </div>
               <div>
                 <button type="submit" class="btn btn-primary mt-4">Jetzt zahlungspflichtig bestellen</button><br>
               </div>
+            </form>
             </div>
-          </form>
+
+          
 
           <div *ngIf="!ShowComponent" class="mt-2">
             <a routerLink="redirectToProfile()"><i class="bi bi-info-square mx-1"></i> Vervollständige dein Profil um bestellen zu können!</a>

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, booleanAttribute } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { Subscription } from 'rxjs';
 import { ViewEncapsulation } from '@angular/core';
@@ -34,7 +34,7 @@ export class CheckoutComponent implements OnInit, OnDestroy{
   userid: number = 0;
   ShowComponent: boolean = false;
   agb: boolean = false;
- 
+
   constructor(
     public cartService: CartService,
     private router: Router,
@@ -54,7 +54,8 @@ export class CheckoutComponent implements OnInit, OnDestroy{
   ngOnInit() {
 
     this.form = this.formBuilder.group({
-      agb: '',
+      agb: [this.agb],
+      user_id: [this.userid],
     });
 
     this.reloadUserData();
@@ -80,31 +81,41 @@ export class CheckoutComponent implements OnInit, OnDestroy{
           if(this.address.length > 0) {
             this.ShowComponent = true
           }
+
+          this.form.patchValue({
+            agb: this.agb,
+            user_id: this.userid
+          });
         }
       }
     );
   }
 
+  clearErrorFields() {
+    this.f1E = '';
+  }
 
+  handleErrors(errors: any) {
+    this.clearErrorFields();
+    if (errors.agb) { this.f1E = errors.agb[0]; }
+  }
 
 
   submit(): void {
-    //this.loaderService.setLoading(true);
-    //setTimeout(() => {
-      this.checkoutService.create(this.form.getRawValue())
+      this.checkoutService.post(this.form.getRawValue())
       .subscribe(
         {
-          next: user => { 
-            //this.toastr.success('Benutzerdaten gespeichert!', '');
+          next: res => { 
+            this.clearErrorFields();
+            console.log(res.message);
           },
           error: err => { 
-            /* this.handleErrors(err.error.errors);
-            this.errorBlock = err.error.errors; */
+            //alert(this.f1E);
+            this.handleErrors(err.error.errors);
           },
           complete: () => { }
         }
       );
-    //}, 500);
   }
 
 
