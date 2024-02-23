@@ -14,7 +14,7 @@
     <div class="col-lg-12">
       <div class="card">
         <div class="card-body">
-          <table class="table">
+          <table class="table" *ngIf="totalMyOrders > 0">
             <thead>
               <tr>
                 <th scope="col" width="20%">Bestell-Nr.</th>
@@ -34,6 +34,10 @@
               </tr>
             </tbody>
           </table>
+          <div *ngIf="totalMyOrders === 0">
+            <h5 class="card-title">Du hast keine Bestellungen getätigt</h5>
+            Besuche unseren Shop und entdecke unsere <a routerLink="/shop"><u>Produkte</u></a>.
+          </div>
         </div>
       </div>
   </div>

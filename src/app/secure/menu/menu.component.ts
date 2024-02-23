@@ -4,6 +4,8 @@ import { User } from 'src/app/interfaces/user';
 import { Auth } from './../../classes/auth';
 import { ChangeDetectorRef } from '@angular/core';
 import { LocalstorageService } from 'src/app/services/localstorage.service';
+import { MyOrder } from 'src/app/interfaces/my-order';
+import { MyOrderService } from 'src/app/services/myorder.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +21,7 @@ export class MenuComponent implements OnInit {
   user!: User;
   userrole: number = 0;
   localStoraeInfo: any;
+
 
   sidebarLeft = ''; // Anfangszustand
   sidebarOpened = false;

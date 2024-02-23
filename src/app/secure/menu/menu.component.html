@@ -57,9 +57,10 @@
         <span>Alle Benutzer</span>
       </a>
     </li>
-    <li>
+    <li *appOnlyAdmin="userrole" class="mt-4">
       <div class="card">
         <div class="card-body">
+          <small class=""><i class="bi bi-eye-slash"></i><span class="mx-2">only Admin</span></small><br>
           <small class="">{{localStorageInfo()}}</small>
         </div>
     </div>

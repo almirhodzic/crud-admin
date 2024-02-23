@@ -6,7 +6,7 @@ import { HelperService } from 'src/app/services/helper.service';
 @Component({
   selector: 'app-myorders',
   templateUrl: './myorders.component.html',
-  styleUrl: './myorders.component.css'
+  styleUrls: ['./myorders.component.css', '../secure.component.css']
 })
 export class MyordersComponent implements OnInit{
 

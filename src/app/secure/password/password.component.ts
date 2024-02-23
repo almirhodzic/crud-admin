@@ -15,7 +15,6 @@ export class PasswordComponent implements OnInit {
   p1E: string = '';
   minPasswordLenght = appSecurity.minPasswordLenght;
 
-
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
@@ -39,12 +38,11 @@ export class PasswordComponent implements OnInit {
         },
         error: err => { 
           this.p1E = '';
-          err = err.error.errors;
+          err = err.error.errors; 
           if (err.password && err.password.length > 0) { const p1E = err.password[0]; this.p1E = p1E; };
         },
         complete: () => { }
       }
     );
   }
-
 }

@@ -22,6 +22,7 @@ import { appInfo } from 'src/app/environments/environment.dev';
 export class CheckoutComponent implements OnInit, OnDestroy{
 
   private subscription: Subscription = new Subscription();
+  private timeoutRef: any;
 
   form!: FormGroup;
   first_name: string = '';
@@ -43,7 +44,6 @@ export class CheckoutComponent implements OnInit, OnDestroy{
   checkout_success_buyeremail: string = '';
   checkout_success_orderid: number = 0;
   appInfo = appInfo;
-
   f1E: string = '';
 
   constructor(
@@ -58,7 +58,6 @@ export class CheckoutComponent implements OnInit, OnDestroy{
   ) { }
 
   ngOnInit() {
-
     if(this.cartService.cartIsEmpy()){
       this.router.navigate(['/shop']);
     }
@@ -89,11 +88,9 @@ export class CheckoutComponent implements OnInit, OnDestroy{
           this.zipcode = user.zipcode,
           this.useremail = user.email;
           this.userid = user.id;
-
           if(this.address.length > 0) {
             this.ShowComponent = true
           }
-
           this.form.patchValue({
             agb: this.agb,
             user_id: this.userid,
@@ -121,21 +118,17 @@ export class CheckoutComponent implements OnInit, OnDestroy{
         {
           next: res => { 
             this.clearErrorFields();
-            console.log(res.message);
-
             this.checkout_success_success = res.message.success;
             this.checkout_success_message = res.message.message;
             this.checkout_success_buyeremail = res.message.buyeremail;
             this.checkout_success_orderid = res.message.bestellnr;
             this.loaderService.setLoading(false);
-
             if(this.checkout_success_success === 1) {
               this.cartService.clearCartSilent();
-              setTimeout(() => {
+              this.timeoutRef = setTimeout(() => {
                 this.router.navigate(['/dashboard']);
-              }, 30000);
+              }, 10000);
             }
-
           },
           error: err => { 
             this.handleErrors(err.error.errors);
@@ -146,19 +139,6 @@ export class CheckoutComponent implements OnInit, OnDestroy{
     }, 2000);
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   redirectToProfile() {
     localStorage.setItem('redirectUrl', '/checkout');
     this.router.navigate(['/profile']);
@@ -166,6 +146,9 @@ export class CheckoutComponent implements OnInit, OnDestroy{
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+    if (this.timeoutRef) {
+      clearTimeout(this.timeoutRef);
+    }
   }
 
   getCurrentDate(): string {

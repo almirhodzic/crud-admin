@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { appInfo } from 'src/app/environments/environment.dev';
 import { LoaderService } from 'src/app/services/loader.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ constructor(
   private formBuilder: FormBuilder,
   private router: Router,
   private authService: AuthService,
-  private loaderService: LoaderService
+  private loaderService: LoaderService,
+  private cartService: CartService
 ) {}
 
 f1E: string = '';
@@ -50,6 +52,7 @@ submit(): void {
     setTimeout(() => {
       this.authService.login(this.form.getRawValue()).subscribe({
         next: (d) =>  { 
+          this.cartService.clearCartSilent();
           this.loaderService.setLoading(false);
           this.router.navigate(['/dashboard']);
         },
