@@ -126,7 +126,8 @@ export class CheckoutComponent implements OnInit, OnDestroy{
             if(this.checkout_success_success === 1) {
               this.cartService.clearCartSilent();
               this.timeoutRef = setTimeout(() => {
-                this.router.navigate(['/dashboard']);
+                /* this.router.navigate(['/dashboard']); */
+                window.location.reload();
               }, 10000);
             }
           },

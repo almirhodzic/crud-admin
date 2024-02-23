@@ -19,7 +19,7 @@
             <h4 class="pb-4 pt-2">Deine Einkaufsliste</h4>
             <div class="alert alert-danger pt-4 pb-2" role="alert" *ngIf="!ShowComponent">
               <h6 class="alert-heading">Du kannst, zureit keine Bestellungen ausführen!</h6>
-              <p>Um eine Bestelung auszuführen, musst Du deine Adresse in deinem <a href="javascript:void(0)" (click)="redirectToProfile()"><u>Profil vervollständigen</u></a>.</p>
+              <p>Um eine Bestellung auszuführen, musst Du deine Adresse in deinem <a href="javascript:void(0)" (click)="redirectToProfile()"><u>Profil vervollständigen</u></a>.</p>
             </div>
             <div class="d-flex justify-content-between" *ngIf="ShowComponent">
               <div>
@@ -98,7 +98,7 @@
             </form>
             </div>
             <div *ngIf="!ShowComponent" class="mt-2">
-              <a routerLink="redirectToProfile()"><i class="bi bi-info-square mx-1"></i> Vervollständige dein Profil um bestellen zu können!</a>
+              <a href="javascript:void(0)" (click)="redirectToProfile()"><i class="bi bi-info-square mx-1"></i> Vervollständige dein Profil um bestellen zu können!</a>
             </div>
           </div>
 
