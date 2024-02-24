@@ -18,10 +18,9 @@
             <thead>
               <tr>
                 <th scope="col" width="20%">Bestell-Nr.</th>
-                <th scope="col" width="30%">Bestell-Datum</th>
+                <th scope="col" width="40%">Bestell-Datum</th>
                 <th scope="col" width="20%">Artikel</th>
                 <th scope="col" width="20%">Warenwert</th>
-                <th scope="col" width="10%">&nbsp;</th>
               </tr>
             </thead>
             <tbody>
@@ -30,7 +29,6 @@
                 <td valign="middle">{{order.created_at}}</td>
                 <td valign="middle">{{order.totalproducts}}</td>
                 <td valign="middle">{{this.helperService.formatPrice(order.totalprice)}}</td>
-                <td valign="middle">Details</td>
               </tr>
             </tbody>
           </table>
