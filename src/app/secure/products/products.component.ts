@@ -4,6 +4,7 @@ import { ProductService } from '../../services/product.service';
 import { ToastrService } from 'ngx-toastr';
 import { CategoryService } from '../../services/category.service';
 import { CartService } from 'src/app/services/cart.service';
+import { ProductadminService } from 'src/app/services/productadmin.service';
 
 @Component({
   selector: 'app-products',
@@ -25,7 +26,8 @@ export class ProductsComponent implements OnInit {
     private productService: ProductService,
     private toastr: ToastrService,
     private categoryService: CategoryService,
-    private cartService: CartService
+    private cartService: CartService,
+    private productAdminService: ProductadminService,
   ) { }
 
   ngOnInit(): void {
@@ -33,7 +35,7 @@ export class ProductsComponent implements OnInit {
   }
 
   load(): void {
-    this.productService.all(this.page).subscribe(
+    this.productAdminService.all(this.page).subscribe(
       res => {
         this.products = res.data;
         this.lastPage = res.meta.last_page;
