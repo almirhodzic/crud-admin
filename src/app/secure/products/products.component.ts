@@ -18,6 +18,7 @@ export class ProductsComponent implements OnInit {
   lastPage!: number;
   totalProducts!: number;
   productImage: string = '';
+  productName: string = '';
   count: number = 1;
   
   constructor(
@@ -67,8 +68,7 @@ export class ProductsComponent implements OnInit {
         {
           next: (d) =>  { 
             this.products = this.products.filter(p => p.id !== id);
-            this.deleteCartItem(id);
-            this.toastr.success('Product deleted!', '');
+            this.toastr.success('Produkt (Id: '+id+') mit wurde gelöscht!', '');
             this.load();
           },
           error: (err) => {},

@@ -52,7 +52,7 @@ export class UsersComponent implements OnInit {
         () => {
           this.users = this.users.filter(u => u.id !== id),
           this.load(),
-          this.toastr.success('Benutezr gelöscht!', '')
+          this.toastr.success('Benutezr (Id: '+id+') gelöscht!', '')
         },
         (error) => this.toastr.error('Fehler beim Löschen', '')
       );
