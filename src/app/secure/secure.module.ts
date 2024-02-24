@@ -39,6 +39,7 @@ import { DropdownComponent } from './nav/dropdown/dropdown.component';
 import { BasketComponent } from './basket/basket.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { MyordersComponent } from './myorders/myorders.component';
+import { MyOrdersDetailComponent } from './myorders/detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { MyordersComponent } from './myorders/myorders.component';
     DropdownComponent,
     BasketComponent,
     CheckoutComponent,
-    MyordersComponent
+    MyordersComponent,
+    MyOrdersDetailComponent
   ],
   imports: [
     CommonModule,

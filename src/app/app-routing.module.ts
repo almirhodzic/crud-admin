@@ -33,6 +33,7 @@ import { ShopComponent } from './secure/shop/shop.component';
 import { ProductComponent } from './secure/shop/product/product.component';
 import { BasketComponent } from './secure/basket/basket.component';
 import { CheckoutComponent } from './secure/checkout/checkout.component';
+import { MyOrdersDetailComponent } from './secure/myorders/detail/detail.component';
 
 const routes: Routes = [
   {
@@ -61,6 +62,7 @@ const routes: Routes = [
       { path: 'category/:id/edit', component: CategoryEditComponent, canActivate: [AuthGuard] },
       { path: 'restricted', component: RestrictedComponent },
       { path: 'myorders', component: MyordersComponent },
+      { path: 'myorder/show/:id', component: MyOrdersDetailComponent },
     ]
   },
   {
