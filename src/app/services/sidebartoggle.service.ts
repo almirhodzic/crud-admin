@@ -19,4 +19,9 @@ export class SidebarToggleService {
       this.renderer.addClass(body, 'toggle-sidebar');
     }
   }
+
+  closeSidebar() {
+    const body = document.body;
+    this.renderer.removeClass(body, 'toggle-sidebar');
+  }
 }

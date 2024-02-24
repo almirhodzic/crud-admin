@@ -5,6 +5,7 @@ import { Auth } from './../../classes/auth';
 import { ChangeDetectorRef } from '@angular/core';
 import { LocalstorageService } from 'src/app/services/localstorage.service';
 import { ViewEncapsulation } from '@angular/core';
+import { SidebarToggleService } from 'src/app/services/sidebartoggle.service';
 
 @Injectable({
   providedIn: 'root'
@@ -44,7 +45,8 @@ export class MenuComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private cdRef: ChangeDetectorRef,
-    public localstorageService: LocalstorageService
+    public localstorageService: LocalstorageService,
+    public sidebarToggleService: SidebarToggleService
   ) { }
 
   ngOnInit(): void {

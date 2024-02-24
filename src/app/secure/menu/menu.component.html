@@ -3,61 +3,61 @@
   <ul class="sidebar-nav" id="sidebar-nav">
 
     <li class="nav-item">
-      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/dashboard">
+      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/dashboard" (click)="sidebarToggleService.closeSidebar()">
         <i class="bi bi-grid"></i>
         <span>Dashboard</span>
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/shop">
+      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/shop" (click)="sidebarToggleService.closeSidebar()">
         <i class="bi bi-shop-window"></i>
         <span>Shop</span>
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/myorders">
+      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/myorders" (click)="sidebarToggleService.closeSidebar()">
         <i class="bi bi-list-ul"></i>
         <span>Meine Bestellungen</span>
       </a>
     </li>
 
     <li class="nav-item" *appOnlyAdmin="userrole">
-      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/categories">
+      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/categories" (click)="sidebarToggleService.closeSidebar()">
         <i class="bi bi-list-ul"></i>
         <span>Kategorien</span>
       </a>
     </li>
 
     <li class="nav-item" *appOnlyAdmin="userrole">
-      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/products">
+      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/products" (click)="sidebarToggleService.closeSidebar()">
         <i class="bi bi-shop"></i>
         <span>Produkte</span>
       </a>
     </li>
 
     <li class="nav-item" *appOnlyAdmin="userrole">
-      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/orders">
+      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/orders" (click)="sidebarToggleService.closeSidebar()">
         <i class="bi bi-bag-check"></i>
         <span>Bestellungen</span>
       </a>
     </li>
 
     <li class="nav-item" *appOnlyAdmin="userrole">
-      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/roles">
+      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/roles" (click)="sidebarToggleService.closeSidebar()">
         <i class="bi bi-gear"></i>
         <span>Rollen</span>
       </a>
     </li>
 
     <li class="nav-item" *appOnlyAdmin="userrole">
-      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/users">
+      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/users" (click)="sidebarToggleService.closeSidebar()">
         <i class="bi bi-people"></i>
         <span>Alle Benutzer</span>
       </a>
     </li>
-    <li *appOnlyAdmin="userrole" class="mt-4">
+    <li *appOnlyAdmin="userrole" class="mt-4" (click)="sidebarToggleService.closeSidebar()">
       <div class="card">
         <div class="card-body">
           <small class=""><i class="bi bi-eye-slash"></i><span class="mx-2">only Admin</span></small><br>
