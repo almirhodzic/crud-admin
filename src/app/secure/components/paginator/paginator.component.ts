@@ -9,10 +9,11 @@ import { EventEmitter } from '@angular/core';
 })
 export class PaginatorComponent implements OnInit{
 
+  page = 1;
   @Input() lastPage!: number;
   @Output() pageChanged = new EventEmitter<number>();
 
-  page = 1;
+  //page = 1;
 
   constructor() { }
 

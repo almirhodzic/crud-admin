@@ -42,16 +42,9 @@
           </div>
         </div>
     </div>
-    <nav>
-      <ul class="pagination">
-        <li class="page-item">
-          <a class="page-link" href="javascript:void(0)" aria-label="Previous" (click)="previous()">zurück</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="javascript:void(0)" aria-label="Previous" (click)="next()">vor</a>
-        </li>
-      </ul>
-    </nav>
+    <app-paginator>
+      [lastPage]="lastPage"
+    </app-paginator>
   </div>
   </section>
   
