@@ -23,6 +23,9 @@ export class UserEditComponent implements OnInit {
   userrole: number = 4;
   countryDefault = 'CH';
   errorBlock: boolean = false;
+  userName: string = '';
+  userCreated: string = '';
+  userUpdated: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -30,7 +33,7 @@ export class UserEditComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private route: ActivatedRoute,
-    private toastr: ToastrService
+    private toastr: ToastrService,
   ) { }
 
   f1E: string = '';
@@ -86,6 +89,9 @@ export class UserEditComponent implements OnInit {
           this.emailcheckedIcon = 'bi-check2-circle icon-symbol icon-green';
         }
         this.useremail = user.email;
+        this.userName = user.first_name + ' ' + user.last_name;
+        this.userCreated = user.created_at;
+        this.userUpdated = user.updated_at;
         this.userrole = user.role.id;
         this.form.patchValue({
           first_name: user.first_name,

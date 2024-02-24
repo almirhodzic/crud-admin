@@ -11,7 +11,7 @@
       <div class="col-lg-12">
       <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Benutzerdaten</h5>
+        <h5 class="card-title">Benutzerdaten von: {{userName}}</h5>
 
         <div class="alert alert-danger d-flex align-items-center" *ngIf="errorBlock">
           <div><i class="bi bi-exclamation-triangle-fill icon-symbol-smaller icon-red"></i></div>
@@ -71,6 +71,12 @@
               <div><i class="bi {{ emailcheckedIcon }}"></i></div>
               <div class="mx-2">{{ emailchecked }}</div>
           </div>
+
+          <div class="col-12">
+            <div class="mb-1">Registriert: {{userCreated | date:'dd.MM.yyyy - HH:mm:ss' }} Uhr</div>
+            <div>Zulezt aktualisiert: {{userUpdated | date:'dd.MM.yyyy - HH:mm:ss' }} Uhr</div>
+        </div>
+
           <div class="col-12 mb-4">
             <small class="label-small">Felder mit Stern ( * ) sind Pflichtfelder</small>
           </div>

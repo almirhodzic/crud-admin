@@ -118,8 +118,6 @@ export class CartService {
     const options: Intl.DateTimeFormatOptions = { day: '2-digit', month: '2-digit', year: 'numeric' };
     return date.toLocaleDateString('de-CH', options);
   }
-  
-  
 
   getTotalPrice() {
     const cartString = localStorage.getItem(this.cartName+this.uuid);
