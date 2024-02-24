@@ -30,9 +30,4 @@ export class PaginatorComponent implements OnInit{
     this.page--;
     this.pageChanged.emit(this.page);
   }
-
-  // Function to handle the page change event
-  /* onPageChange(event: any): void {
-    console.log(event);
-  } */
 }
