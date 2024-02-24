@@ -23,6 +23,20 @@
       </a>
     </li>
 
+    <li class="nav-item">
+      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/password" (click)="sidebarToggleService.closeSidebar()">
+        <i class="bi bi-key"></i>
+        <span>Mein Passwort</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/profile" (click)="sidebarToggleService.closeSidebar()">
+        <i class="bi bi-person"></i>
+        <span>Mein Profil</span>
+      </a>
+    </li>
+
     <li class="nav-item" *appOnlyAdmin="userrole">
       <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/categories" (click)="sidebarToggleService.closeSidebar()">
         <i class="bi bi-list-ul"></i>
@@ -57,6 +71,14 @@
         <span>Alle Benutzer</span>
       </a>
     </li>
+
+    <li class="nav-item">
+      <a role="button" class="nav-link collapsed" [routerLinkActive]="['activus']" (click)="logout()">
+        <i class="bi bi-box-arrow-right"></i>
+        <span>Abmelden</span>
+      </a>
+    </li>
+
     <li *appOnlyAdmin="userrole" class="mt-4" (click)="sidebarToggleService.closeSidebar()">
       <div class="card">
         <div class="card-body">
@@ -65,6 +87,6 @@
         </div>
     </div>
     </li>
-    
+
   </ul>
 </aside>

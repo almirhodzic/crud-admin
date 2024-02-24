@@ -6,6 +6,8 @@ import { ChangeDetectorRef } from '@angular/core';
 import { LocalstorageService } from 'src/app/services/localstorage.service';
 import { ViewEncapsulation } from '@angular/core';
 import { SidebarToggleService } from 'src/app/services/sidebartoggle.service';
+import { LoaderService } from 'src/app/services/loader.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -46,7 +48,9 @@ export class MenuComponent implements OnInit {
     private authService: AuthService,
     private cdRef: ChangeDetectorRef,
     public localstorageService: LocalstorageService,
-    public sidebarToggleService: SidebarToggleService
+    public sidebarToggleService: SidebarToggleService,
+    private loaderService: LoaderService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -57,5 +61,15 @@ export class MenuComponent implements OnInit {
       }
     );
     this.localStorageInfo()
+  }
+
+  logout(): void {
+    this.loaderService.setLoading(true);
+    setTimeout(() => {
+      this.loaderService.setLoading(false);
+      this.authService.logout().subscribe(() => {
+        this.router.navigate(['/login']);
+      });
+    }, 1000);
   }
 }
