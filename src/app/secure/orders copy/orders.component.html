@@ -28,9 +28,9 @@
                 <ng-container *ngFor="let order of orders">
                 <tr>
                   <td valign="middle">{{ order.id }}</td>
-                  <td>{{ order.name }}</td>
+                  <td>{{ order.first_name }} {{ order.last_name }}</td>
                   <td valign="middle">{{ order.email }}</td>
-                  <td valign="middle">{{ order.totalprice }}</td>
+                  <td valign="middle">{{ formatPrice(order.total) }}</td>
                   <td valign="middle">
                     <a href="javascript:void(0)" (click)="select(order.id)"><i class="bi-eye" style="font-size: 1.25rem; color: cornflowerblue;"></i></a>
                   </td>
@@ -48,12 +48,12 @@
                                 </tr>
                             </thead>
                             <tbody class="bg-primary-subtle">
-                                <tr *ngFor="let item of order.my_order_items">
+                                <tr *ngFor="let item of order.order_items">
                                     <td width="10%">{{ item.id }}</td>
-                                    <td width="28%">{{ item.title }}</td>
+                                    <td width="28%">{{ item.product_title }}</td>
                                     <td width="15%">{{ item.quantity }}</td>
-                                    <td width="18%">{{ item.price }}</td>
-                                    <td width="22%">{{ preSum(item.quantity, item.price) }}</td>
+                                    <td width="18%">{{ formatPrice(item.price) }}</td>
+                                    <td width="22%">{{ preSum(item.price, item.quantity) }}</td>
                                 </tr>
                             </tbody>
                         </table>
