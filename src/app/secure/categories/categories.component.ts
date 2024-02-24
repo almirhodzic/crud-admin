@@ -47,7 +47,7 @@ export class CategoriesComponent implements OnInit {
   }
 
   delete(id: number): void {
-    if(confirm(`Are you sure you want to delete this (${id}) category ?`)) {
+    if(confirm(`Willst Du diese Kategorie (Id: ${id}) wirkllich löschen?`)) {
       this.categoryService.delete(id).subscribe(
         {
           next: (d) =>  { 

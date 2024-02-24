@@ -47,7 +47,7 @@ export class UsersComponent implements OnInit {
   }
 
   delete(id: number): void {
-    if(confirm(`Are you sure you want to delete this (${id}) user ?`)) {
+    if(confirm(`Willst Du diesen Benutzer (Id: ${id}) löschen?`)) {
       this.userService.delete(id).subscribe(
         () => {
           this.users = this.users.filter(u => u.id !== id),
