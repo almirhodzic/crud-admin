@@ -14,6 +14,7 @@ export class ProductsComponent implements OnInit {
 
   products: Product[] = [];
   catid: number = 0;
+  page = 1;
   lastPage!: number;
   totalProducts!: number;
   productImage: string = '';
@@ -31,7 +32,7 @@ export class ProductsComponent implements OnInit {
   }
 
   load(): void {
-    this.productService.all().subscribe(
+    this.productService.all(this.page).subscribe(
       res => {
         this.products = res.data;
         this.lastPage = res.meta.last_page;
@@ -46,6 +47,18 @@ export class ProductsComponent implements OnInit {
 
   formatPrice(totalPrice: number): string {
     return this.cartService.formatPrice(totalPrice);
+  }
+
+  next(): void {
+    if(this.page === this.lastPage) { return; }
+    this.page++;
+    this.load();
+  }
+  
+  previous(): void {
+    if(this.page === 1) { return; }
+    this.page--;
+    this.load();
   }
 
   delete(id: number): void {
