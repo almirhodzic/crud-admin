@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from '../../interfaces/order';
 import { OrderService } from '../../services/order.service';
+import { HelperService } from '../../services/helper.service';
 
 @Component({
   selector: 'app-orders',
@@ -15,7 +16,8 @@ export class OrdersComponent implements OnInit {
   totalOrders: number = 0;
 
   constructor(
-    private orderService: OrderService
+    private orderService: OrderService,
+    public helperService: HelperService
   ) { }
 
   ngOnInit(): void {
@@ -45,14 +47,13 @@ export class OrdersComponent implements OnInit {
   }
 
   formatPrice(price: number) {
-    return (Math.round(price * 100)/100).toFixed(2);
+    return this.helperService.formatPrice(price);
   }
 
-  preSum(itemPrice: number, itemQuantyity: number): number {
+  preSum(itemPrice: number, itemQuantyity: number) {
     let sum = 0;
     sum = itemPrice * itemQuantyity;
-    const formatedSum = this.formatPrice(sum);
-    return Number(formatedSum);
+    return this.formatPrice(sum);
   }
 
   select(id: number): void {

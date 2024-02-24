@@ -1,7 +1,7 @@
 <div class="pagetitle">
     <div class="d-flex justify-content-between">
       <div>
-        <h1>Bestellungen ({{totalOrders}})</h1>
+        <h1>Alle Bestellungen ({{totalOrders}})</h1>
         <app-breadcrumbs>
           <app-breadcrumb-item [link]="'/dashboard'" [title]="'Dashboard'"></app-breadcrumb-item>
         </app-breadcrumbs>
@@ -30,7 +30,7 @@
                   <td valign="middle">{{ order.id }}</td>
                   <td>{{ order.name }}</td>
                   <td valign="middle">{{ order.email }}</td>
-                  <td valign="middle">{{ order.totalprice }}</td>
+                  <td valign="middle">{{ formatPrice(order.totalprice) }}</td>
                   <td valign="middle">
                     <a href="javascript:void(0)" (click)="select(order.id)"><i class="bi-eye" style="font-size: 1.25rem; color: cornflowerblue;"></i></a>
                   </td>
@@ -52,7 +52,7 @@
                                     <td width="10%">{{ item.id }}</td>
                                     <td width="28%">{{ item.title }}</td>
                                     <td width="15%">{{ item.quantity }}</td>
-                                    <td width="18%">{{ item.price }}</td>
+                                    <td width="18%">{{ formatPrice(item.price) }}</td>
                                     <td width="22%">{{ preSum(item.quantity, item.price) }}</td>
                                 </tr>
                             </tbody>

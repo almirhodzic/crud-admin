@@ -54,7 +54,9 @@ export class BasketComponent implements OnInit, OnDestroy{
   };
 
   deleteCartItem(productId: number) {
-    this.cartService.deleteCartItem(productId);
+    if(confirm(`Produkt (Id: ${productId}) aus Warenkorb entfernen?`)) {
+      this.cartService.deleteCartItem(productId);
+    }
   }
 
   getTotalPrice() {

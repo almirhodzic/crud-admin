@@ -22,6 +22,8 @@ export class ProfileComponent implements OnInit {
   useremail: string = '';
   errorBlock: boolean = false;
   issue: boolean = false;
+  userCreated: string = '';
+  userUpdated: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -89,6 +91,8 @@ export class ProfileComponent implements OnInit {
           });
           this.useremail = user.email;
           this.userid = user.id;
+          this.userCreated = user.created_at.toString();
+          this.userUpdated = user.updated_at.toString();
         }
       }
     );

@@ -14,7 +14,7 @@
       <div class="flex-d card-body">
         <h5 class="card-title card-title-productdetail">Produktdetail</h5>
 
-        <div class="container">
+        <div class="container unselectable">
           <div class="row">
 
               <div class="col-lg-6 col-12 rounded">
@@ -43,14 +43,17 @@
                 <div class="col-12 mb-4">
                     <div>Artikel-Id: {{productid}}</div>
                     <small class="text-info">
-                        <div>Aufgenommen: {{productcreated}}</div>
-                        <div>Zuletzt aktualisiert: {{productupdated}}</div>
+                        <div class="mb-1">Aufgenommen: {{productcreated | date:'dd.MM.yyyy'}}</div>
+                        <div>Zuletzt aktualisiert: {{productupdated | date:'dd.MM.yyyy'}}</div>
                     </small>
                 </div>
-                <div class="col-12 mb-3">
+                <div class="alert alert-warning" role="alert" *ngIf="productinstock < 4">
+                  <i class="bi bi-info-circle"></i><span class="mx-2">Dieser Artikel ist bald ausverkauft!</span>
+                </div>
+                <div class="col-12 mb-3" *ngIf="productinstock > 0">
                     <button class="btn btn-primary"
                     (click)="addToCart(
-                    '984d9fg49sdf84g98sd4fg98s4df9g84sd9fg849fd84',
+                    'minicart',
                     productid,
                     producttitle,
                     productprice,
@@ -59,14 +62,13 @@
                     productslug,
                     productshortinfo
                     )"
-                    
                     ><i class="bi bi-cart2 mx-1"></i> In den Warenkorb</button>
                 </div>
                 <div class="col-12 mb-2">
                     <a role="button" routerLink="/basket"><i class="bi bi-cart2"></i><span class="mx-2">Warenkorb ansehen</span></a><br>
                 </div>
                 <div class="col-12 mb-3">
-                  <a href="javascript:void(0)" onclick="history.back()" role="button"><i class="bi bi-arrow-left"></i><span class="mx-2">Zurück</span></a>
+                  <a href="javascript:void(0)" onclick="history.back()" role="button"><i class="bi bi-shop-window"></i><span class="mx-2">Zum Shop</span></a>
               </div>
               </div>
 
