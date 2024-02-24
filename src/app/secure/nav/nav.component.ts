@@ -9,9 +9,9 @@ import { ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 import { Subscription } from 'rxjs';
-import { DropdownComponent } from './dropdown/dropdown.component';
 import { DropdownService } from 'src/app/services/dropdown.service';
 import { LoaderService } from 'src/app/services/loader.service';
+import { SidebarToggleService } from 'src/app/services/sidebartoggle.service';
 
 @Component({
   selector: 'app-nav',
@@ -54,7 +54,8 @@ export class NavComponent implements OnInit {
     private router: Router,
     public cartService: CartService,
     private dropdownService: DropdownService,
-    private loaderService: LoaderService
+    private loaderService: LoaderService,
+    private sidebarToggleService: SidebarToggleService
   ) {}
 
   ngOnInit() {
@@ -71,6 +72,10 @@ export class NavComponent implements OnInit {
         this.UserUuid = user?.uuid;
       }
     );
+  }
+
+  toggleSidebar() {
+    this.sidebarToggleService.toggleSidebar();
   }
 
   ngOnDestroy() {

@@ -1,11 +1,10 @@
-import { Component, OnInit, Input, Injectable } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Injectable } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { User } from 'src/app/interfaces/user';
 import { Auth } from './../../classes/auth';
 import { ChangeDetectorRef } from '@angular/core';
 import { LocalstorageService } from 'src/app/services/localstorage.service';
-import { MyOrder } from 'src/app/interfaces/my-order';
-import { MyOrderService } from 'src/app/services/myorder.service';
+import { ViewEncapsulation } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +13,8 @@ import { MyOrderService } from 'src/app/services/myorder.service';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  styleUrls: ['./menu.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class MenuComponent implements OnInit {
 
@@ -25,6 +25,7 @@ export class MenuComponent implements OnInit {
 
   sidebarLeft = ''; // Anfangszustand
   sidebarOpened = false;
+  
 
   reactToEvent() {
     this.sidebarOpened = !this.sidebarOpened;

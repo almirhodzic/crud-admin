@@ -25,6 +25,10 @@ box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
 background-color: #fff;
 }
 
+.sidebar-geoeffnet {
+  left: 0 !important; /* Überschreibt den Wert aus der Media Query */
+}
+
 @media (max-width: 1199px) {
 .sidebar {
     left: -300px;
