@@ -23,7 +23,7 @@ Um die App zu builden folgenden Befehl ausführen:`ng build`.
 ## Api-Server
 
 Bitte denke daran, dass diese App nur mit einer lokale Laravel-Installation funktionert.  
-Die Api-Url wie im Demo-Shop, kann nicht im Development benutzt werden! 
+Die Api-Url wie im Demo-Shop, kann nicht im Development benutzt werden!  
 Der Laravel-Server von [hier](https://github.com/almirhodzic/minicart-server) gezogen werden:   
 (Laravel-Kenntnisse vorausgesetzt)
 
