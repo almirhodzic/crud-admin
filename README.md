@@ -9,7 +9,7 @@ Du kannst den Demo-Shop hier besuchen: [https://minicart.ch](https://minicart.ch
 
 ## Initial Setup
 
-Im App-Verzeichnis zuerst Abhängigkeiten installieren:`nmp i` oder `nmp install`.
+Im App-Verzeichnis zuerst Abhängigkeiten installieren: `nmp i` oder `nmp install`.
 
 ## Development server
 
@@ -18,15 +18,15 @@ Um den Entwicklungsserver zu starten, folgenden Befehl ausführen:`ng serve` ode
 
 ## App Build
 
-Um die App zu builden folgenden Befehl ausführen:`ng build`.
+Um die App zu builden folgenden Befehl ausführen: `ng build`.
 
 ## Api-Server
 
-Diese App funktioniert im Development modus nur mit einer lokalen Laravel-Api die Du hier [(MiniCart-Server)](https://github.com/almirhodzic/minicart-server) zeiehen kannst.
+Diese App funktioniert im Development modus nur mit einer lokalen Laravel-Api die Du hier [(MiniCart-Server)](https://github.com/almirhodzic/minicart-server) zeiehen kannst. Für diese Installation, solltest Laravel-Basiswissen haben.
 
 ## Unit Test
 
-Für den Unit Test mit [Karma](https://karma-runner.github.io/latest/index.html), führe folgenden Befehl aus:`ng test`
+Für den Unit Test mit [Karma](https://karma-runner.github.io/latest/index.html), führe folgenden Befehl aus: `ng test`
 
 ## e2e Test
 npm run cypress:open
