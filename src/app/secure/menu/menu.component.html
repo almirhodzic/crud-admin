@@ -37,40 +37,46 @@
       </a>
     </li>
 
-    <li class="nav-item" *appOnlyAdmin="userrole">
-      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/categories" (click)="sidebarToggleService.closeSidebar()">
-        <i class="bi bi-list-ul"></i>
-        <span>Kategorien</span>
-      </a>
-    </li>
+    <div class="admin-block" *appOnlyAdmin="userrole">
+      <div class="admin-block-head d-flex align-items-center"><i class="bi bi-gear"></i>Adminbereich</div>
+    
+    <div class="admin-navigation">
+      <li class="nav-item">
+        <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/categories" (click)="sidebarToggleService.closeSidebar()">
+          <i class="bi bi-list-ul"></i>
+          <span>Kategorieverwaltung</span>
+        </a>
+      </li>
 
-    <li class="nav-item" *appOnlyAdmin="userrole">
-      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/products" (click)="sidebarToggleService.closeSidebar()">
-        <i class="bi bi-shop"></i>
-        <span>Produkte</span>
-      </a>
-    </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/users" (click)="sidebarToggleService.closeSidebar()">
+          <i class="bi bi-people"></i>
+          <span>Benutzerverwaltung</span>
+        </a>
+      </li>
 
-    <li class="nav-item" *appOnlyAdmin="userrole">
-      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/roles" (click)="sidebarToggleService.closeSidebar()">
-        <i class="bi bi-gear"></i>
-        <span>Rollen</span>
-      </a>
-    </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/roles" (click)="sidebarToggleService.closeSidebar()">
+          <i class="bi bi-person-gear"></i>
+          <span>Rollenverwaltung</span>
+        </a>
+      </li>
 
-    <li class="nav-item" *appOnlyAdmin="userrole">
-      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/users" (click)="sidebarToggleService.closeSidebar()">
-        <i class="bi bi-people"></i>
-        <span>Alle Benutzer</span>
-      </a>
-    </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/products" (click)="sidebarToggleService.closeSidebar()">
+          <i class="bi bi-shop"></i>
+          <span>Produkteverwaltung</span>
+        </a>
+      </li>
 
-    <li class="nav-item" *appOnlyAdmin="userrole">
-      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/orders" (click)="sidebarToggleService.closeSidebar()">
-        <i class="bi bi-bag-check"></i>
-        <span>Alle Bestellungen</span>
-      </a>
-    </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/orders" (click)="sidebarToggleService.closeSidebar()">
+          <i class="bi bi-bag-check"></i>
+          <span>Alle Bestellungen</span>
+        </a>
+      </li>
+    </div>
+  </div>
 
     <li class="nav-item">
       <a role="button" class="nav-link collapsed" [routerLinkActive]="['activus']" (click)="logout()">

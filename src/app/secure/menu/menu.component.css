@@ -170,4 +170,34 @@ a.activus {
 li.nav-item a i {
     font-size: 1.5rem !important;
 }
+.admin-block {
+    border: #d9dce1 1px solid;
+    /* border-bottom: #d9dce1 1px solid;
+    padding: 10px 0; */
+    border-radius: 5px;
+    overflow: hidden;
+}
+.admin-block .nav-item a {
+    color: rgb(88, 81, 95) !important;
+    font-weight: 400 !important;
+}
+.admin-block .nav-item a.activus {
+    color: rgb(40, 60, 242) !important;
+    font-weight: 600 !important;
+}
+.admin-navigation {
+    list-style: none;
+    border-top: #d9dce1 1px solid;
+}
+.admin-block-head {
+  padding: 5px 17px;
+  font-weight: 600 !important;
+  background-color: #eff1f4;
+}
+
+.admin-block-head i {
+  font-size: 1.4rem !important;
+  margin-right: 10px;
+}
+
 
