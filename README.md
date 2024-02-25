@@ -1,28 +1,29 @@
 # MiniCart-Admin
 
 MiniCart-Admin ist ein Webshop der Allerlei verkauft. Es gibt einen Admin- und einen Benutzerbereich.  
-Die App wurde in Angular 17.0.9 geschrieben.
+Die App wurde in Angular 17.0.9 erstellt und die [Api](https://github.com/almirhodzic/minicart-server) in Laravel.
 
 ## Demo-Shop
 
-Du kannst den Demo-Shop hier besuchen: [https://minicart.ch](https://minicart.ch)
+Mit folgendem Link kannst du den Demo-Shop besuchen: [https://minicart.ch](https://minicart.ch)
 
 ## Initial Setup
 
-Im App-Verzeichnis zuerst Abhängigkeiten installieren: `nmp i` oder `nmp install`.
+Ins Verzeichnis der App navigieren und `nmp i` oder `nmp install` ausführen. Die App wird somit installiert.
 
 ## Development server
 
-Um den Entwicklungsserver zu starten, folgenden Befehl ausführen:`ng serve` oder `ng s`.  
-Öffne im Browser die Url http://localhost:4200/. Die App wird automatisch gestartet.
+Um die App zu starten, folgenden Befehl ausführen: `ng serve` oder `ng s`  
+Die App kannst du unter: http://localhost:4200 aufrufen.
 
 ## App Build
 
-Um die App zu builden folgenden Befehl ausführen: `ng build`.
+Um die App zu builden, musst du folgenden Befehl ausführen: `ng build`  
+Der build wird im Verzeichnis `dist/frontend` erstellt, welche du auf deinem Server deployen darfst.
 
 ## Api-Server
 
-Diese App funktioniert im Development modus nur mit einer lokalen Laravel-Api die Du hier [(MiniCart-Server)](https://github.com/almirhodzic/minicart-server) zeiehen kannst. Für diese Installation, solltest Laravel-Basiswissen haben.
+Diese App benötigt eine Api Schnittstelle. Diese wurde in Laravel geschrieben und kann [hier](https://github.com/almirhodzic/minicart-server) heruntergelaen werden. 
 
 ## Unit Test
 
@@ -30,3 +31,8 @@ Für den Unit Test mit [Karma](https://karma-runner.github.io/latest/index.html)
 
 ## e2e Test
 npm run cypress:open
+
+## Hinweise
+
+Du darfst auf Eigenes Risiko, den MiniCart-Server [(Api)](https://github.com/almirhodzic/minicart-server) auf deinem Host installieren und betreiben.  
+Der Betrieb der Api geschieht auf Eigenes Risiko & Verantwortung!
