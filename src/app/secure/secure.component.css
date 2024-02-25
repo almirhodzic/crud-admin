@@ -121,6 +121,18 @@
     color: #012970;
     font-family: "Poppins", sans-serif;
   }
+
+  .card-title-h4{
+    font-size: 20px;
+    font-weight: 400;
+    color: #012970;
+    font-family: "Poppins", sans-serif;
+  }
+
+.dashboard{
+    padding: 0 !important;
+    font-family: "Poppins", sans-serif;
+  }
   
   .card-title span {
     color: #899bbd;

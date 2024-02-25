@@ -9,36 +9,8 @@
       </a>
     </li>
 
-    <li class="nav-item">
-      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/shop" (click)="sidebarToggleService.closeSidebar()">
-        <i class="bi bi-shop-window"></i>
-        <span>Shop</span>
-      </a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/myorders" (click)="sidebarToggleService.closeSidebar()">
-        <i class="bi bi-list-ul"></i>
-        <span>Meine Bestellungen</span>
-      </a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/password" (click)="sidebarToggleService.closeSidebar()">
-        <i class="bi bi-key"></i>
-        <span>Mein Passwort</span>
-      </a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/profile" (click)="sidebarToggleService.closeSidebar()">
-        <i class="bi bi-person"></i>
-        <span>Mein Profil</span>
-      </a>
-    </li>
-
     <div class="admin-block" *appOnlyAdmin="userrole">
-      <div class="admin-block-head d-flex align-items-center"><i class="bi bi-gear"></i>Adminbereich</div>
+      <div class="admin-block-head d-flex align-items-center"><i class="bi bi-gear-fill"></i>Adminbereich</div>
     
     <div class="admin-navigation">
       <li class="nav-item">
@@ -64,7 +36,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/products" (click)="sidebarToggleService.closeSidebar()">
-          <i class="bi bi-shop"></i>
+          <i class="bi bi-upc-scan"></i>
           <span>Produkteverwaltung</span>
         </a>
       </li>
@@ -79,6 +51,34 @@
   </div>
 
     <li class="nav-item">
+      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/shop" (click)="sidebarToggleService.closeSidebar()">
+        <i class="bi bi-shop-window"></i>
+        <span>MiniCart-Shop</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/myorders" (click)="sidebarToggleService.closeSidebar()">
+        <i class="bi bi-list-ul"></i>
+        <span>Meine Bestellungen</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/password" (click)="sidebarToggleService.closeSidebar()">
+        <i class="bi bi-key"></i>
+        <span>Mein Passwort</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" [routerLinkActive]="['activus']" routerLink="/profile" (click)="sidebarToggleService.closeSidebar()">
+        <i class="bi bi-person"></i>
+        <span>Mein Profil</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
       <a role="button" class="nav-link collapsed" [routerLinkActive]="['activus']" (click)="logout()">
         <i class="bi bi-box-arrow-right"></i>
         <span>Abmelden</span>
@@ -88,8 +88,10 @@
     <li *appOnlyAdmin="userrole" class="mt-4" (click)="sidebarToggleService.closeSidebar()">
       <div class="card">
         <div class="card-body">
-          <small class=""><i class="bi bi-eye-slash"></i><span class="mx-2">only Admin</span></small><br>
-          <small class="">{{localStorageInfo()}}</small>
+          <small><span class="fw-bold">Admin-Systeminfo:</span></small><br>
+          <small class="">{{localStorageInfo()}}</small><br>
+          <small class="">App: {{appInfo.appName}}</small><br>
+          <small class="">Version: {{appInfo.version}}</small>
         </div>
     </div>
     </li>

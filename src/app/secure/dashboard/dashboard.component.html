@@ -10,16 +10,26 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title-h2">{{appInfo.appName}} {{appInfo.version}}</h5>
+            <h5 class="card-title-h2 dashboard mt-4">Hallo {{username}}!</h5>
+            <h5 class="card-title-h4 fw-semibold dashboard mb-4">Herzlich willkommen auf {{appInfo.appName}}</h5>
             <div>
-              <img src="./assets/img/welcome.jpg" style="width:100%" class="object-fit-contain rounded">
+              <img src="./assets/img/welcome.jpg" style="width:100%" class="object-fit-contain rounded my-2">
             </div>
-            <h5 class="card-title">CAS Frontend Engineering 2023</h5>
-            <p>{{appInfo.appName}}, Projektarbeit 2 (CAS FEE 2023).<br>
-              Eine Administration von Benutzern, Produkten und deren Bestellungen.</p>
-            <p>Technologie: Angular 17, Laravel 10 & CSS Bootstrap 5.</p>
-            <p>&copy; Almir Hodzic</p>
-            <p></p>
+            <h5 class="card-title-h4 fw-semibold dashboard mt-4 mb-2">Dies ist ein Demo-Shop.</h5>
+            
+            <p>Dieser Demo-Shop ist eine Abschluss-Projektarbeit zur Weiterbildung als <a href="https://www.ost.ch/de/weiterbildung/weiterbildungsangebot/informatik/cas-frontend-engineering" target="_blank" class="text-dark"><u class="link-offset-2">CAS Frontend Enigneer</u></a><i class="bi bi-box-arrow-up-right mx-1"></i> 2023, an der OST in Rapperswil (<a href="https://www.ost.ch/" target="_blank"><u class="link-offset-2">OST Ostschweizerische Fachhochschule</u></a>)<i class="bi bi-box-arrow-up-right mx-1"></i>.</p>
+
+            <p class="text-danger">Die Waren, die hier bestellt werden, werden nicht verrechnet bzw. nicht versendet und der Warenkorb,   aus Performancegründen, bei jedem Login wieder zurückgesetzt!</p>
+            
+            <p class="fw-semibold">Für den Shop eingesetzter Stack:</p>
+            <ul>
+              <li>Frontend: Angular 17.0.9 (cli: 17.0.10)</li>
+              <li>Backend/Api: Laravel 10.10</li>
+              <li>Datenbank: MySQL, 10.6-MariaDB</li>
+              <li>CSS-Framework: Bootstrap v5.3.2</li>
+            </ul>
+            <p>Fragen zum Shop, beantworte ich gerne per <a href="mailto:mediacode@gmail.com"><u class="link-offset-2">E-Mail</u></a>.</p>
+            <p>&copy; 2024, Almir Hodzic</p>
           </div>
         </div>
       </div>

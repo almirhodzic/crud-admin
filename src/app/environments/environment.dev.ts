@@ -7,6 +7,7 @@ export const appInfo = {
     appName : 'MiniCart',
     autor: 'MediaCode',
     version: '1.0.0',
+    versionshort: '1',
 }
 
 export const appSecurity = {

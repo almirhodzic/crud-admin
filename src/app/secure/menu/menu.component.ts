@@ -8,6 +8,7 @@ import { ViewEncapsulation } from '@angular/core';
 import { SidebarToggleService } from 'src/app/services/sidebartoggle.service';
 import { LoaderService } from 'src/app/services/loader.service';
 import { Router } from '@angular/router';
+import { appInfo } from '../../environments/environment.dev';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,7 @@ export class MenuComponent implements OnInit {
   user!: User;
   userrole: number = 0;
   localStoraeInfo: any;
-
+  appInfo = appInfo;
 
   sidebarLeft = ''; // Anfangszustand
   sidebarOpened = false;
