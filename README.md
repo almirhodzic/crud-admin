@@ -1,6 +1,6 @@
 # MiniCart-Admin
 
-MiniCart-Admin ist ein Webshop der Allerlei verkauft. Es gibt einen Admin und einen Benutzerbereich.<br>
+MiniCart-Admin ist ein Webshop der Allerlei verkauft. Es gibt einen Admin- und einen Benutzerbereich.  
 Die App wurde in Angular 17.0.9 geschrieben.
 
 
@@ -14,7 +14,7 @@ Im App-Verzeichnis zuerst Abhängigkeiten installieren:`nmp i` oder `nmp install
 
 ## Development server
 
-Um den Entwicklungsserver zu starten, folgenden Befehl ausführen:`ng serve` oder `ng s`.<br>
+Um den Entwicklungsserver zu starten, folgenden Befehl ausführen:`ng serve` oder `ng s`.  
 Öffne im Browser die Url http://localhost:4200/. Die App wird automatisch gestartet.
 
 ## App Build
@@ -22,10 +22,10 @@ Um die App zu builden folgenden Befehl ausführen:`ng build`.
 
 ## Api-Server
 
-Bitte denke daran, dass diese App nur mit einer lokale Laravel-Installation funktionert.<br>
-Die Api-Url für den Demo-Shop: https://api.minicart.ch/api/ kann nicht im Develeopment server angesprochen werden.<br>
-Du kannst den Server von hier ziehen: https://github.com/almirhodzic/minicart-server und lokal installieren.<br>
-(Minimale Laravel-Kenntnisse vorausgesetzt)
+Bitte denke daran, dass diese App nur mit einer lokale Laravel-Installation funktionert.  
+Die Api-Url für den Demo-Shop: https://api.minicart.ch/api/ kann nicht im Develeopment server angesprochen werden.  
+Du kannst den Server von hier ziehen: https://github.com/almirhodzic/minicart-server und lokal installieren.    
+(Laravel-Kenntnisse vorausgesetzt)
 
 ## Unit Test
 
