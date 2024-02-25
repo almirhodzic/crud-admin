@@ -26,7 +26,7 @@ Den build findest Du im Verzeichnis `minicart-admin/dist/frontend`<br><br>
 
 ## Demo-Shop
 
-Demo: [MiniCart-Admin online-Demo](https://minicart.ch)<br><br>
+MiniCart-Admin [online-Demo](https://minicart.ch)<br><br>
 
 ## Unit Test
 
