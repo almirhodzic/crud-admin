@@ -20,15 +20,22 @@ Um den Entwicklungsserver zu starten, folgenden Befehl ausführen:`ng serve` ode
 
 Um die App zu builden folgenden Befehl ausführen:`ng build`.
 
-## Api-Server
+## Code scaffolding
 
-Bitte denke daran, dass diese App nur mit einer lokale Laravel-Installation funktionert.  
-Die Api-Url wie im Demo-Shop, kann nicht im Development benutzt werden!  
-Der Laravel-Server kann von [hier](https://github.com/almirhodzic/minicart-server) gezogen werden. (Laravel-Kenntnisse vorausgesetzt)
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Unit Test
+## Build
 
-Für den Unit Test mit [Karma](https://karma-runner.github.io/latest/index.html), führe folgenden Befehl aus:`ng test`
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## e2e Test
-npm run cypress:open
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
