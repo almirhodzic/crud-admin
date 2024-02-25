@@ -12,7 +12,7 @@ Die App wurde in Angular 17.0.9 erstellt, die [API](https://github.com/almirhodz
 ## App starten
 
 Um die App zu starten, folgenden Befehl ausführen: `ng serve` oder `ng s`  
-Die App ist unter: http://localhost:4200 erreichbar. (Bitte nachfolgenden Abschnitt (API-Server) beachten)<br><br>
+Die App ist unter: http://localhost:4200 erreichbar. (Bitte nachfolgenden Abschnitt [API-Server] beachten)<br><br>
 
 ## API-Server
 
@@ -26,7 +26,7 @@ Den build findest Du im Verzeichnis `minicart-admin/dist/frontend`<br><br>
 
 ## Demo-Shop
 
-Demo-Shop online: [https://minicart.ch](https://minicart.ch)<br><br>
+Demo-Shop online: <a href="https://minicart.ch" target="_blank">[Linktext](https://minicart.ch)</a><br><br>
 
 ## Unit Test
 
