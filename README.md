@@ -21,21 +21,21 @@ Du kannst diesen Server lokal bei dir installieren, vorausgesetzt du hast PHP au
 
 ## App Build
 
-Du kannst die App auch gerne builden `ng build` und auf deinem Server deployen.br>
-Den build findest Du im Verzeichnis `dist/frontend`<br><br>
+Du kannst die App auch gerne builden `ng build` und auf deinem Server deployen.<br>
+Den build findest Du im Verzeichnis `minicart-admin/dist/frontend`<br><br>
 
 ## Demo-Shop
 
-Hier kannst du die Demo (online) besuchen: [https://minicart.ch](https://minicart.ch)<br><br>
+Demo-Shop online: [https://minicart.ch](https://minicart.ch)<br><br>
 
 ## Unit Test
 
 Für den Unit Test mit [Karma](https://karma-runner.github.io/latest/index.html), führe folgenden Befehl aus: `ng test`<br><br>
 
 ## e2e Test
-Für den e2e [(Cypress)](https://www.cypress.io/) Test führe `npm run cypress:open` aus.<br><br>
+Für den e2e Test mit [Cypress](https://www.cypress.io/) führe diesen Befehl aus: `npm run cypress:open`<br><br>
 
 ## Hinweise
 
-Du darfst, auf Eigenes Risiko, den MiniCart-Server [(Api)](https://github.com/almirhodzic/minicart-server) auf deinem Host installieren und betreiben.  
+Du darfst den MiniCart-Server [(Api)](https://github.com/almirhodzic/minicart-server) auf deinem Host installieren und betreiben.  
 Der Betrieb des Servers erfolgt auf eigenes Risiko & eigene Verantwortung!
