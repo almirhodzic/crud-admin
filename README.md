@@ -3,27 +3,30 @@
 MiniCart-Admin ist ein einfache gehaltener Webshop mit grundlegenden Shop-Funktionen.
 Die App wurde in Angular 17.0.9 erstellt, die [Api](https://github.com/almirhodzic/minicart-server) mit Laravel.<br><br>
 
-## Demo-Shop
-
-Mit folgendem Link kannst du den Demo-Shop besuchen: [https://minicart.ch](https://minicart.ch)<br><br>
-
 ## Initial Setup
 
-Ins Verzeichnis der App navigieren und `nmp i` oder `nmp install` ausführen. Die App wird somit installiert.<br><br>
+1. MiniCart-Admin Repo klonen: `git clone https://github.com/almirhodzic/minicart-admin`<br>
+2. Zum Verzeichnis wechseln: `cd minicart-admin`
+3. Jetzt `nmp i` oder `nmp install` ausführen um die App zu installieren.<br><br>
 
-## Development server
+## App starten
 
 Um die App zu starten, folgenden Befehl ausführen: `ng serve` oder `ng s`  
-Die App kannst du unter: http://localhost:4200 aufrufen.<br><br>
-
-## App Build
-
-Um die App zu builden, musst du folgenden Befehl ausführen: `ng build`  
-Der build wird im Verzeichnis `dist/frontend` erstellt, welche du auf deinem Server deployen darfst.<br><br>
+Die App ist unter: http://localhost:4200 erreichbar.<br><br>
 
 ## Api-Server
 
-Diese App benötigt eine Api Schnittstelle. Diese wurde in Laravel geschrieben und kann [hier](https://github.com/almirhodzic/minicart-server) heruntergelaen werden.<br><br>
+Diese App benötigt eine Api Schnittstelle. Diese wurde in Laravel geschrieben und kann [hier](https://github.com/almirhodzic/minicart-server) heruntergelaen werden.
+Du kannst diesen Server lokal bei dir installieren, vorausgesetzt du hast PHP auf deinem Rechner installiert und bist einigermassen mit Laravel vertraut.<br><br>
+
+## App Build
+
+Du kannst die App gerne builden `ng build` und auf deinem Server deployen.
+Der build wird im Verzeichnis `dist/frontend` erstellt, welche du auf deinem Server deployen darfst.<br><br>
+
+## Demo-Shop
+
+Diesen Demo-Shop kannst Du hier besuchen: [https://minicart.ch](https://minicart.ch)<br><br>
 
 ## Unit Test
 
