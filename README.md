@@ -16,26 +16,26 @@ Die App ist unter: http://localhost:4200 erreichbar.<br><br>
 
 ## Api-Server
 
-Diese App benötigt eine Api Schnittstelle. Diese wurde in Laravel geschrieben und kann [hier](https://github.com/almirhodzic/minicart-server) heruntergelaen werden.
+Diese App benötigt eine Api Schnittstelle. Diese wurde in Laravel geschrieben und kann [hier](https://github.com/almirhodzic/minicart-server) heruntergeladen werden.
 Du kannst diesen Server lokal bei dir installieren, vorausgesetzt du hast PHP auf deinem Rechner installiert und bist einigermassen mit Laravel vertraut.<br><br>
 
 ## App Build
 
-Du kannst die App gerne builden `ng build` und auf deinem Server deployen.
-Der build wird im Verzeichnis `dist/frontend` erstellt, welche du auf deinem Server deployen darfst.<br><br>
+Du kannst die App auch gerne builden `ng build` und auf deinem Server deployen.br>
+Den build findest Du im Verzeichnis `dist/frontend`<br><br>
 
 ## Demo-Shop
 
-Diesen Demo-Shop kannst Du hier besuchen: [https://minicart.ch](https://minicart.ch)<br><br>
+Hier kannst du die Demo (online) besuchen: [https://minicart.ch](https://minicart.ch)<br><br>
 
 ## Unit Test
 
 Für den Unit Test mit [Karma](https://karma-runner.github.io/latest/index.html), führe folgenden Befehl aus: `ng test`<br><br>
 
 ## e2e Test
-npm run cypress:open<br><br>
+Für den e2e [(Cypress)](https://www.cypress.io/) Test führe `npm run cypress:open` aus.<br><br>
 
 ## Hinweise
 
-Du darfst auf Eigenes Risiko, den MiniCart-Server [(Api)](https://github.com/almirhodzic/minicart-server) auf deinem Host installieren und betreiben.  
-Der Betrieb der Api geschieht auf Eigenes Risiko & Eigene Verantwortung!
+Du darfst, auf Eigenes Risiko, den MiniCart-Server [(Api)](https://github.com/almirhodzic/minicart-server) auf deinem Host installieren und betreiben.  
+Der Betrieb des Servers erfolgt auf eigenes Risiko & eigene Verantwortung!
