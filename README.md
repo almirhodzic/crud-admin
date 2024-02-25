@@ -1,27 +1,35 @@
-# Admin
+# MiniCart-Admin
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.10.
+MiniCart-Admin ist ein Webshop der Allerlei verkauft. Es gibt einen Admin und einen Benutzerbereich.
+Die App wurde in Angular 17.0.9 geschrieben.
+
+
+## Demo-Shop
+
+Du kannst den Demo-Shop hier besuchen: [https://minicart.ch](https://minicart.ch)
+
+## Initial Setup
+
+Im App-Verzeichnis zuerst Abhängigkeiten installieren:`nmp i` oder `nmp install`.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Um den Entwicklungsserver zu starten, folgenden Befehl ausführen:`ng serve` oder `ng s`. 
+Öffne im Browser die Url http://localhost:4200/. Die App wird automatisch gestartet.
 
-## Code scaffolding
+## App Build
+Um die App zu builden folgenden Befehl ausführen:`ng build`.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Api-Server
 
-## Build
+Bitte denke daran, dass diese App nur mit einer lokale Laravel-Installation funktionert.
+Die Api-Url für den Demo-Shop: https://api.minicart.ch/api/ kann nicht im Develeopment server angesprochen werden.
+Du kannst den Server von hier ziehen: https://github.com/almirhodzic/minicart-server und lokal installieren.
+(Minimale Laravel-Kenntnisse vorausgesetzt)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Unit Test
 
-## Running unit tests
+Für den Unit Test mit [Karma](https://karma-runner.github.io/latest/index.html), führe folgenden Befehl aus:`ng test`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## e2e Test
+npm run cypress:open
