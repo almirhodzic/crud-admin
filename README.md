@@ -1,7 +1,7 @@
 # MiniCart-Admin
 
-MiniCart-Admin ist ein einfache gehaltener Webshop mit grundlegenden Shop-Funktionen.
-Die App wurde in Angular 17.0.9 erstellt, die [Api](https://github.com/almirhodzic/minicart-server) mit Laravel.<br><br>
+MiniCart-Admin ist ein einfach gehaltener Webshop mit wesentlichen Shopfunktionen.<br>
+Die App wurde in Angular 17.0.9 erstellt, die [API](https://github.com/almirhodzic/minicart-server) mit Laravel.<br><br>
 
 ## Initial Setup
 
@@ -12,11 +12,11 @@ Die App wurde in Angular 17.0.9 erstellt, die [Api](https://github.com/almirhodz
 ## App starten
 
 Um die App zu starten, folgenden Befehl ausführen: `ng serve` oder `ng s`  
-Die App ist unter: http://localhost:4200 erreichbar.<br><br>
+Die App ist unter: http://localhost:4200 erreichbar. (Bitte nachfolgenden Abschnitt (API-Server) beachten)<br><br>
 
-## Api-Server
+## API-Server
 
-Diese App benötigt eine Api Schnittstelle. Diese wurde in Laravel geschrieben und kann [hier](https://github.com/almirhodzic/minicart-server) heruntergeladen werden.
+Diese App benötigt eine API-Schnittstelle. Diese wurde in Laravel geschrieben und kann [hier](https://github.com/almirhodzic/minicart-server) heruntergeladen werden.
 Du kannst diesen Server lokal bei dir installieren, vorausgesetzt du hast PHP auf deinem Rechner installiert und bist einigermassen mit Laravel vertraut.<br><br>
 
 ## App Build
@@ -37,5 +37,5 @@ Für den e2e Test mit [Cypress](https://www.cypress.io/) führe diesen Befehl au
 
 ## Hinweise
 
-Du darfst den MiniCart-Server [(Api)](https://github.com/almirhodzic/minicart-server) auf deinem Host installieren und betreiben.  
+Du darfst den MiniCart-Server [(API)](https://github.com/almirhodzic/minicart-server) auf deinem Host installieren und betreiben.  
 Der Betrieb des Servers erfolgt auf eigenes Risiko & eigene Verantwortung!
