@@ -14,6 +14,7 @@ export class OrdersComponent implements OnInit {
   lastPage!: number;
   selected: number = 0;
   totalOrders: number = 0;
+  selectedOrderId: number | null = null;
 
   constructor(
     private orderService: OrderService,
@@ -23,6 +24,16 @@ export class OrdersComponent implements OnInit {
   ngOnInit(): void {
     this.load();
   }
+
+  selectOrder(orderId: number): void {
+    if (this.selectedOrderId === orderId) {
+        // Wenn die ausgewählte Bestellung bereits angezeigt wird, verbergen Sie die Detailansicht
+        this.selectedOrderId = null;
+    } else {
+        // Andernfalls setzen Sie die ausgewählte Bestellung auf die angeklickte Bestellung
+        this.selectedOrderId = orderId;
+    }
+}
 
   load(): void {
     this.orderService.all(this.page).subscribe(

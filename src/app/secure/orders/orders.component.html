@@ -32,10 +32,10 @@
                   <td valign="middle">{{ order.email }}</td>
                   <td valign="middle">{{ formatPrice(order.totalprice) }}</td>
                   <td valign="middle">
-                    <a href="javascript:void(0)" (click)="select(order.id)"><i class="bi-eye" style="font-size: 1.25rem; color: cornflowerblue;"></i></a>
+                    <a href="javascript:void(0)" (click)="selectOrder(order.id)"><i class="bi-eye" style="font-size: 1.25rem; color: cornflowerblue;"></i></a>
                   </td>
                 </tr>
-                <tr [hidden]="order.id !== selected">
+                <tr [hidden]="order.id !== selectedOrderId">
                     <td colspan="5" class="bg-primary-subtle">
                         <table class="table fs-6">
                             <thead>
